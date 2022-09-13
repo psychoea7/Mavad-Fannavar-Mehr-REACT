@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>لورم ایپسوم</title>
+    <title> بازرگانی اسپیدکار | Speedkar</title>
 
     <!-- CSS -->
     <!-- Box Icons -------------------------------------------------------->
@@ -65,14 +65,14 @@
     <!-- Wrapper -->
     <div class="wrapper">
       <!-- Sidebar -->
-      @include('home.sections.sidebar');
+      @include('home.sections.sidebar')
       <!-- End sidebar -->
 
       <!-- Dark overlay -->
       <div class="overlay"></div>
 
       <!-- Content -->
-        @yield('content');
+        @yield('content')
       <!-- End content -->
     </div>
     <!-- End wrapper -->

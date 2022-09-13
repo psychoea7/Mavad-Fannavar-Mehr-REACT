@@ -12450,7 +12450,6 @@ only screen and (                min-resolution: 2dppx) {
   font-family: "Shabnam", sans-serif;
 }
 body {
-  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 300;
   color: #888;
@@ -12504,19 +12503,19 @@ h2 {
   margin-top: 10px;
   font-size: 38px;
   font-weight: 100;
-  color: #555;
+  color: var(--clr-dark);
   line-height: 50px;
 }
 h3 {
   font-size: 22px;
   font-weight: 300;
-  color: #555;
+  color: var(--clr-dark);
   line-height: 30px;
 }
 h4 {
   font-size: 18px;
   font-weight: 300;
-  color: #555;
+  color: var(--clr-dark);
   line-height: 26px;
 }
 
@@ -12527,6 +12526,7 @@ img {
 .medium-paragraph {
   font-size: 18px;
   line-height: 34px;
+  color: var(--clr-dark) !important;
 }
 
 ::-moz-selection {
@@ -12555,7 +12555,7 @@ img {
   top: 0;
   right: -255px;
   z-index: 999;
-  background: #333;
+  background: var(--clr-dark);
   color: #fff;
   transition: all 0.3s;
   box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.5);
@@ -12573,7 +12573,7 @@ img {
   top: 10px;
   left: 10px;
   transition: all 0.3s;
-  background: #444;
+  background: #555;
   border-radius: 4px;
   text-align: center;
   line-height: 35px;
@@ -12582,7 +12582,7 @@ img {
 
 .dismiss:hover,
 .dismiss:focus {
-  background: #555;
+  background: var(--clr-light-dark);
   color: #fff;
 }
 
@@ -12618,18 +12618,19 @@ img {
 .sidebar ul li.active > a:hover,
 .sidebar ul li.active > a:focus {
   outline: 0;
-  background: #555;
+  background: var(--clr-light-dark);
   color: #fff;
 }
 
 .sidebar ul li a i {
   float: left;
   margin-right: 5px;
+  margin-top: 5px;
 }
 
 .sidebar ul li.active > a,
 a[aria-expanded="true"] {
-  background: #444;
+  background: var(--clr-accent);
   color: #fff;
 }
 
@@ -12878,7 +12879,7 @@ a.btn-customized-3 {
   width: 100%;
   margin: 0;
   padding: 0.75rem 1.5rem;
-  background: #444;
+  background: #555;
   border: 0;
   border-radius: 4px;
   font-size: 16px;
@@ -12966,7 +12967,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 }
 
 .section-container-gray-bg {
-  background: #f8f8f8;
+  background: var(--clr-secondary);
 }
 
 .section-container-image-bg,
@@ -13001,8 +13002,8 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 .divider-1 span {
   display: inline-block;
-  width: 200px;
-  border-bottom: 1px dotted #aaa;
+  width: 250px;
+  border-bottom: 1px dotted var(--clr-light-dark);
 }
 
 /***** Top content *****/
@@ -13046,13 +13047,15 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 .section-1-box .section-1-box-icon {
   width: 80px;
   height: 80px;
-  margin: 0 auto;
+  margin: 1rem auto;
+  background-color: var(--clr-accent);
   border: 1px solid var(--clr-accent);
   font-size: 40px;
-  color: var(--clr-accent);
-  line-height: 78px;
+  color: var(--clr-primary);
+  line-height: 90px;
   text-align: center;
   border-radius: 50%;
+  box-shadow: 0 0 3px var(--clr-light-dark);
 }
 
 .section-1-box h3 {
@@ -13064,7 +13067,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 .section-2-box {
   margin-top: 30px;
-  text-align: left;
+  text-align: justify;
 }
 .section-2-box h3 {
   margin-top: 0;
@@ -13074,7 +13077,8 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
   margin-bottom: 20px;
 }
 .section-2-box img {
-  border-radius: 6px;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 2px var(--clr-light-dark);
 }
 
 /***** Section 3 *****/
@@ -13281,6 +13285,27 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 footer {
   padding: 40px 0;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: var(--clr-primary);
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: var(--clr-primary);
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: var(--clr-dark);
 }
 
 

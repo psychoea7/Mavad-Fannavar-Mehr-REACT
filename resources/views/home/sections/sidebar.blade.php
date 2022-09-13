@@ -20,17 +20,17 @@
       </li>
       <li>
         <a class="scroll-link" href="#section-1"
-          ><i class="fas fa-cog"></i> خدمات</a
+          ><i class="fas fa-briefcase"></i> خدمات بازرگانی</a
         >
       </li>
       <li>
         <a class="scroll-link" href="#section-2"
-          ><i class="fas fa-user"></i> درباره ما</a
+          ><i class="fas fa-tags"></i> محصولات</a
         >
       </li>
       <li>
         <a class="scroll-link" href="#section-5"
-          ><i class="fas fa-pencil-alt"></i> محصولات</a
+          ><i class="fas fa-pencil-alt"></i> وبلاگ</a
         >
       </li>
       <li>
@@ -51,10 +51,10 @@
         </a>
         <ul class="collapse list-unstyled p-0" id="otherSections">
           <li>
-            <a class="scroll-link" href="#section-3">لورم ایپسوم</a>
+            <a class="scroll-link" href="#section-3"> ارتباط با ما</a>
           </li>
           <li>
-            <a class="scroll-link" href="#section-4">لورم ایپسوم متن</a>
+            <a class="scroll-link" href="#section-4"> همکاری با ما</a>
           </li>
         </ul>
       </li>
