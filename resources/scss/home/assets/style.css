@@ -190,7 +190,7 @@ a[aria-expanded="true"] {
 }
 
 .sidebar ul ul a {
-  background: #444;
+  background: #555;
   padding-left: 30px;
   font-size: 14px;
 }
@@ -522,7 +522,9 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 }
 
 .section-container-gray-bg {
-  background: var(--clr-secondary);
+  background-image: url('../../../../public/images/grey-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .section-container-image-bg,
@@ -624,6 +626,23 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
   margin-top: 30px;
   text-align: justify;
 }
+.section-2-box ul {
+  color: var(--clr-dark);
+  text-align: justify;
+  
+}
+.section-2-box ul li {
+  line-height: 2.4rem;
+}
+.section-2-box li:before {
+  display:inline-block;        
+  content: "";
+  width:8px;
+  height:8px;
+  background:var(--clr-accent);
+  border-radius: 50%;    
+  margin-left:5px;            
+}​
 .section-2-box h3 {
   margin-top: 0;
 }
@@ -736,7 +755,6 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 .section-6-form textarea {
   background: none;
   border: 1px solid #fff;
-  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 300;
   color: #fff;
