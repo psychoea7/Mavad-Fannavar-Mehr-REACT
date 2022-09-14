@@ -737,10 +737,12 @@ article p {
 
 .section-5-box-image {
     overflow: hidden;
-    border-radius: 6px;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 2px var(--clr-light-dark);
 }
 .section-5-box-image img {
     transition: all 0.8s;
+    
 }
 .section-5-box-image:hover img {
     transform: scale(1.25);
@@ -812,7 +814,7 @@ article p {
 }
 
 .section-6-form textarea {
-    height: 90px;
+    height: 150px;
 }
 
 .section-6-form input[type="text"]:focus,
@@ -889,6 +891,7 @@ article p {
     margin: 0 10px 10px 0;
     background: var(--clr-primary);
     border: 0;
+    font-size: 1.2rem;
     border-radius: 50%;
     color: var(--clr-dark);
     text-align: center;

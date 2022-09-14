@@ -420,9 +420,10 @@
                         <div class="section-6-social">
                             <a href="#"><i class="fab fa-whatsapp"></i></a>
                             <a href="#"><i class="fab fa-telegram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
-                            
+                            <a href="#"><i class="fas fa-video"></i></a>
+                            <a href="#"><i class="fas fa-phone"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
