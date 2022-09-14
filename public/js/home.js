@@ -21024,6 +21024,18 @@ var __webpack_exports__ = {};
 /*!***********************************!*\
   !*** ./resources/js/home/home.js ***!
   \***********************************/
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 __webpack_require__(/*! ../../files/bootstrap-4.5.3-dist/js/bootstrap.bundle */ "./resources/files/bootstrap-4.5.3-dist/js/bootstrap.bundle.js");
@@ -21172,7 +21184,53 @@ jQuery(document).ready(function () {
       }
     });
   });
-});
+}); //trigger numbers
+
+$(allInView);
+$(window).scroll(allInView);
+
+function isScrolledIntoView(elem) {
+  var docViewTop = $(window).scrollTop();
+  var docViewBottom = docViewTop + $(window).height();
+  var elemTop = $(elem).offset().top;
+  var elemBottom = elemTop + $(elem).height();
+  return elemBottom <= docViewBottom && elemTop >= docViewTop;
+} // Numbers Count Update -------------------------------------
+
+
+var items = _toConsumableArray(document.querySelectorAll(".number"));
+
+var updateCount = function updateCount(el) {
+  var value = parseInt(el.dataset.value);
+  var increment = Math.ceil(value / 1000); // const increment = 1;
+
+  var initialValue = 0;
+  var increaseCount = setInterval(function () {
+    initialValue += increment;
+
+    if (initialValue > value) {
+      el.textContent = "".concat(value.toLocaleString("ar-EG"), "+");
+      clearInterval(increaseCount);
+      return;
+    }
+
+    el.textContent = "".concat(initialValue.toLocaleString("ar-EG"), "+");
+  }, 1); // console.log(increaseCount);
+}; // Trigger Numbers Function -----------------------------------------------
+
+
+var once = true;
+
+function allInView() {
+  if (once) {
+    if (isScrolledIntoView($("#numbers"))) {
+      items.forEach(function (item) {
+        updateCount(item);
+      });
+      once = false;
+    }
+  }
+}
 })();
 
 /******/ })()
