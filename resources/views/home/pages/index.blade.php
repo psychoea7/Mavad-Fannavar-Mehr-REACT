@@ -14,11 +14,11 @@
                     <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                         <h1 class="wow fadeIn">
 
-                            <strong>Speedkar | شرکت بازرگانی اسپیدکار</strong>
+                            <strong>Speedkar |  بازرگانی اسپیدکار</strong>
                         </h1>
                         <div class="description wow fadeInLeft">
                             <p>
-                                واردات و عرضه آلیاژ ها صنعتی با پشتوانه بیش از 10 سال تجربه فعالیت بازرگانی و خدمات مهندسی
+                                واردات و عرضه آلیاژ ها صنعتی با پشتوانه بیش از ۱۰ سال تجربه فعالیت بازرگانی و خدمات مهندسی
                                 سطح
                                 {{-- <a href=""><strong></strong></a>. --}}
                             </p>
@@ -386,7 +386,7 @@
                         <h2 class="text-center">تماس با ما</h2>
                         <div class="divider-1 wow fadeInUp"><span></span></div>
                         <p class="text-center">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                            افکارتان را با ما در میان بگذارید
                         </p>
                     </div>
                 </div>
@@ -415,8 +415,8 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-5  section-6-box wow fadeInDown">
-                        <h3 class="text-center">راه های ارتباطی</h3>
+                    <div class="col-md-5 section-6-box wow fadeInDown">
+                        <h3 class="text-right">راه های ارتباطی</h3>
                         <div class="section-6-social">
                             <a href="#"><i class="fab fa-whatsapp"></i></a>
                             <a href="#"><i class="fab fa-telegram"></i></a>
@@ -424,6 +424,14 @@
                             <a href="#"><i class="fas fa-video"></i></a>
                             <a href="#"><i class="fas fa-phone"></i></a>
                             <a href="#"><i class="fa fa-envelope"></i></a>
+                        </div>
+                        <div class="address-tel">
+                            <h4 class="text-right">آدرس شرکت</h4>
+                            <p>دفتر مرکزی و انبار : تهران، بزرگراه فتح، خیابان فتح یازدهم، گلبن یازدهم غربی، پلاک 7</p>
+                            <h4>تلفن شرکت</h4>
+                            <div class="text-right">
+                            <span>ثابت :</span> <a href="tel:02166811664">۰۲۱۶۶۸۱۱۶۶۴</a> | <span>همراه :</span> <a href="tel:09125248632">۰۹۱۲۵۲۴۸۶۳۲</a>
+                        </div>
                         </div>
                     </div>
                 </div>

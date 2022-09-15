@@ -1,11 +1,15 @@
 /* Shabnam Font --------------------------------------*/
-@import url("https://v1.fontapi.ir/css/Shabnam");
+/* @import url("https://v1.fontapi.ir/css/Shabnam"); */
 @import url("https://v1.fontapi.ir/css/Lalezar");
+@font-face {
+  font-family: 'IRANSans';
+  src: url('../../../../public/fonts/IRANSans-web.woff') format('woff');
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Shabnam", sans-serif;
+    font-family: "IRANSans", sans-serif;
 }
 body {
     font-size: 16px;
@@ -155,7 +159,7 @@ img {
     display: inline-block;
     width: 172px;
     height: 34px;
-    background: url("../../../../public/images/logo.png") left top no-repeat;
+    background: url("../../../../public/images/logo-1.png") left top no-repeat;
     border: 0;
     text-indent: -999999px;
 }
@@ -247,7 +251,7 @@ a[aria-expanded="true"] {
     border-color: #eee;
 }
 .sidebar.light .logo a {
-    background-image: url("../../../../public/images/logo-dark.png");
+    background-image: url("../../../../public/images/logo-dark-1.png");
 }
 
 .sidebar.light ul.menu-elements {
@@ -268,8 +272,8 @@ a[aria-expanded="true"] {
 
 .sidebar.light ul li.active > a,
 .sidebar.light a[aria-expanded="true"] {
-    background: #ddd;
-    color: #888;
+    background: var(--clr-accent);
+    color: var(--clr-primary);
 }
 
 .sidebar.light ul ul a {
@@ -549,7 +553,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 .section-description p {
     margin-top: 20px;
-    padding: 0 120px;
+    padding: 0 30px;
 }
 .section-container-image-bg .section-description p {
     opacity: 0.8;
@@ -799,7 +803,7 @@ article p {
 /* contact form */
 .section-6-form {
     padding-top: 20px;
-    text-align: left;
+    text-align: right;
 }
 
 .section-6-form input[type="text"],
@@ -881,14 +885,17 @@ article p {
 /* end contact form */
 
 .section-6-social {
-    padding-top: 20px;
+    /* padding-top: 20px; */
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 .section-6-social a {
     display: inline-block;
     width: 46px;
     height: 46px;
-    margin: 0 10px 10px 0;
+    /* margin: 0 5px 0 0; */
     background: var(--clr-primary);
     border: 0;
     font-size: 1.2rem;
@@ -904,6 +911,13 @@ article p {
     background: rgba(255, 255, 255, 0.5);
     border: 0;
     color: #555;
+}
+.address-tel h4 {
+  color: var(--clr-primary);
+}
+.address-tel p,
+.address-tel span {
+  opacity: 0.8;
 }
 
 /***** Footer *****/

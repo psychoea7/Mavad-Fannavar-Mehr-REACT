@@ -37,6 +37,11 @@
 	.section-6-social a { margin: 0 5px 10px 5px; }
 	.section-6-form { margin-bottom: 30px; text-align: center; }
 
+	#numbers article {
+		margin-top: 1rem;
+	}
+
+
 }
 
 @media (max-width: 575px) {
@@ -57,13 +62,25 @@ only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
 
+	.section-description h2 {
+		text-shadow: 0 0 1px var(--clr-dark);
+	}
+	.section-6-social {
+		display: flex;
+		justify-content: center;
+	}
 	/* logo */
     .sidebar .logo a {
-    	background-image: url('../../../../public/images/logo@2x.png') !important; background-repeat: no-repeat !important; background-size: 172px 34px !important;
+    	background-image: url('../../../../public/images/logo-2.png') !important; background-repeat: no-repeat !important; background-size: 172px 34px !important;
     }
 
     .sidebar.light .logo a {
-    	background-image: url('../../../../public/images/logo-dark@2x.png') !important;
+    	background-image: url('../../../../public/images/logo-dark-2.png') !important;
     }
+	/* Numbers */
+	#numbers article {
+		margin-top: 1rem;
+	}
+
 
 }
