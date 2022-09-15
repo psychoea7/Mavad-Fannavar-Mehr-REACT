@@ -14,7 +14,8 @@
                     <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                         <h1 class="wow fadeIn">
 
-                            <strong><img class="img-fluid logo-text" src="{{ asset('images/logo-head.png') }}" alt=""> |  بازرگانی اسپیدکار</strong>
+                            <strong><img class="img-fluid logo-text" src="{{ asset('images/logo-head.png') }}"
+                                    alt=""> | بازرگانی اسپیدکار</strong>
                         </h1>
                         <div class="description wow fadeInLeft">
                             <p>
@@ -296,7 +297,7 @@
                 <div class="row">
                     <div class="col section-bottom-button wow fadeInUp">
                         <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-6" role="button">
-                             تماس با ما <i class="fas fa-envelope"></i>
+                            تماس با ما <i class="fas fa-envelope"></i>
                         </a>
                     </div>
                 </div>
@@ -371,7 +372,7 @@
                 <div class="row">
                     <div class="col section-bottom-button wow fadeInUp">
                         <a class="btn btn-primary btn-customized" href="#" role="button">
-                             مشاهده همه <i class="fas fa-sync"></i>
+                            مشاهده همه <i class="fas fa-sync"></i>
                         </a>
                     </div>
                 </div>
@@ -410,7 +411,7 @@
                                     <textarea name="message" placeholder="پیام..." class="contact-message form-control" id="contact-message"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-customized">
-                                     ارسال پیام <i class="fas fa-paper-plane"></i>
+                                    ارسال پیام <i class="fas fa-paper-plane"></i>
                                 </button>
                             </form>
                         </div>
@@ -430,8 +431,9 @@
                             <p>دفتر مرکزی و انبار : تهران، بزرگراه فتح، خیابان فتح یازدهم، گلبن یازدهم غربی، پلاک 7</p>
                             <h4>تلفن شرکت</h4>
                             <div class="text-right">
-                            <span>ثابت :</span> <a href="tel:02166811664">۰۲۱۶۶۸۱۱۶۶۴</a> | <span>همراه :</span> <a href="tel:09125248632">۰۹۱۲۵۲۴۸۶۳۲</a>
-                        </div>
+                                <span>ثابت :</span> <a href="tel:02166811664">۰۲۱۶۶۸۱۱۶۶۴</a> | <span>همراه :</span> <a
+                                    href="tel:09125248632">۰۹۱۲۵۲۴۸۶۳۲</a>
+                            </div>
                         </div>
                     </div>
                 </div>
