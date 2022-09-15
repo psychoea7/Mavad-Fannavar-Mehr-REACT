@@ -14,7 +14,7 @@
                     <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                         <h1 class="wow fadeIn">
 
-                            <strong>Speedkar |  بازرگانی اسپیدکار</strong>
+                            <strong><img class="img-fluid logo-text" src="{{ asset('images/logo-head.png') }}" alt=""> |  بازرگانی اسپیدکار</strong>
                         </h1>
                         <div class="description wow fadeInLeft">
                             <p>

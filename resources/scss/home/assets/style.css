@@ -582,6 +582,10 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
     padding-top: 60px;
     color: #fff;
 }
+.logo-text {
+    filter: drop-shadow(0 0 1px var(--clr-light-dark));
+    margin-top: 8px;
+}
 /* .top-content strong {
   font-family: Lalezar, sans-serif;
 } */
@@ -666,7 +670,9 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
     
 }
 
-
+.section-2-box ul {
+    padding: 0;
+}
 
 /***** Section 3 *****/
 

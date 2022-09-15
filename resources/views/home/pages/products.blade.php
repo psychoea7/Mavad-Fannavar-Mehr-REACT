@@ -13,7 +13,7 @@
                 <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                     <h1 class="wow fadeIn">
 
-                        <strong>خدمات بازرگانی اسپیدکار</strong>
+                        <strong>محصولات بازرگانی اسپیدکار</strong>
                     </h1>
                     <div class="description wow fadeInLeft">
                         <p>
@@ -23,8 +23,8 @@
                         </p>
                     </div>
                     <div class="buttons wow fadeInUp">
-                        <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-3" role="button">
-                            محصولات <i class="fas fa-tags"></i>
+                        <a class="btn btn-primary btn-customized scroll-link" href="#section-1" role="button">
+                            خدمات <i class="fas fa-briefcase"></i>
                         </a>
                     </div>
                 </div>
@@ -34,24 +34,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-    <footer class="footer-container">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    &copy; شرکت به نگاران تجارت آزما <a href=""> به نگاران تجارت آزما</a>.
-                </div>
-            </div>
-        </div>
-    </footer>
-</div>
-@endsection
