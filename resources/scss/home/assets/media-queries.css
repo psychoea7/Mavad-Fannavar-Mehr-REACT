@@ -46,6 +46,10 @@
 		margin-top: 8px;
 	}
 
+	.quick-service-icons a.btn-customized {
+		padding: 0.70rem 1.2rem;
+	}
+
 }
 
 @media (max-width: 575px) {
