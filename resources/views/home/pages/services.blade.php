@@ -33,7 +33,28 @@
         </div>
 
         <div class="container services-container">
-            <div class="row py-5">
+            <div class="row mt-4">
+                <div class="col-md-12 quick-service-icons text-left wow fadeIn">
+                    <span class="d-block  mb-2">دسترسی سریع</span>
+                    
+                    <a class="btn  btn-primary btn-customized" href="#serviceFirst" role="button">
+                        <i class="fas fa-shopping-bag"></i> 
+                    </a>
+                    <a class="btn  btn-primary btn-customized" href="#serviceSecond" role="button">
+                        <i class="fas fa-money-check-alt"></i> 
+                    </a>
+                    <a class="btn  btn-primary btn-customized" href="#serviceThird" role="button">
+                        <i class="fas fa-shipping-fast"></i>
+                    </a>
+                    <a class="btn  btn-primary btn-customized" href="#serviceFour" role="button">
+                        <i class="fas fa-truck-loading"></i> 
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="serviceFirst" class="row py-5">
+                
                 <div class="col-md-12 service-box wow fadeIn">
                     <i class="fas fa-shopping-bag"></i>
                     <h3>خدمات خرید و تامین کالا</h3>
@@ -74,7 +95,7 @@
                 </div>
             </div>
 
-            <div class="row py-5">
+            <div id="serviceSecond" class="row py-5">
                 <div class="col-md-12 service-box wow fadeIn">
                     <i class="fas fa-money-check-alt"></i>
                     <h3>خدمات ارزی بازرگانی</h3>
@@ -92,7 +113,7 @@
                 </div>
             </div>
 
-            <div class="row py-5">
+            <div id="serviceThird" class="row py-5">
                 <div class="col-md-12 service-box wow fadeIn">
                     <i class="fas fa-shipping-fast"></i>
                     <h3>خدمات حمل بین المللی</h3>
@@ -118,7 +139,7 @@
                 </div>
             </div>
 
-            <div class="row py-5">
+            <div id="serviceFour" class="row py-5">
                 <div class="col-md-12 service-box wow fadeIn">
                     <i class="fas fa-truck-loading"></i>
                     <h3>خدمات گمرکی</h3>

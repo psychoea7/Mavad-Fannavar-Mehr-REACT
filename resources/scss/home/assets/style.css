@@ -962,6 +962,9 @@ footer {
     border-radius: 50%;
     box-shadow: 0 0 3px var(--clr-light-dark);
 }
+.quick-service-icons i {
+    font-size: 1.2rem;
+}
 .service-box {
     text-align: right;
 }
