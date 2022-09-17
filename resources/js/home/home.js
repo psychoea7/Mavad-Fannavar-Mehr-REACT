@@ -333,7 +333,7 @@ class Demo {
           return false;
         }
       }
-      const titleElement = element.querySelector('.picture-item__title');
+      const titleElement = element.querySelector('.skill-card__title');
       const titleText = titleElement.textContent.toLowerCase().trim();
       return titleText.indexOf(searchText) !== -1;
     });

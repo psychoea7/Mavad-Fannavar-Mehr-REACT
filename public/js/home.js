@@ -24570,7 +24570,7 @@ var Demo = /*#__PURE__*/function () {
           }
         }
 
-        var titleElement = element.querySelector('.picture-item__title');
+        var titleElement = element.querySelector('.skill-card__title');
         var titleText = titleElement.textContent.toLowerCase().trim();
         return titleText.indexOf(searchText) !== -1;
       });

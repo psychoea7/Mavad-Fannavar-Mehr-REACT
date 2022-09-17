@@ -999,17 +999,17 @@ footer {
     margin-top: 24px;
     margin-bottom: 1.2rem;
 }
-.picture-item img {
+/* .picture-item img {
     display: block;
     width: 100%;
-}
-@supports (object-fit: cover) {
+} */
+/* @supports (object-fit: cover) {
     .picture-item img {
         max-width: none;
         height: 100%;
         object-fit: cover;
     }
-}
+} */
  /* .picture-item--h2 {
     height: 464px;
       
@@ -1061,7 +1061,7 @@ footer {
 } */
 @media screen and (max-width: 767px) {
     .picture-item {
-        height: auto;
+        /* height: auto; */
         margin-top: 20px;
     }
     /* .picture-item__details,

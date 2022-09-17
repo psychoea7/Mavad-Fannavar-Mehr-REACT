@@ -94,6 +94,8 @@
                   </div>
                 </div>
 
+                
+
                 <div class="col-md-4 picture-item" data-groups='["nature"]'
                 data-date-created="2015-10-20" data-title="Central Park">
                 <div class="skill-card">
