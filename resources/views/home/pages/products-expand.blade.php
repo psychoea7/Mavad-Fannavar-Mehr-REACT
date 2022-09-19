@@ -11,6 +11,7 @@
             <div class="row">
                 <div class="col-md-7 col-sm-12">
                     <h2>نام محصول</h2>
+                    <div class="divider-1 wow fadeInUp"><span class="w-100"></span></div>
                     <ul>
                         <li>ویژگی های محصول</li>
                         <li>ویژگی های محصول</li>
