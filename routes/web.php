@@ -41,3 +41,8 @@ Route::get('/products', function () {
     
 });
 
+Route::get('/products-expand', function () {
+    return view('home.pages.products-expand');
+    
+});
+

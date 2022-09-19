@@ -49,6 +49,13 @@
 	.quick-service-icons a.btn-customized {
 		padding: 0.70rem 1.2rem;
 	}
+	.dismiss i {
+		margin-top: 0.5rem;
+	}
+	footer {
+		font-size: 0.9rem;
+	}
+	
 
 }
 

@@ -183,3 +183,16 @@
                 <div class="col-1@sm col-1@xs my-sizer-element"></div>
             </div>
         </div>
+
+        
+        <footer class="footer-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        &copy; شرکت به نگاران تجارت آزما <a href=""> به نگاران تجارت آزما</a>.
+                    </div>
+                </div>
+            </div>
+        </footer>
+      </div>
+      @endsection
