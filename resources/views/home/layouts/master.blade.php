@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>لورم ایپسوم</title>
+    <title> بازرگانی اسپیدکار | Speedkar</title>
 
     <!-- CSS -->
     <!-- Box Icons -------------------------------------------------------->
@@ -23,6 +23,9 @@
       integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
       crossorigin="anonymous"
     />
+    {{-- Fav Icon --}}
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
 
     {{-- <link
       rel="stylesheet"

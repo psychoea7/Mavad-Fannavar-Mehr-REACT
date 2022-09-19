@@ -13,22 +13,23 @@
                 <div class="row">
                     <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                         <h1 class="wow fadeIn">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                            <strong>از صنعت چاپ</strong>
+
+                            <strong><img class="img-fluid logo-text" src="{{ asset('images/logo-head.png') }}"
+                                    alt=""> | بازرگانی اسپیدکار</strong>
                         </h1>
                         <div class="description wow fadeInLeft">
                             <p>
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                                با استفاده از طراحان گرافیک است.
-                                <a href=""><strong>لورم ایپسوم </strong></a>.
+                                واردات و عرضه آلیاژ ها صنعتی با پشتوانه بیش از ۱۰ سال تجربه فعالیت بازرگانی و خدمات مهندسی
+                                سطح
+                                {{-- <a href=""><strong></strong></a>. --}}
                             </p>
                         </div>
                         <div class="buttons wow fadeInUp">
                             <a class="btn btn-primary btn-customized scroll-link" href="#section-1" role="button">
-                                <i class="fas fa-book-open"></i> لورم ایپسوم
+                                خدمات <i class="fas fa-briefcase"></i>
                             </a>
                             <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-3" role="button">
-                                <i class="fas fa-pencil-alt"></i> متن ساختگی
+                                محصولات <i class="fas fa-tags"></i>
                             </a>
                         </div>
                     </div>
@@ -41,51 +42,66 @@
             <div class="container">
                 <div class="row">
                     <div class="col section-1 section-description wow fadeIn">
-                        <h2>خدمات ما</h2>
+                        <h2 class="text-center">خدمات ما</h2>
                         <div class="divider-1 wow fadeInUp"><span></span></div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 section-1-box wow fadeInUp">
+                    <div class="col-md-3 section-1-box wow fadeInUp">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <i class="fas fa-magic"></i>
+                                    <i class="fas fa-shopping-bag"></i>
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <h3>نام تجاری</h3>
-                                <p>
+                            <div class="col-md-12">
+                                <h3 class="text-center">خدمات خرید و تامین کالا</h3>
+                                <p class="text-center">
                                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 section-1-box wow fadeInDown">
+                    <div class="col-md-3 section-1-box wow fadeInDown">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <i class="fas fa-cog"></i>
+                                    <i class="fas fa-money-check-alt"></i>
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <h3>طراحی وب سایت</h3>
-                                <p>
+                            <div class="col-md-12">
+                                <h3 class="text-center">خدمات ارزی بازرگانی</h3>
+                                <p class="text-center">
                                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 section-1-box wow fadeInUp">
+                    <div class="col-md-3 section-1-box wow fadeInUp">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <i class="fab fa-twitter"></i>
+                                    <i class="fas fa-shipping-fast"></i>
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <h3>رسانه های اجتماعی</h3>
-                                <p>
+                            <div class="col-md-12">
+                                <h3 class="text-center">خدمات حمل بین المللی</h3>
+                                <p class="text-center">
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 section-1-box wow fadeInUp">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-1-box-icon">
+                                    <i class="fas fa-truck-loading"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <h3 class="text-center">خدمات گمرکی</h3>
+                                <p class="text-center">
                                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
                                 </p>
                             </div>
@@ -102,23 +118,54 @@
                     <div class="col section-2 section-description wow fadeIn"></div>
                 </div>
                 <div class="row">
-                    <div class="col-8 section-2-box wow fadeInLeft">
-                        <h3>درباره ما</h3>
+                    <div class="col-md-8 col-sm-12 section-2-box wow fadeInLeft">
+                        <h2>درباره ما</h2>
+                        <div class="divider-1 wow fadeInUp mb-3"><span></span></div>
                         <p class="medium-paragraph">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                            استفاده از طراحان گرافیک است.
+                            شرکت بازرگانی اسپیدکار، با در اختیار داشتن گروه بازرگانی و مهندسی در زمینه تامین، واردات و عرضه
+                            آلیاژ ها صنعتی با پشتوانه بیش از 10 سال تجربه فعالیت بازرگانی و خدمات مهندسی سطح، آماده ارایه
+                            تجهیزات، مواد اولیه و آلیاژ های صنعتی تخصصی ضد سایش و ضد خوردگی در زمینه پوشش های حرارتی،
+                            جوشکاری و پوشش دهی مورد نیاز صنایع کشور می باشد.
+                            هدف این شرکت کمک به انتخاب علمی و دسترسی به آلیاژ های تخصصی و مهندسی مطابق با استاندارد های روز
+                            دنیا در داخل کشور می باشد.
                         </p>
-                        <p>
-                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                            است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با
-                            هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه
-                            درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می
-                            طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای
-                            علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                        <p class="medium-paragraph">
+                            شرکت بازرگانی اسپیدکار با نیازسنجی و شناسایی زمینه‌های مساعد و قابل اجرا جهت فعالیت در بخش‌ها و
+                            حوزه‌های مختلف صنعتی و تولیدی ایران، قدم در عرصه صنعت فلزات و آلیاژ های نوین در این کشور گذاشته
+                            و با بکارگیری نیروهایی جوان، متخصص و کارامد همراه با تجاربی مناسب در بسیاری از زمینه‌های اجرایی؛
+                            تلاش دارد نقشی موثر و بسزا در بهبود، بروزرسانی و توسعه صنعت نوآور و به روز درکشور ایفا نماید.
                         </p>
+                        <p class="medium-paragraph">واحد بازرگانی اسپیدکار با توجه به داشتن ارتباطات گستره با متخصصین رشته
+                            متالورژی و مکانیک در خارج
+                            از کشور و اخذ نمایندگی های فروش و خدمات پس از فروش از چندین برند مطرح اروپایی و آسیایی و همکاری
+                            گسترده با تامین کنندگان معتبر خارجی در بخش مواد اولیه و ماشین الات صنعت پوشش دهی، امکان تأمین
+                            طیف وسیعی از قطعات، تجهیزات و ماشین‌آلات مورد نیاز در پروژه‌های صنعتی شرکت‌ها و صنایع کشور و
+                            ارائه خدمات پس از فروش مناسب آنها را در کوتاه‌ترین زمان ممکن و تحت استانداردهای بین‌المللی روز
+                            دنیا را دارا می‌باشد.</p>
+                        <h3>اهم قابلیت‌ها و خدمات قابل ارائه این شرکت:</h3>
+                        <ul>
+                            <li>نمایندگی چندین برند مطرح اروپایی در زمینه‌ مواد مصرفی و تجهیزات تخصصی پوشش دهی و جوشکاری
+                            </li>
+                            <li>تامین مواد مصرفی و تجهیزات پوشش های حرارتی Thermal spray</li>
+                            <li>تامین مواد مصرفی و تجهیزات تخصصی جوشکاری و روکش دهی Hard facing and cladding</li>
+                            <li>تامین پودر های مصرفی فرایند پرینت فلزی پودر و لیزرکلدینگ 3Dprinting and laser Cladding</li>
+                            <li>تامین مواد مصرفی و تجهیزات روکش دهی پلاسمایی (PTA welding)</li>
+                            <li>خدمات مشاوره در انتخاب مواد و متریال های مهندسی و تخصصی در زمینه روکش دهی سخت</li>
+                            <li>واردات انواع قطعات، تجهیزات و ماشین‌آلات اعم از مکانیکی، الکتریکی و تجهیزات خاص صنایع مختلف
+                                از جمله حفاری، فولادسازی و نفت و گاز</li>
+                            <li>مشاوره و بازدید از خطوط صنایع مختلف با استفاده از کارگروه‌های تخصصی صنایع مربوطه و ارائه
+                                راهکارهای نوین جهت بروزرسانی و افزایش راندمان و بهره‌ وری خطوط تولید</li>
+                            <li>ارائه خدمات پس از فروش محصولات و مشاوره در زمینه تعمیرات و نگهداری ادواری آنها</li>
+                            <li>ارائه مشاوره و راهکارهای تخصصی در زمینه انواع بازرسی‌های فنی لازم جهتواردات تجهیزات مختلف
+                            </li>
+                            <li>تدوین، تهیه و ارائه اسناد و مستندات فنی و اسناد و تاییدیه‌های بازرسی تجهیزات تامین شده مطابق
+                                با استانداردهای روز دنیا</li>
+                            <li>درج لوگوهای شرکت های خارجی به صورت نواری در پایین صفحه درباره ما و گذاشتن لینک سایت هر کدام
+                                بر روی عکس</li>
+                        </ul>
                     </div>
-                    <div class="col-4 section-2-box wow fadeInUp">
-                        <img src="{{ asset('images/about-us.jpg') }}" alt="about-us" />
+                    <div class="col-md-4 col-sm-12 section-2-box wow fadeInUp">
+                        <img class="h-100" src="{{ asset('images/about-us.jpg') }}" alt="about-us" />
                     </div>
                 </div>
             </div>
@@ -129,12 +176,36 @@
             <div class="container">
                 <div class="row">
                     <div class="col section-3 section-description wow fadeIn">
-                        <h2>پروژه های ما</h2>
+                        <h2 class="text-center">آمار ما</h2>
                         <div class="divider-1 wow fadeInUp"><span></span></div>
                     </div>
                 </div>
 
-                <div class="row">
+                <!-- Numbers Section ----------------------------------------------->
+                <div class="row mt-5" id="numbers">
+                    <div class="col-md-4 col-sm-12">
+                        <article class="service-number">
+                            <span class="number" data-value="130">۰</span>
+                            <p>مشتریان</p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <article class="done-projects-number">
+                            <span class="number" data-value="560">۰</span>
+                            <p>محصولات</p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <article class="current-projects-number">
+                            <span class="number" data-value="34">۰</span>
+                            <p>پروژه ها</p>
+                        </article>
+                    </div>
+                </div>
+
+                {{-- <div class="row">
                     <div class="col-md-6 section-3-box wow fadeInLeft">
                         <div class="row">
                             <div class="col-md-3">
@@ -207,7 +278,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 
@@ -216,20 +287,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col section-4 section-description wow fadeInLeftBig">
-                        <h2>ما فکر میکنیم که...</h2>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                            استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
-                            مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                            تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-                            کاربردی می باشد.
+                        <h2> کلامی از ما...</h2>
+                        <p class="text-center">
+                            اسپیدکار یا سپیدکار در متون فارسی شخصی را گویند که ظروف مس را سفید کند و او را قلعی گر و سفیدگر
+                            نیز گویند.
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col section-bottom-button wow fadeInUp">
                         <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-6" role="button">
-                            <i class="fas fa-envelope"></i> تماس با ما
+                            تماس با ما <i class="fas fa-envelope"></i>
                         </a>
                     </div>
                 </div>
@@ -241,9 +309,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col section-5 section-description wow fadeIn">
-                        <h2>نمونه کارها</h2>
+                        <h2 class="text-center">وبلاگ</h2>
                         <div class="divider-1 wow fadeInUp"><span></span></div>
-                        <p>
+                        <p class="text-center">
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                             استفاده از طراحان گرافیک است.
                         </p>
@@ -304,7 +372,7 @@
                 <div class="row">
                     <div class="col section-bottom-button wow fadeInUp">
                         <a class="btn btn-primary btn-customized" href="#" role="button">
-                            <i class="fas fa-sync"></i> مشاهده همه
+                            مشاهده همه <i class="fas fa-sync"></i>
                         </a>
                     </div>
                 </div>
@@ -316,10 +384,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col section-6 section-description wow fadeIn">
-                        <h2>تماس با ما</h2>
+                        <h2 class="text-center">تماس با ما</h2>
                         <div class="divider-1 wow fadeInUp"><span></span></div>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                        <p class="text-center">
+                            افکارتان را با ما در میان بگذارید
                         </p>
                     </div>
                 </div>
@@ -343,19 +411,29 @@
                                     <textarea name="message" placeholder="پیام..." class="contact-message form-control" id="contact-message"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-customized">
-                                    <i class="fas fa-paper-plane"></i> ارسال پیام
+                                    ارسال پیام <i class="fas fa-paper-plane"></i>
                                 </button>
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-5 offset-md-1 section-6-box wow fadeInDown">
-                        <h3>ما را دنبال کنید</h3>
+                    <div class="col-md-5 section-6-box wow fadeInDown">
+                        <h3 class="text-right">راه های ارتباطی</h3>
                         <div class="section-6-social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                            <a href="#"><i class="fas fa-video"></i></a>
+                            <a href="#"><i class="fas fa-phone"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                        </div>
+                        <div class="address-tel">
+                            <h4 class="text-right">آدرس شرکت</h4>
+                            <p>دفتر مرکزی و انبار : تهران، بزرگراه فتح، خیابان فتح یازدهم، گلبن یازدهم غربی، پلاک 7</p>
+                            <h4>تلفن شرکت</h4>
+                            <div class="text-right">
+                                <span>ثابت :</span> <a href="tel:02166811664">۰۲۱۶۶۸۱۱۶۶۴</a> | <span>همراه :</span> <a
+                                    href="tel:09125248632">۰۹۱۲۵۲۴۸۶۳۲</a>
+                            </div>
                         </div>
                     </div>
                 </div>

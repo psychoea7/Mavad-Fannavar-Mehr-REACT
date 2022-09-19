@@ -9853,6 +9853,1229 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
 /***/ }),
 
+/***/ "./resources/js/home/js/owl-carousel-min.js":
+/*!**************************************************!*\
+  !*** ./resources/js/home/js/owl-carousel-min.js ***!
+  \**************************************************/
+/***/ (() => {
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+/**
+ * Owl Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
+ */
+!function (a, b, c, d) {
+  function e(b, c) {
+    this.settings = null, this.options = a.extend({}, e.Defaults, c), this.$element = a(b), this._handlers = {}, this._plugins = {}, this._supress = {}, this._current = null, this._speed = null, this._coordinates = [], this._breakpoint = null, this._width = null, this._items = [], this._clones = [], this._mergers = [], this._widths = [], this._invalidated = {}, this._pipe = [], this._drag = {
+      time: null,
+      target: null,
+      pointer: null,
+      stage: {
+        start: null,
+        current: null
+      },
+      direction: null
+    }, this._states = {
+      current: {},
+      tags: {
+        initializing: ["busy"],
+        animating: ["busy"],
+        dragging: ["interacting"]
+      }
+    }, a.each(["onResize", "onThrottledResize"], a.proxy(function (b, c) {
+      this._handlers[c] = a.proxy(this[c], this);
+    }, this)), a.each(e.Plugins, a.proxy(function (a, b) {
+      this._plugins[a.charAt(0).toLowerCase() + a.slice(1)] = new b(this);
+    }, this)), a.each(e.Workers, a.proxy(function (b, c) {
+      this._pipe.push({
+        filter: c.filter,
+        run: a.proxy(c.run, this)
+      });
+    }, this)), this.setup(), this.initialize();
+  }
+
+  e.Defaults = {
+    items: 3,
+    loop: !1,
+    center: !1,
+    rewind: !1,
+    checkVisibility: !0,
+    mouseDrag: !0,
+    touchDrag: !0,
+    pullDrag: !0,
+    freeDrag: !1,
+    margin: 0,
+    stagePadding: 0,
+    merge: !1,
+    mergeFit: !0,
+    autoWidth: !1,
+    startPosition: 0,
+    rtl: !1,
+    smartSpeed: 250,
+    fluidSpeed: !1,
+    dragEndSpeed: !1,
+    responsive: {},
+    responsiveRefreshRate: 200,
+    responsiveBaseElement: b,
+    fallbackEasing: "swing",
+    slideTransition: "",
+    info: !1,
+    nestedItemSelector: !1,
+    itemElement: "div",
+    stageElement: "div",
+    refreshClass: "owl-refresh",
+    loadedClass: "owl-loaded",
+    loadingClass: "owl-loading",
+    rtlClass: "owl-rtl",
+    responsiveClass: "owl-responsive",
+    dragClass: "owl-drag",
+    itemClass: "owl-item",
+    stageClass: "owl-stage",
+    stageOuterClass: "owl-stage-outer",
+    grabClass: "owl-grab"
+  }, e.Width = {
+    Default: "default",
+    Inner: "inner",
+    Outer: "outer"
+  }, e.Type = {
+    Event: "event",
+    State: "state"
+  }, e.Plugins = {}, e.Workers = [{
+    filter: ["width", "settings"],
+    run: function run() {
+      this._width = this.$element.width();
+    }
+  }, {
+    filter: ["width", "items", "settings"],
+    run: function run(a) {
+      a.current = this._items && this._items[this.relative(this._current)];
+    }
+  }, {
+    filter: ["items", "settings"],
+    run: function run() {
+      this.$stage.children(".cloned").remove();
+    }
+  }, {
+    filter: ["width", "items", "settings"],
+    run: function run(a) {
+      var b = this.settings.margin || "",
+          c = !this.settings.autoWidth,
+          d = this.settings.rtl,
+          e = {
+        width: "auto",
+        "margin-left": d ? b : "",
+        "margin-right": d ? "" : b
+      };
+      !c && this.$stage.children().css(e), a.css = e;
+    }
+  }, {
+    filter: ["width", "items", "settings"],
+    run: function run(a) {
+      var b = (this.width() / this.settings.items).toFixed(3) - this.settings.margin,
+          c = null,
+          d = this._items.length,
+          e = !this.settings.autoWidth,
+          f = [];
+
+      for (a.items = {
+        merge: !1,
+        width: b
+      }; d--;) {
+        c = this._mergers[d], c = this.settings.mergeFit && Math.min(c, this.settings.items) || c, a.items.merge = c > 1 || a.items.merge, f[d] = e ? b * c : this._items[d].width();
+      }
+
+      this._widths = f;
+    }
+  }, {
+    filter: ["items", "settings"],
+    run: function run() {
+      var b = [],
+          c = this._items,
+          d = this.settings,
+          e = Math.max(2 * d.items, 4),
+          f = 2 * Math.ceil(c.length / 2),
+          g = d.loop && c.length ? d.rewind ? e : Math.max(e, f) : 0,
+          h = "",
+          i = "";
+
+      for (g /= 2; g > 0;) {
+        b.push(this.normalize(b.length / 2, !0)), h += c[b[b.length - 1]][0].outerHTML, b.push(this.normalize(c.length - 1 - (b.length - 1) / 2, !0)), i = c[b[b.length - 1]][0].outerHTML + i, g -= 1;
+      }
+
+      this._clones = b, a(h).addClass("cloned").appendTo(this.$stage), a(i).addClass("cloned").prependTo(this.$stage);
+    }
+  }, {
+    filter: ["width", "items", "settings"],
+    run: function run() {
+      for (var a = this.settings.rtl ? 1 : -1, b = this._clones.length + this._items.length, c = -1, d = 0, e = 0, f = []; ++c < b;) {
+        d = f[c - 1] || 0, e = this._widths[this.relative(c)] + this.settings.margin, f.push(d + e * a);
+      }
+
+      this._coordinates = f;
+    }
+  }, {
+    filter: ["width", "items", "settings"],
+    run: function run() {
+      var a = this.settings.stagePadding,
+          b = this._coordinates,
+          c = {
+        width: Math.ceil(Math.abs(b[b.length - 1])) + 2 * a,
+        "padding-left": a || "",
+        "padding-right": a || ""
+      };
+      this.$stage.css(c);
+    }
+  }, {
+    filter: ["width", "items", "settings"],
+    run: function run(a) {
+      var b = this._coordinates.length,
+          c = !this.settings.autoWidth,
+          d = this.$stage.children();
+      if (c && a.items.merge) for (; b--;) {
+        a.css.width = this._widths[this.relative(b)], d.eq(b).css(a.css);
+      } else c && (a.css.width = a.items.width, d.css(a.css));
+    }
+  }, {
+    filter: ["items"],
+    run: function run() {
+      this._coordinates.length < 1 && this.$stage.removeAttr("style");
+    }
+  }, {
+    filter: ["width", "items", "settings"],
+    run: function run(a) {
+      a.current = a.current ? this.$stage.children().index(a.current) : 0, a.current = Math.max(this.minimum(), Math.min(this.maximum(), a.current)), this.reset(a.current);
+    }
+  }, {
+    filter: ["position"],
+    run: function run() {
+      this.animate(this.coordinates(this._current));
+    }
+  }, {
+    filter: ["width", "position", "items", "settings"],
+    run: function run() {
+      var a,
+          b,
+          c,
+          d,
+          e = this.settings.rtl ? 1 : -1,
+          f = 2 * this.settings.stagePadding,
+          g = this.coordinates(this.current()) + f,
+          h = g + this.width() * e,
+          i = [];
+
+      for (c = 0, d = this._coordinates.length; c < d; c++) {
+        a = this._coordinates[c - 1] || 0, b = Math.abs(this._coordinates[c]) + f * e, (this.op(a, "<=", g) && this.op(a, ">", h) || this.op(b, "<", g) && this.op(b, ">", h)) && i.push(c);
+      }
+
+      this.$stage.children(".active").removeClass("active"), this.$stage.children(":eq(" + i.join("), :eq(") + ")").addClass("active"), this.$stage.children(".center").removeClass("center"), this.settings.center && this.$stage.children().eq(this.current()).addClass("center");
+    }
+  }], e.prototype.initializeStage = function () {
+    this.$stage = this.$element.find("." + this.settings.stageClass), this.$stage.length || (this.$element.addClass(this.options.loadingClass), this.$stage = a("<" + this.settings.stageElement + ">", {
+      "class": this.settings.stageClass
+    }).wrap(a("<div/>", {
+      "class": this.settings.stageOuterClass
+    })), this.$element.append(this.$stage.parent()));
+  }, e.prototype.initializeItems = function () {
+    var b = this.$element.find(".owl-item");
+    if (b.length) return this._items = b.get().map(function (b) {
+      return a(b);
+    }), this._mergers = this._items.map(function () {
+      return 1;
+    }), void this.refresh();
+    this.replace(this.$element.children().not(this.$stage.parent())), this.isVisible() ? this.refresh() : this.invalidate("width"), this.$element.removeClass(this.options.loadingClass).addClass(this.options.loadedClass);
+  }, e.prototype.initialize = function () {
+    if (this.enter("initializing"), this.trigger("initialize"), this.$element.toggleClass(this.settings.rtlClass, this.settings.rtl), this.settings.autoWidth && !this.is("pre-loading")) {
+      var a, b, c;
+      a = this.$element.find("img"), b = this.settings.nestedItemSelector ? "." + this.settings.nestedItemSelector : d, c = this.$element.children(b).width(), a.length && c <= 0 && this.preloadAutoWidthImages(a);
+    }
+
+    this.initializeStage(), this.initializeItems(), this.registerEventHandlers(), this.leave("initializing"), this.trigger("initialized");
+  }, e.prototype.isVisible = function () {
+    return !this.settings.checkVisibility || this.$element.is(":visible");
+  }, e.prototype.setup = function () {
+    var b = this.viewport(),
+        c = this.options.responsive,
+        d = -1,
+        e = null;
+    c ? (a.each(c, function (a) {
+      a <= b && a > d && (d = Number(a));
+    }), e = a.extend({}, this.options, c[d]), "function" == typeof e.stagePadding && (e.stagePadding = e.stagePadding()), delete e.responsive, e.responsiveClass && this.$element.attr("class", this.$element.attr("class").replace(new RegExp("(" + this.options.responsiveClass + "-)\\S+\\s", "g"), "$1" + d))) : e = a.extend({}, this.options), this.trigger("change", {
+      property: {
+        name: "settings",
+        value: e
+      }
+    }), this._breakpoint = d, this.settings = e, this.invalidate("settings"), this.trigger("changed", {
+      property: {
+        name: "settings",
+        value: this.settings
+      }
+    });
+  }, e.prototype.optionsLogic = function () {
+    this.settings.autoWidth && (this.settings.stagePadding = !1, this.settings.merge = !1);
+  }, e.prototype.prepare = function (b) {
+    var c = this.trigger("prepare", {
+      content: b
+    });
+    return c.data || (c.data = a("<" + this.settings.itemElement + "/>").addClass(this.options.itemClass).append(b)), this.trigger("prepared", {
+      content: c.data
+    }), c.data;
+  }, e.prototype.update = function () {
+    for (var b = 0, c = this._pipe.length, d = a.proxy(function (a) {
+      return this[a];
+    }, this._invalidated), e = {}; b < c;) {
+      (this._invalidated.all || a.grep(this._pipe[b].filter, d).length > 0) && this._pipe[b].run(e), b++;
+    }
+
+    this._invalidated = {}, !this.is("valid") && this.enter("valid");
+  }, e.prototype.width = function (a) {
+    switch (a = a || e.Width.Default) {
+      case e.Width.Inner:
+      case e.Width.Outer:
+        return this._width;
+
+      default:
+        return this._width - 2 * this.settings.stagePadding + this.settings.margin;
+    }
+  }, e.prototype.refresh = function () {
+    this.enter("refreshing"), this.trigger("refresh"), this.setup(), this.optionsLogic(), this.$element.addClass(this.options.refreshClass), this.update(), this.$element.removeClass(this.options.refreshClass), this.leave("refreshing"), this.trigger("refreshed");
+  }, e.prototype.onThrottledResize = function () {
+    b.clearTimeout(this.resizeTimer), this.resizeTimer = b.setTimeout(this._handlers.onResize, this.settings.responsiveRefreshRate);
+  }, e.prototype.onResize = function () {
+    return !!this._items.length && this._width !== this.$element.width() && !!this.isVisible() && (this.enter("resizing"), this.trigger("resize").isDefaultPrevented() ? (this.leave("resizing"), !1) : (this.invalidate("width"), this.refresh(), this.leave("resizing"), void this.trigger("resized")));
+  }, e.prototype.registerEventHandlers = function () {
+    a.support.transition && this.$stage.on(a.support.transition.end + ".owl.core", a.proxy(this.onTransitionEnd, this)), !1 !== this.settings.responsive && this.on(b, "resize", this._handlers.onThrottledResize), this.settings.mouseDrag && (this.$element.addClass(this.options.dragClass), this.$stage.on("mousedown.owl.core", a.proxy(this.onDragStart, this)), this.$stage.on("dragstart.owl.core selectstart.owl.core", function () {
+      return !1;
+    })), this.settings.touchDrag && (this.$stage.on("touchstart.owl.core", a.proxy(this.onDragStart, this)), this.$stage.on("touchcancel.owl.core", a.proxy(this.onDragEnd, this)));
+  }, e.prototype.onDragStart = function (b) {
+    var d = null;
+    3 !== b.which && (a.support.transform ? (d = this.$stage.css("transform").replace(/.*\(|\)| /g, "").split(","), d = {
+      x: d[16 === d.length ? 12 : 4],
+      y: d[16 === d.length ? 13 : 5]
+    }) : (d = this.$stage.position(), d = {
+      x: this.settings.rtl ? d.left + this.$stage.width() - this.width() + this.settings.margin : d.left,
+      y: d.top
+    }), this.is("animating") && (a.support.transform ? this.animate(d.x) : this.$stage.stop(), this.invalidate("position")), this.$element.toggleClass(this.options.grabClass, "mousedown" === b.type), this.speed(0), this._drag.time = new Date().getTime(), this._drag.target = a(b.target), this._drag.stage.start = d, this._drag.stage.current = d, this._drag.pointer = this.pointer(b), a(c).on("mouseup.owl.core touchend.owl.core", a.proxy(this.onDragEnd, this)), a(c).one("mousemove.owl.core touchmove.owl.core", a.proxy(function (b) {
+      var d = this.difference(this._drag.pointer, this.pointer(b));
+      a(c).on("mousemove.owl.core touchmove.owl.core", a.proxy(this.onDragMove, this)), Math.abs(d.x) < Math.abs(d.y) && this.is("valid") || (b.preventDefault(), this.enter("dragging"), this.trigger("drag"));
+    }, this)));
+  }, e.prototype.onDragMove = function (a) {
+    var b = null,
+        c = null,
+        d = null,
+        e = this.difference(this._drag.pointer, this.pointer(a)),
+        f = this.difference(this._drag.stage.start, e);
+    this.is("dragging") && (a.preventDefault(), this.settings.loop ? (b = this.coordinates(this.minimum()), c = this.coordinates(this.maximum() + 1) - b, f.x = ((f.x - b) % c + c) % c + b) : (b = this.settings.rtl ? this.coordinates(this.maximum()) : this.coordinates(this.minimum()), c = this.settings.rtl ? this.coordinates(this.minimum()) : this.coordinates(this.maximum()), d = this.settings.pullDrag ? -1 * e.x / 5 : 0, f.x = Math.max(Math.min(f.x, b + d), c + d)), this._drag.stage.current = f, this.animate(f.x));
+  }, e.prototype.onDragEnd = function (b) {
+    var d = this.difference(this._drag.pointer, this.pointer(b)),
+        e = this._drag.stage.current,
+        f = d.x > 0 ^ this.settings.rtl ? "left" : "right";
+    a(c).off(".owl.core"), this.$element.removeClass(this.options.grabClass), (0 !== d.x && this.is("dragging") || !this.is("valid")) && (this.speed(this.settings.dragEndSpeed || this.settings.smartSpeed), this.current(this.closest(e.x, 0 !== d.x ? f : this._drag.direction)), this.invalidate("position"), this.update(), this._drag.direction = f, (Math.abs(d.x) > 3 || new Date().getTime() - this._drag.time > 300) && this._drag.target.one("click.owl.core", function () {
+      return !1;
+    })), this.is("dragging") && (this.leave("dragging"), this.trigger("dragged"));
+  }, e.prototype.closest = function (b, c) {
+    var e = -1,
+        f = 30,
+        g = this.width(),
+        h = this.coordinates();
+    return this.settings.freeDrag || a.each(h, a.proxy(function (a, i) {
+      return "left" === c && b > i - f && b < i + f ? e = a : "right" === c && b > i - g - f && b < i - g + f ? e = a + 1 : this.op(b, "<", i) && this.op(b, ">", h[a + 1] !== d ? h[a + 1] : i - g) && (e = "left" === c ? a + 1 : a), -1 === e;
+    }, this)), this.settings.loop || (this.op(b, ">", h[this.minimum()]) ? e = b = this.minimum() : this.op(b, "<", h[this.maximum()]) && (e = b = this.maximum())), e;
+  }, e.prototype.animate = function (b) {
+    var c = this.speed() > 0;
+    this.is("animating") && this.onTransitionEnd(), c && (this.enter("animating"), this.trigger("translate")), a.support.transform3d && a.support.transition ? this.$stage.css({
+      transform: "translate3d(" + b + "px,0px,0px)",
+      transition: this.speed() / 1e3 + "s" + (this.settings.slideTransition ? " " + this.settings.slideTransition : "")
+    }) : c ? this.$stage.animate({
+      left: b + "px"
+    }, this.speed(), this.settings.fallbackEasing, a.proxy(this.onTransitionEnd, this)) : this.$stage.css({
+      left: b + "px"
+    });
+  }, e.prototype.is = function (a) {
+    return this._states.current[a] && this._states.current[a] > 0;
+  }, e.prototype.current = function (a) {
+    if (a === d) return this._current;
+    if (0 === this._items.length) return d;
+
+    if (a = this.normalize(a), this._current !== a) {
+      var b = this.trigger("change", {
+        property: {
+          name: "position",
+          value: a
+        }
+      });
+      b.data !== d && (a = this.normalize(b.data)), this._current = a, this.invalidate("position"), this.trigger("changed", {
+        property: {
+          name: "position",
+          value: this._current
+        }
+      });
+    }
+
+    return this._current;
+  }, e.prototype.invalidate = function (b) {
+    return "string" === a.type(b) && (this._invalidated[b] = !0, this.is("valid") && this.leave("valid")), a.map(this._invalidated, function (a, b) {
+      return b;
+    });
+  }, e.prototype.reset = function (a) {
+    (a = this.normalize(a)) !== d && (this._speed = 0, this._current = a, this.suppress(["translate", "translated"]), this.animate(this.coordinates(a)), this.release(["translate", "translated"]));
+  }, e.prototype.normalize = function (a, b) {
+    var c = this._items.length,
+        e = b ? 0 : this._clones.length;
+    return !this.isNumeric(a) || c < 1 ? a = d : (a < 0 || a >= c + e) && (a = ((a - e / 2) % c + c) % c + e / 2), a;
+  }, e.prototype.relative = function (a) {
+    return a -= this._clones.length / 2, this.normalize(a, !0);
+  }, e.prototype.maximum = function (a) {
+    var b,
+        c,
+        d,
+        e = this.settings,
+        f = this._coordinates.length;
+    if (e.loop) f = this._clones.length / 2 + this._items.length - 1;else if (e.autoWidth || e.merge) {
+      if (b = this._items.length) for (c = this._items[--b].width(), d = this.$element.width(); b-- && !((c += this._items[b].width() + this.settings.margin) > d);) {
+        ;
+      }
+      f = b + 1;
+    } else f = e.center ? this._items.length - 1 : this._items.length - e.items;
+    return a && (f -= this._clones.length / 2), Math.max(f, 0);
+  }, e.prototype.minimum = function (a) {
+    return a ? 0 : this._clones.length / 2;
+  }, e.prototype.items = function (a) {
+    return a === d ? this._items.slice() : (a = this.normalize(a, !0), this._items[a]);
+  }, e.prototype.mergers = function (a) {
+    return a === d ? this._mergers.slice() : (a = this.normalize(a, !0), this._mergers[a]);
+  }, e.prototype.clones = function (b) {
+    var c = this._clones.length / 2,
+        e = c + this._items.length,
+        f = function f(a) {
+      return a % 2 == 0 ? e + a / 2 : c - (a + 1) / 2;
+    };
+
+    return b === d ? a.map(this._clones, function (a, b) {
+      return f(b);
+    }) : a.map(this._clones, function (a, c) {
+      return a === b ? f(c) : null;
+    });
+  }, e.prototype.speed = function (a) {
+    return a !== d && (this._speed = a), this._speed;
+  }, e.prototype.coordinates = function (b) {
+    var c,
+        e = 1,
+        f = b - 1;
+    return b === d ? a.map(this._coordinates, a.proxy(function (a, b) {
+      return this.coordinates(b);
+    }, this)) : (this.settings.center ? (this.settings.rtl && (e = -1, f = b + 1), c = this._coordinates[b], c += (this.width() - c + (this._coordinates[f] || 0)) / 2 * e) : c = this._coordinates[f] || 0, c = Math.ceil(c));
+  }, e.prototype.duration = function (a, b, c) {
+    return 0 === c ? 0 : Math.min(Math.max(Math.abs(b - a), 1), 6) * Math.abs(c || this.settings.smartSpeed);
+  }, e.prototype.to = function (a, b) {
+    var c = this.current(),
+        d = null,
+        e = a - this.relative(c),
+        f = (e > 0) - (e < 0),
+        g = this._items.length,
+        h = this.minimum(),
+        i = this.maximum();
+    this.settings.loop ? (!this.settings.rewind && Math.abs(e) > g / 2 && (e += -1 * f * g), a = c + e, (d = ((a - h) % g + g) % g + h) !== a && d - e <= i && d - e > 0 && (c = d - e, a = d, this.reset(c))) : this.settings.rewind ? (i += 1, a = (a % i + i) % i) : a = Math.max(h, Math.min(i, a)), this.speed(this.duration(c, a, b)), this.current(a), this.isVisible() && this.update();
+  }, e.prototype.next = function (a) {
+    a = a || !1, this.to(this.relative(this.current()) + 1, a);
+  }, e.prototype.prev = function (a) {
+    a = a || !1, this.to(this.relative(this.current()) - 1, a);
+  }, e.prototype.onTransitionEnd = function (a) {
+    if (a !== d && (a.stopPropagation(), (a.target || a.srcElement || a.originalTarget) !== this.$stage.get(0))) return !1;
+    this.leave("animating"), this.trigger("translated");
+  }, e.prototype.viewport = function () {
+    var d;
+    return this.options.responsiveBaseElement !== b ? d = a(this.options.responsiveBaseElement).width() : b.innerWidth ? d = b.innerWidth : c.documentElement && c.documentElement.clientWidth ? d = c.documentElement.clientWidth : console.warn("Can not detect viewport width."), d;
+  }, e.prototype.replace = function (b) {
+    this.$stage.empty(), this._items = [], b && (b = b instanceof jQuery ? b : a(b)), this.settings.nestedItemSelector && (b = b.find("." + this.settings.nestedItemSelector)), b.filter(function () {
+      return 1 === this.nodeType;
+    }).each(a.proxy(function (a, b) {
+      b = this.prepare(b), this.$stage.append(b), this._items.push(b), this._mergers.push(1 * b.find("[data-merge]").addBack("[data-merge]").attr("data-merge") || 1);
+    }, this)), this.reset(this.isNumeric(this.settings.startPosition) ? this.settings.startPosition : 0), this.invalidate("items");
+  }, e.prototype.add = function (b, c) {
+    var e = this.relative(this._current);
+    c = c === d ? this._items.length : this.normalize(c, !0), b = b instanceof jQuery ? b : a(b), this.trigger("add", {
+      content: b,
+      position: c
+    }), b = this.prepare(b), 0 === this._items.length || c === this._items.length ? (0 === this._items.length && this.$stage.append(b), 0 !== this._items.length && this._items[c - 1].after(b), this._items.push(b), this._mergers.push(1 * b.find("[data-merge]").addBack("[data-merge]").attr("data-merge") || 1)) : (this._items[c].before(b), this._items.splice(c, 0, b), this._mergers.splice(c, 0, 1 * b.find("[data-merge]").addBack("[data-merge]").attr("data-merge") || 1)), this._items[e] && this.reset(this._items[e].index()), this.invalidate("items"), this.trigger("added", {
+      content: b,
+      position: c
+    });
+  }, e.prototype.remove = function (a) {
+    (a = this.normalize(a, !0)) !== d && (this.trigger("remove", {
+      content: this._items[a],
+      position: a
+    }), this._items[a].remove(), this._items.splice(a, 1), this._mergers.splice(a, 1), this.invalidate("items"), this.trigger("removed", {
+      content: null,
+      position: a
+    }));
+  }, e.prototype.preloadAutoWidthImages = function (b) {
+    b.each(a.proxy(function (b, c) {
+      this.enter("pre-loading"), c = a(c), a(new Image()).one("load", a.proxy(function (a) {
+        c.attr("src", a.target.src), c.css("opacity", 1), this.leave("pre-loading"), !this.is("pre-loading") && !this.is("initializing") && this.refresh();
+      }, this)).attr("src", c.attr("src") || c.attr("data-src") || c.attr("data-src-retina"));
+    }, this));
+  }, e.prototype.destroy = function () {
+    this.$element.off(".owl.core"), this.$stage.off(".owl.core"), a(c).off(".owl.core"), !1 !== this.settings.responsive && (b.clearTimeout(this.resizeTimer), this.off(b, "resize", this._handlers.onThrottledResize));
+
+    for (var d in this._plugins) {
+      this._plugins[d].destroy();
+    }
+
+    this.$stage.children(".cloned").remove(), this.$stage.unwrap(), this.$stage.children().contents().unwrap(), this.$stage.children().unwrap(), this.$stage.remove(), this.$element.removeClass(this.options.refreshClass).removeClass(this.options.loadingClass).removeClass(this.options.loadedClass).removeClass(this.options.rtlClass).removeClass(this.options.dragClass).removeClass(this.options.grabClass).attr("class", this.$element.attr("class").replace(new RegExp(this.options.responsiveClass + "-\\S+\\s", "g"), "")).removeData("owl.carousel");
+  }, e.prototype.op = function (a, b, c) {
+    var d = this.settings.rtl;
+
+    switch (b) {
+      case "<":
+        return d ? a > c : a < c;
+
+      case ">":
+        return d ? a < c : a > c;
+
+      case ">=":
+        return d ? a <= c : a >= c;
+
+      case "<=":
+        return d ? a >= c : a <= c;
+    }
+  }, e.prototype.on = function (a, b, c, d) {
+    a.addEventListener ? a.addEventListener(b, c, d) : a.attachEvent && a.attachEvent("on" + b, c);
+  }, e.prototype.off = function (a, b, c, d) {
+    a.removeEventListener ? a.removeEventListener(b, c, d) : a.detachEvent && a.detachEvent("on" + b, c);
+  }, e.prototype.trigger = function (b, c, d, f, g) {
+    var h = {
+      item: {
+        count: this._items.length,
+        index: this.current()
+      }
+    },
+        i = a.camelCase(a.grep(["on", b, d], function (a) {
+      return a;
+    }).join("-").toLowerCase()),
+        j = a.Event([b, "owl", d || "carousel"].join(".").toLowerCase(), a.extend({
+      relatedTarget: this
+    }, h, c));
+    return this._supress[b] || (a.each(this._plugins, function (a, b) {
+      b.onTrigger && b.onTrigger(j);
+    }), this.register({
+      type: e.Type.Event,
+      name: b
+    }), this.$element.trigger(j), this.settings && "function" == typeof this.settings[i] && this.settings[i].call(this, j)), j;
+  }, e.prototype.enter = function (b) {
+    a.each([b].concat(this._states.tags[b] || []), a.proxy(function (a, b) {
+      this._states.current[b] === d && (this._states.current[b] = 0), this._states.current[b]++;
+    }, this));
+  }, e.prototype.leave = function (b) {
+    a.each([b].concat(this._states.tags[b] || []), a.proxy(function (a, b) {
+      this._states.current[b]--;
+    }, this));
+  }, e.prototype.register = function (b) {
+    if (b.type === e.Type.Event) {
+      if (a.event.special[b.name] || (a.event.special[b.name] = {}), !a.event.special[b.name].owl) {
+        var c = a.event.special[b.name]._default;
+        a.event.special[b.name]._default = function (a) {
+          return !c || !c.apply || a.namespace && -1 !== a.namespace.indexOf("owl") ? a.namespace && a.namespace.indexOf("owl") > -1 : c.apply(this, arguments);
+        }, a.event.special[b.name].owl = !0;
+      }
+    } else b.type === e.Type.State && (this._states.tags[b.name] ? this._states.tags[b.name] = this._states.tags[b.name].concat(b.tags) : this._states.tags[b.name] = b.tags, this._states.tags[b.name] = a.grep(this._states.tags[b.name], a.proxy(function (c, d) {
+      return a.inArray(c, this._states.tags[b.name]) === d;
+    }, this)));
+  }, e.prototype.suppress = function (b) {
+    a.each(b, a.proxy(function (a, b) {
+      this._supress[b] = !0;
+    }, this));
+  }, e.prototype.release = function (b) {
+    a.each(b, a.proxy(function (a, b) {
+      delete this._supress[b];
+    }, this));
+  }, e.prototype.pointer = function (a) {
+    var c = {
+      x: null,
+      y: null
+    };
+    return a = a.originalEvent || a || b.event, a = a.touches && a.touches.length ? a.touches[0] : a.changedTouches && a.changedTouches.length ? a.changedTouches[0] : a, a.pageX ? (c.x = a.pageX, c.y = a.pageY) : (c.x = a.clientX, c.y = a.clientY), c;
+  }, e.prototype.isNumeric = function (a) {
+    return !isNaN(parseFloat(a));
+  }, e.prototype.difference = function (a, b) {
+    return {
+      x: a.x - b.x,
+      y: a.y - b.y
+    };
+  }, a.fn.owlCarousel = function (b) {
+    var c = Array.prototype.slice.call(arguments, 1);
+    return this.each(function () {
+      var d = a(this),
+          f = d.data("owl.carousel");
+      f || (f = new e(this, "object" == _typeof(b) && b), d.data("owl.carousel", f), a.each(["next", "prev", "to", "destroy", "refresh", "replace", "add", "remove"], function (b, c) {
+        f.register({
+          type: e.Type.Event,
+          name: c
+        }), f.$element.on(c + ".owl.carousel.core", a.proxy(function (a) {
+          a.namespace && a.relatedTarget !== this && (this.suppress([c]), f[c].apply(this, [].slice.call(arguments, 1)), this.release([c]));
+        }, f));
+      })), "string" == typeof b && "_" !== b.charAt(0) && f[b].apply(f, c);
+    });
+  }, a.fn.owlCarousel.Constructor = e;
+}(window.Zepto || window.jQuery, window, document), function (a, b, c, d) {
+  var e = function e(b) {
+    this._core = b, this._interval = null, this._visible = null, this._handlers = {
+      "initialized.owl.carousel": a.proxy(function (a) {
+        a.namespace && this._core.settings.autoRefresh && this.watch();
+      }, this)
+    }, this._core.options = a.extend({}, e.Defaults, this._core.options), this._core.$element.on(this._handlers);
+  };
+
+  e.Defaults = {
+    autoRefresh: !0,
+    autoRefreshInterval: 500
+  }, e.prototype.watch = function () {
+    this._interval || (this._visible = this._core.isVisible(), this._interval = b.setInterval(a.proxy(this.refresh, this), this._core.settings.autoRefreshInterval));
+  }, e.prototype.refresh = function () {
+    this._core.isVisible() !== this._visible && (this._visible = !this._visible, this._core.$element.toggleClass("owl-hidden", !this._visible), this._visible && this._core.invalidate("width") && this._core.refresh());
+  }, e.prototype.destroy = function () {
+    var a, c;
+    b.clearInterval(this._interval);
+
+    for (a in this._handlers) {
+      this._core.$element.off(a, this._handlers[a]);
+    }
+
+    for (c in Object.getOwnPropertyNames(this)) {
+      "function" != typeof this[c] && (this[c] = null);
+    }
+  }, a.fn.owlCarousel.Constructor.Plugins.AutoRefresh = e;
+}(window.Zepto || window.jQuery, window, document), function (a, b, c, d) {
+  var e = function e(b) {
+    this._core = b, this._loaded = [], this._handlers = {
+      "initialized.owl.carousel change.owl.carousel resized.owl.carousel": a.proxy(function (b) {
+        if (b.namespace && this._core.settings && this._core.settings.lazyLoad && (b.property && "position" == b.property.name || "initialized" == b.type)) {
+          var c = this._core.settings,
+              e = c.center && Math.ceil(c.items / 2) || c.items,
+              f = c.center && -1 * e || 0,
+              g = (b.property && b.property.value !== d ? b.property.value : this._core.current()) + f,
+              h = this._core.clones().length,
+              i = a.proxy(function (a, b) {
+            this.load(b);
+          }, this);
+
+          for (c.lazyLoadEager > 0 && (e += c.lazyLoadEager, c.loop && (g -= c.lazyLoadEager, e++)); f++ < e;) {
+            this.load(h / 2 + this._core.relative(g)), h && a.each(this._core.clones(this._core.relative(g)), i), g++;
+          }
+        }
+      }, this)
+    }, this._core.options = a.extend({}, e.Defaults, this._core.options), this._core.$element.on(this._handlers);
+  };
+
+  e.Defaults = {
+    lazyLoad: !1,
+    lazyLoadEager: 0
+  }, e.prototype.load = function (c) {
+    var d = this._core.$stage.children().eq(c),
+        e = d && d.find(".owl-lazy");
+
+    !e || a.inArray(d.get(0), this._loaded) > -1 || (e.each(a.proxy(function (c, d) {
+      var e,
+          f = a(d),
+          g = b.devicePixelRatio > 1 && f.attr("data-src-retina") || f.attr("data-src") || f.attr("data-srcset");
+      this._core.trigger("load", {
+        element: f,
+        url: g
+      }, "lazy"), f.is("img") ? f.one("load.owl.lazy", a.proxy(function () {
+        f.css("opacity", 1), this._core.trigger("loaded", {
+          element: f,
+          url: g
+        }, "lazy");
+      }, this)).attr("src", g) : f.is("source") ? f.one("load.owl.lazy", a.proxy(function () {
+        this._core.trigger("loaded", {
+          element: f,
+          url: g
+        }, "lazy");
+      }, this)).attr("srcset", g) : (e = new Image(), e.onload = a.proxy(function () {
+        f.css({
+          "background-image": 'url("' + g + '")',
+          opacity: "1"
+        }), this._core.trigger("loaded", {
+          element: f,
+          url: g
+        }, "lazy");
+      }, this), e.src = g);
+    }, this)), this._loaded.push(d.get(0)));
+  }, e.prototype.destroy = function () {
+    var a, b;
+
+    for (a in this.handlers) {
+      this._core.$element.off(a, this.handlers[a]);
+    }
+
+    for (b in Object.getOwnPropertyNames(this)) {
+      "function" != typeof this[b] && (this[b] = null);
+    }
+  }, a.fn.owlCarousel.Constructor.Plugins.Lazy = e;
+}(window.Zepto || window.jQuery, window, document), function (a, b, c, d) {
+  var e = function e(c) {
+    this._core = c, this._previousHeight = null, this._handlers = {
+      "initialized.owl.carousel refreshed.owl.carousel": a.proxy(function (a) {
+        a.namespace && this._core.settings.autoHeight && this.update();
+      }, this),
+      "changed.owl.carousel": a.proxy(function (a) {
+        a.namespace && this._core.settings.autoHeight && "position" === a.property.name && this.update();
+      }, this),
+      "loaded.owl.lazy": a.proxy(function (a) {
+        a.namespace && this._core.settings.autoHeight && a.element.closest("." + this._core.settings.itemClass).index() === this._core.current() && this.update();
+      }, this)
+    }, this._core.options = a.extend({}, e.Defaults, this._core.options), this._core.$element.on(this._handlers), this._intervalId = null;
+    var d = this;
+    a(b).on("load", function () {
+      d._core.settings.autoHeight && d.update();
+    }), a(b).resize(function () {
+      d._core.settings.autoHeight && (null != d._intervalId && clearTimeout(d._intervalId), d._intervalId = setTimeout(function () {
+        d.update();
+      }, 250));
+    });
+  };
+
+  e.Defaults = {
+    autoHeight: !1,
+    autoHeightClass: "owl-height"
+  }, e.prototype.update = function () {
+    var b = this._core._current,
+        c = b + this._core.settings.items,
+        d = this._core.settings.lazyLoad,
+        e = this._core.$stage.children().toArray().slice(b, c),
+        f = [],
+        g = 0;
+
+    a.each(e, function (b, c) {
+      f.push(a(c).height());
+    }), g = Math.max.apply(null, f), g <= 1 && d && this._previousHeight && (g = this._previousHeight), this._previousHeight = g, this._core.$stage.parent().height(g).addClass(this._core.settings.autoHeightClass);
+  }, e.prototype.destroy = function () {
+    var a, b;
+
+    for (a in this._handlers) {
+      this._core.$element.off(a, this._handlers[a]);
+    }
+
+    for (b in Object.getOwnPropertyNames(this)) {
+      "function" != typeof this[b] && (this[b] = null);
+    }
+  }, a.fn.owlCarousel.Constructor.Plugins.AutoHeight = e;
+}(window.Zepto || window.jQuery, window, document), function (a, b, c, d) {
+  var e = function e(b) {
+    this._core = b, this._videos = {}, this._playing = null, this._handlers = {
+      "initialized.owl.carousel": a.proxy(function (a) {
+        a.namespace && this._core.register({
+          type: "state",
+          name: "playing",
+          tags: ["interacting"]
+        });
+      }, this),
+      "resize.owl.carousel": a.proxy(function (a) {
+        a.namespace && this._core.settings.video && this.isInFullScreen() && a.preventDefault();
+      }, this),
+      "refreshed.owl.carousel": a.proxy(function (a) {
+        a.namespace && this._core.is("resizing") && this._core.$stage.find(".cloned .owl-video-frame").remove();
+      }, this),
+      "changed.owl.carousel": a.proxy(function (a) {
+        a.namespace && "position" === a.property.name && this._playing && this.stop();
+      }, this),
+      "prepared.owl.carousel": a.proxy(function (b) {
+        if (b.namespace) {
+          var c = a(b.content).find(".owl-video");
+          c.length && (c.css("display", "none"), this.fetch(c, a(b.content)));
+        }
+      }, this)
+    }, this._core.options = a.extend({}, e.Defaults, this._core.options), this._core.$element.on(this._handlers), this._core.$element.on("click.owl.video", ".owl-video-play-icon", a.proxy(function (a) {
+      this.play(a);
+    }, this));
+  };
+
+  e.Defaults = {
+    video: !1,
+    videoHeight: !1,
+    videoWidth: !1
+  }, e.prototype.fetch = function (a, b) {
+    var c = function () {
+      return a.attr("data-vimeo-id") ? "vimeo" : a.attr("data-vzaar-id") ? "vzaar" : "youtube";
+    }(),
+        d = a.attr("data-vimeo-id") || a.attr("data-youtube-id") || a.attr("data-vzaar-id"),
+        e = a.attr("data-width") || this._core.settings.videoWidth,
+        f = a.attr("data-height") || this._core.settings.videoHeight,
+        g = a.attr("href");
+
+    if (!g) throw new Error("Missing video URL.");
+    if (d = g.match(/(http:|https:|)\/\/(player.|www.|app.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com|be\-nocookie\.com)|vzaar\.com)\/(video\/|videos\/|embed\/|channels\/.+\/|groups\/.+\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/), d[3].indexOf("youtu") > -1) c = "youtube";else if (d[3].indexOf("vimeo") > -1) c = "vimeo";else {
+      if (!(d[3].indexOf("vzaar") > -1)) throw new Error("Video URL not supported.");
+      c = "vzaar";
+    }
+    d = d[6], this._videos[g] = {
+      type: c,
+      id: d,
+      width: e,
+      height: f
+    }, b.attr("data-video", g), this.thumbnail(a, this._videos[g]);
+  }, e.prototype.thumbnail = function (b, c) {
+    var d,
+        e,
+        f,
+        g = c.width && c.height ? "width:" + c.width + "px;height:" + c.height + "px;" : "",
+        h = b.find("img"),
+        i = "src",
+        j = "",
+        k = this._core.settings,
+        l = function l(c) {
+      e = '<div class="owl-video-play-icon"></div>', d = k.lazyLoad ? a("<div/>", {
+        "class": "owl-video-tn " + j,
+        srcType: c
+      }) : a("<div/>", {
+        "class": "owl-video-tn",
+        style: "opacity:1;background-image:url(" + c + ")"
+      }), b.after(d), b.after(e);
+    };
+
+    if (b.wrap(a("<div/>", {
+      "class": "owl-video-wrapper",
+      style: g
+    })), this._core.settings.lazyLoad && (i = "data-src", j = "owl-lazy"), h.length) return l(h.attr(i)), h.remove(), !1;
+    "youtube" === c.type ? (f = "//img.youtube.com/vi/" + c.id + "/hqdefault.jpg", l(f)) : "vimeo" === c.type ? a.ajax({
+      type: "GET",
+      url: "//vimeo.com/api/v2/video/" + c.id + ".json",
+      jsonp: "callback",
+      dataType: "jsonp",
+      success: function success(a) {
+        f = a[0].thumbnail_large, l(f);
+      }
+    }) : "vzaar" === c.type && a.ajax({
+      type: "GET",
+      url: "//vzaar.com/api/videos/" + c.id + ".json",
+      jsonp: "callback",
+      dataType: "jsonp",
+      success: function success(a) {
+        f = a.framegrab_url, l(f);
+      }
+    });
+  }, e.prototype.stop = function () {
+    this._core.trigger("stop", null, "video"), this._playing.find(".owl-video-frame").remove(), this._playing.removeClass("owl-video-playing"), this._playing = null, this._core.leave("playing"), this._core.trigger("stopped", null, "video");
+  }, e.prototype.play = function (b) {
+    var c,
+        d = a(b.target),
+        e = d.closest("." + this._core.settings.itemClass),
+        f = this._videos[e.attr("data-video")],
+        g = f.width || "100%",
+        h = f.height || this._core.$stage.height();
+
+    this._playing || (this._core.enter("playing"), this._core.trigger("play", null, "video"), e = this._core.items(this._core.relative(e.index())), this._core.reset(e.index()), c = a('<iframe frameborder="0" allowfullscreen mozallowfullscreen webkitAllowFullScreen ></iframe>'), c.attr("height", h), c.attr("width", g), "youtube" === f.type ? c.attr("src", "//www.youtube.com/embed/" + f.id + "?autoplay=1&rel=0&v=" + f.id) : "vimeo" === f.type ? c.attr("src", "//player.vimeo.com/video/" + f.id + "?autoplay=1") : "vzaar" === f.type && c.attr("src", "//view.vzaar.com/" + f.id + "/player?autoplay=true"), a(c).wrap('<div class="owl-video-frame" />').insertAfter(e.find(".owl-video")), this._playing = e.addClass("owl-video-playing"));
+  }, e.prototype.isInFullScreen = function () {
+    var b = c.fullscreenElement || c.mozFullScreenElement || c.webkitFullscreenElement;
+    return b && a(b).parent().hasClass("owl-video-frame");
+  }, e.prototype.destroy = function () {
+    var a, b;
+
+    this._core.$element.off("click.owl.video");
+
+    for (a in this._handlers) {
+      this._core.$element.off(a, this._handlers[a]);
+    }
+
+    for (b in Object.getOwnPropertyNames(this)) {
+      "function" != typeof this[b] && (this[b] = null);
+    }
+  }, a.fn.owlCarousel.Constructor.Plugins.Video = e;
+}(window.Zepto || window.jQuery, window, document), function (a, b, c, d) {
+  var e = function e(b) {
+    this.core = b, this.core.options = a.extend({}, e.Defaults, this.core.options), this.swapping = !0, this.previous = d, this.next = d, this.handlers = {
+      "change.owl.carousel": a.proxy(function (a) {
+        a.namespace && "position" == a.property.name && (this.previous = this.core.current(), this.next = a.property.value);
+      }, this),
+      "drag.owl.carousel dragged.owl.carousel translated.owl.carousel": a.proxy(function (a) {
+        a.namespace && (this.swapping = "translated" == a.type);
+      }, this),
+      "translate.owl.carousel": a.proxy(function (a) {
+        a.namespace && this.swapping && (this.core.options.animateOut || this.core.options.animateIn) && this.swap();
+      }, this)
+    }, this.core.$element.on(this.handlers);
+  };
+
+  e.Defaults = {
+    animateOut: !1,
+    animateIn: !1
+  }, e.prototype.swap = function () {
+    if (1 === this.core.settings.items && a.support.animation && a.support.transition) {
+      this.core.speed(0);
+      var b,
+          c = a.proxy(this.clear, this),
+          d = this.core.$stage.children().eq(this.previous),
+          e = this.core.$stage.children().eq(this.next),
+          f = this.core.settings.animateIn,
+          g = this.core.settings.animateOut;
+      this.core.current() !== this.previous && (g && (b = this.core.coordinates(this.previous) - this.core.coordinates(this.next), d.one(a.support.animation.end, c).css({
+        left: b + "px"
+      }).addClass("animated owl-animated-out").addClass(g)), f && e.one(a.support.animation.end, c).addClass("animated owl-animated-in").addClass(f));
+    }
+  }, e.prototype.clear = function (b) {
+    a(b.target).css({
+      left: ""
+    }).removeClass("animated owl-animated-out owl-animated-in").removeClass(this.core.settings.animateIn).removeClass(this.core.settings.animateOut), this.core.onTransitionEnd();
+  }, e.prototype.destroy = function () {
+    var a, b;
+
+    for (a in this.handlers) {
+      this.core.$element.off(a, this.handlers[a]);
+    }
+
+    for (b in Object.getOwnPropertyNames(this)) {
+      "function" != typeof this[b] && (this[b] = null);
+    }
+  }, a.fn.owlCarousel.Constructor.Plugins.Animate = e;
+}(window.Zepto || window.jQuery, window, document), function (a, b, c, d) {
+  var e = function e(b) {
+    this._core = b, this._call = null, this._time = 0, this._timeout = 0, this._paused = !0, this._handlers = {
+      "changed.owl.carousel": a.proxy(function (a) {
+        a.namespace && "settings" === a.property.name ? this._core.settings.autoplay ? this.play() : this.stop() : a.namespace && "position" === a.property.name && this._paused && (this._time = 0);
+      }, this),
+      "initialized.owl.carousel": a.proxy(function (a) {
+        a.namespace && this._core.settings.autoplay && this.play();
+      }, this),
+      "play.owl.autoplay": a.proxy(function (a, b, c) {
+        a.namespace && this.play(b, c);
+      }, this),
+      "stop.owl.autoplay": a.proxy(function (a) {
+        a.namespace && this.stop();
+      }, this),
+      "mouseover.owl.autoplay": a.proxy(function () {
+        this._core.settings.autoplayHoverPause && this._core.is("rotating") && this.pause();
+      }, this),
+      "mouseleave.owl.autoplay": a.proxy(function () {
+        this._core.settings.autoplayHoverPause && this._core.is("rotating") && this.play();
+      }, this),
+      "touchstart.owl.core": a.proxy(function () {
+        this._core.settings.autoplayHoverPause && this._core.is("rotating") && this.pause();
+      }, this),
+      "touchend.owl.core": a.proxy(function () {
+        this._core.settings.autoplayHoverPause && this.play();
+      }, this)
+    }, this._core.$element.on(this._handlers), this._core.options = a.extend({}, e.Defaults, this._core.options);
+  };
+
+  e.Defaults = {
+    autoplay: !1,
+    autoplayTimeout: 5e3,
+    autoplayHoverPause: !1,
+    autoplaySpeed: !1
+  }, e.prototype._next = function (d) {
+    this._call = b.setTimeout(a.proxy(this._next, this, d), this._timeout * (Math.round(this.read() / this._timeout) + 1) - this.read()), this._core.is("interacting") || c.hidden || this._core.next(d || this._core.settings.autoplaySpeed);
+  }, e.prototype.read = function () {
+    return new Date().getTime() - this._time;
+  }, e.prototype.play = function (c, d) {
+    var e;
+    this._core.is("rotating") || this._core.enter("rotating"), c = c || this._core.settings.autoplayTimeout, e = Math.min(this._time % (this._timeout || c), c), this._paused ? (this._time = this.read(), this._paused = !1) : b.clearTimeout(this._call), this._time += this.read() % c - e, this._timeout = c, this._call = b.setTimeout(a.proxy(this._next, this, d), c - e);
+  }, e.prototype.stop = function () {
+    this._core.is("rotating") && (this._time = 0, this._paused = !0, b.clearTimeout(this._call), this._core.leave("rotating"));
+  }, e.prototype.pause = function () {
+    this._core.is("rotating") && !this._paused && (this._time = this.read(), this._paused = !0, b.clearTimeout(this._call));
+  }, e.prototype.destroy = function () {
+    var a, b;
+    this.stop();
+
+    for (a in this._handlers) {
+      this._core.$element.off(a, this._handlers[a]);
+    }
+
+    for (b in Object.getOwnPropertyNames(this)) {
+      "function" != typeof this[b] && (this[b] = null);
+    }
+  }, a.fn.owlCarousel.Constructor.Plugins.autoplay = e;
+}(window.Zepto || window.jQuery, window, document), function (a, b, c, d) {
+  "use strict";
+
+  var e = function e(b) {
+    this._core = b, this._initialized = !1, this._pages = [], this._controls = {}, this._templates = [], this.$element = this._core.$element, this._overrides = {
+      next: this._core.next,
+      prev: this._core.prev,
+      to: this._core.to
+    }, this._handlers = {
+      "prepared.owl.carousel": a.proxy(function (b) {
+        b.namespace && this._core.settings.dotsData && this._templates.push('<div class="' + this._core.settings.dotClass + '">' + a(b.content).find("[data-dot]").addBack("[data-dot]").attr("data-dot") + "</div>");
+      }, this),
+      "added.owl.carousel": a.proxy(function (a) {
+        a.namespace && this._core.settings.dotsData && this._templates.splice(a.position, 0, this._templates.pop());
+      }, this),
+      "remove.owl.carousel": a.proxy(function (a) {
+        a.namespace && this._core.settings.dotsData && this._templates.splice(a.position, 1);
+      }, this),
+      "changed.owl.carousel": a.proxy(function (a) {
+        a.namespace && "position" == a.property.name && this.draw();
+      }, this),
+      "initialized.owl.carousel": a.proxy(function (a) {
+        a.namespace && !this._initialized && (this._core.trigger("initialize", null, "navigation"), this.initialize(), this.update(), this.draw(), this._initialized = !0, this._core.trigger("initialized", null, "navigation"));
+      }, this),
+      "refreshed.owl.carousel": a.proxy(function (a) {
+        a.namespace && this._initialized && (this._core.trigger("refresh", null, "navigation"), this.update(), this.draw(), this._core.trigger("refreshed", null, "navigation"));
+      }, this)
+    }, this._core.options = a.extend({}, e.Defaults, this._core.options), this.$element.on(this._handlers);
+  };
+
+  e.Defaults = {
+    nav: !1,
+    navText: ['<span aria-label="Previous">&#x2039;</span>', '<span aria-label="Next">&#x203a;</span>'],
+    navSpeed: !1,
+    navElement: 'button type="button" role="presentation"',
+    navContainer: !1,
+    navContainerClass: "owl-nav",
+    navClass: ["owl-prev", "owl-next"],
+    slideBy: 1,
+    dotClass: "owl-dot",
+    dotsClass: "owl-dots",
+    dots: !0,
+    dotsEach: !1,
+    dotsData: !1,
+    dotsSpeed: !1,
+    dotsContainer: !1
+  }, e.prototype.initialize = function () {
+    var b,
+        c = this._core.settings;
+    this._controls.$relative = (c.navContainer ? a(c.navContainer) : a("<div>").addClass(c.navContainerClass).appendTo(this.$element)).addClass("disabled"), this._controls.$previous = a("<" + c.navElement + ">").addClass(c.navClass[0]).html(c.navText[0]).prependTo(this._controls.$relative).on("click", a.proxy(function (a) {
+      this.prev(c.navSpeed);
+    }, this)), this._controls.$next = a("<" + c.navElement + ">").addClass(c.navClass[1]).html(c.navText[1]).appendTo(this._controls.$relative).on("click", a.proxy(function (a) {
+      this.next(c.navSpeed);
+    }, this)), c.dotsData || (this._templates = [a('<button role="button">').addClass(c.dotClass).append(a("<span>")).prop("outerHTML")]), this._controls.$absolute = (c.dotsContainer ? a(c.dotsContainer) : a("<div>").addClass(c.dotsClass).appendTo(this.$element)).addClass("disabled"), this._controls.$absolute.on("click", "button", a.proxy(function (b) {
+      var d = a(b.target).parent().is(this._controls.$absolute) ? a(b.target).index() : a(b.target).parent().index();
+      b.preventDefault(), this.to(d, c.dotsSpeed);
+    }, this));
+
+    for (b in this._overrides) {
+      this._core[b] = a.proxy(this[b], this);
+    }
+  }, e.prototype.destroy = function () {
+    var a, b, c, d, e;
+    e = this._core.settings;
+
+    for (a in this._handlers) {
+      this.$element.off(a, this._handlers[a]);
+    }
+
+    for (b in this._controls) {
+      "$relative" === b && e.navContainer ? this._controls[b].html("") : this._controls[b].remove();
+    }
+
+    for (d in this.overides) {
+      this._core[d] = this._overrides[d];
+    }
+
+    for (c in Object.getOwnPropertyNames(this)) {
+      "function" != typeof this[c] && (this[c] = null);
+    }
+  }, e.prototype.update = function () {
+    var a,
+        b,
+        c,
+        d = this._core.clones().length / 2,
+        e = d + this._core.items().length,
+        f = this._core.maximum(!0),
+        g = this._core.settings,
+        h = g.center || g.autoWidth || g.dotsData ? 1 : g.dotsEach || g.items;
+
+    if ("page" !== g.slideBy && (g.slideBy = Math.min(g.slideBy, g.items)), g.dots || "page" == g.slideBy) for (this._pages = [], a = d, b = 0, c = 0; a < e; a++) {
+      if (b >= h || 0 === b) {
+        if (this._pages.push({
+          start: Math.min(f, a - d),
+          end: a - d + h - 1
+        }), Math.min(f, a - d) === f) break;
+        b = 0, ++c;
+      }
+
+      b += this._core.mergers(this._core.relative(a));
+    }
+  }, e.prototype.draw = function () {
+    var b,
+        c = this._core.settings,
+        d = this._core.items().length <= c.items,
+        e = this._core.relative(this._core.current()),
+        f = c.loop || c.rewind;
+
+    this._controls.$relative.toggleClass("disabled", !c.nav || d), c.nav && (this._controls.$previous.toggleClass("disabled", !f && e <= this._core.minimum(!0)), this._controls.$next.toggleClass("disabled", !f && e >= this._core.maximum(!0))), this._controls.$absolute.toggleClass("disabled", !c.dots || d), c.dots && (b = this._pages.length - this._controls.$absolute.children().length, c.dotsData && 0 !== b ? this._controls.$absolute.html(this._templates.join("")) : b > 0 ? this._controls.$absolute.append(new Array(b + 1).join(this._templates[0])) : b < 0 && this._controls.$absolute.children().slice(b).remove(), this._controls.$absolute.find(".active").removeClass("active"), this._controls.$absolute.children().eq(a.inArray(this.current(), this._pages)).addClass("active"));
+  }, e.prototype.onTrigger = function (b) {
+    var c = this._core.settings;
+    b.page = {
+      index: a.inArray(this.current(), this._pages),
+      count: this._pages.length,
+      size: c && (c.center || c.autoWidth || c.dotsData ? 1 : c.dotsEach || c.items)
+    };
+  }, e.prototype.current = function () {
+    var b = this._core.relative(this._core.current());
+
+    return a.grep(this._pages, a.proxy(function (a, c) {
+      return a.start <= b && a.end >= b;
+    }, this)).pop();
+  }, e.prototype.getPosition = function (b) {
+    var c,
+        d,
+        e = this._core.settings;
+    return "page" == e.slideBy ? (c = a.inArray(this.current(), this._pages), d = this._pages.length, b ? ++c : --c, c = this._pages[(c % d + d) % d].start) : (c = this._core.relative(this._core.current()), d = this._core.items().length, b ? c += e.slideBy : c -= e.slideBy), c;
+  }, e.prototype.next = function (b) {
+    a.proxy(this._overrides.to, this._core)(this.getPosition(!0), b);
+  }, e.prototype.prev = function (b) {
+    a.proxy(this._overrides.to, this._core)(this.getPosition(!1), b);
+  }, e.prototype.to = function (b, c, d) {
+    var e;
+    !d && this._pages.length ? (e = this._pages.length, a.proxy(this._overrides.to, this._core)(this._pages[(b % e + e) % e].start, c)) : a.proxy(this._overrides.to, this._core)(b, c);
+  }, a.fn.owlCarousel.Constructor.Plugins.Navigation = e;
+}(window.Zepto || window.jQuery, window, document), function (a, b, c, d) {
+  "use strict";
+
+  var e = function e(c) {
+    this._core = c, this._hashes = {}, this.$element = this._core.$element, this._handlers = {
+      "initialized.owl.carousel": a.proxy(function (c) {
+        c.namespace && "URLHash" === this._core.settings.startPosition && a(b).trigger("hashchange.owl.navigation");
+      }, this),
+      "prepared.owl.carousel": a.proxy(function (b) {
+        if (b.namespace) {
+          var c = a(b.content).find("[data-hash]").addBack("[data-hash]").attr("data-hash");
+          if (!c) return;
+          this._hashes[c] = b.content;
+        }
+      }, this),
+      "changed.owl.carousel": a.proxy(function (c) {
+        if (c.namespace && "position" === c.property.name) {
+          var d = this._core.items(this._core.relative(this._core.current())),
+              e = a.map(this._hashes, function (a, b) {
+            return a === d ? b : null;
+          }).join();
+
+          if (!e || b.location.hash.slice(1) === e) return;
+          b.location.hash = e;
+        }
+      }, this)
+    }, this._core.options = a.extend({}, e.Defaults, this._core.options), this.$element.on(this._handlers), a(b).on("hashchange.owl.navigation", a.proxy(function (a) {
+      var c = b.location.hash.substring(1),
+          e = this._core.$stage.children(),
+          f = this._hashes[c] && e.index(this._hashes[c]);
+
+      f !== d && f !== this._core.current() && this._core.to(this._core.relative(f), !1, !0);
+    }, this));
+  };
+
+  e.Defaults = {
+    URLhashListener: !1
+  }, e.prototype.destroy = function () {
+    var c, d;
+    a(b).off("hashchange.owl.navigation");
+
+    for (c in this._handlers) {
+      this._core.$element.off(c, this._handlers[c]);
+    }
+
+    for (d in Object.getOwnPropertyNames(this)) {
+      "function" != typeof this[d] && (this[d] = null);
+    }
+  }, a.fn.owlCarousel.Constructor.Plugins.Hash = e;
+}(window.Zepto || window.jQuery, window, document), function (a, b, c, d) {
+  function e(b, c) {
+    var e = !1,
+        f = b.charAt(0).toUpperCase() + b.slice(1);
+    return a.each((b + " " + h.join(f + " ") + f).split(" "), function (a, b) {
+      if (g[b] !== d) return e = !c || b, !1;
+    }), e;
+  }
+
+  function f(a) {
+    return e(a, !0);
+  }
+
+  var g = a("<support>").get(0).style,
+      h = "Webkit Moz O ms".split(" "),
+      i = {
+    transition: {
+      end: {
+        WebkitTransition: "webkitTransitionEnd",
+        MozTransition: "transitionend",
+        OTransition: "oTransitionEnd",
+        transition: "transitionend"
+      }
+    },
+    animation: {
+      end: {
+        WebkitAnimation: "webkitAnimationEnd",
+        MozAnimation: "animationend",
+        OAnimation: "oAnimationEnd",
+        animation: "animationend"
+      }
+    }
+  },
+      j = {
+    csstransforms: function csstransforms() {
+      return !!e("transform");
+    },
+    csstransforms3d: function csstransforms3d() {
+      return !!e("perspective");
+    },
+    csstransitions: function csstransitions() {
+      return !!e("transition");
+    },
+    cssanimations: function cssanimations() {
+      return !!e("animation");
+    }
+  };
+  j.csstransitions() && (a.support.transition = new String(f("transition")), a.support.transition.end = i.transition.end[a.support.transition]), j.cssanimations() && (a.support.animation = new String(f("animation")), a.support.animation.end = i.animation.end[a.support.animation]), j.csstransforms() && (a.support.transform = new String(f("transform")), a.support.transform3d = j.csstransforms3d());
+}(window.Zepto || window.jQuery, window, document);
+
+/***/ }),
+
+/***/ "./resources/js/home/js/owl-custom-main.js":
+/*!*************************************************!*\
+  !*** ./resources/js/home/js/owl-custom-main.js ***!
+  \*************************************************/
+/***/ (() => {
+
+// $(".owl").owlCarousel({
+//   rtl: true,
+//   loop: true,
+//   nav: true,
+//   navText: ["<i class='bx bxs-right-arrow-square'></i>","<i class='bx bxs-left-arrow-square'></i>"],
+//   dots: false,
+//   autoplaySpeed:300,
+//   autoplay:true,
+//   responsive: {
+//     0: {
+//       items: 2
+//     },
+//     576: {
+//       items: 2
+//     },
+//     768: {
+//       items: 2
+//     },
+//     1200: {
+//       items: 4
+//     }
+//   }
+// });
+//  $(".owl-carousel").owlCarousel({
+//       rtl: true,
+//       loop: true,
+//       nav: false,
+//       dots: true,
+//       autoplaySpeed:300,
+//       autoplay:true,
+//       responsive: {
+//         0: {
+//           items: 1
+//         },
+//         576: {
+//           items: 1
+//         },
+//         768: {
+//           items: 1
+//         },
+//         1200: {
+//           items: 4
+//         }
+//       }
+//     });
+
+/***/ }),
+
 /***/ "./node_modules/jquery-mousewheel/jquery.mousewheel.js":
 /*!*************************************************************!*\
   !*** ./node_modules/jquery-mousewheel/jquery.mousewheel.js ***!
@@ -20971,6 +22194,1947 @@ return jQuery;
 } );
 
 
+/***/ }),
+
+/***/ "./node_modules/shufflejs/dist/shuffle.js":
+/*!************************************************!*\
+  !*** ./node_modules/shufflejs/dist/shuffle.js ***!
+  \************************************************/
+/***/ (function(module) {
+
+(function (global, factory) {
+   true ? module.exports = factory() :
+  0;
+})(this, (function () { 'use strict';
+
+  var tinyEmitter = {exports: {}};
+
+  function E() {// Keep this empty so it's easier to inherit from
+    // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
+  }
+
+  E.prototype = {
+    on: function (name, callback, ctx) {
+      var e = this.e || (this.e = {});
+      (e[name] || (e[name] = [])).push({
+        fn: callback,
+        ctx: ctx
+      });
+      return this;
+    },
+    once: function (name, callback, ctx) {
+      var self = this;
+
+      function listener() {
+        self.off(name, listener);
+        callback.apply(ctx, arguments);
+      }
+      listener._ = callback;
+      return this.on(name, listener, ctx);
+    },
+    emit: function (name) {
+      var data = [].slice.call(arguments, 1);
+      var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
+      var i = 0;
+      var len = evtArr.length;
+
+      for (i; i < len; i++) {
+        evtArr[i].fn.apply(evtArr[i].ctx, data);
+      }
+
+      return this;
+    },
+    off: function (name, callback) {
+      var e = this.e || (this.e = {});
+      var evts = e[name];
+      var liveEvents = [];
+
+      if (evts && callback) {
+        for (var i = 0, len = evts.length; i < len; i++) {
+          if (evts[i].fn !== callback && evts[i].fn._ !== callback) liveEvents.push(evts[i]);
+        }
+      } // Remove event from queue to prevent memory leak
+      // Suggested by https://github.com/lazd
+      // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
+
+
+      liveEvents.length ? e[name] = liveEvents : delete e[name];
+      return this;
+    }
+  };
+  tinyEmitter.exports = E;
+  tinyEmitter.exports.TinyEmitter = E;
+
+  var arrayParallel = function parallel(fns, context, callback) {
+    if (!callback) {
+      if (typeof context === 'function') {
+        callback = context;
+        context = null;
+      } else {
+        callback = noop;
+      }
+    }
+
+    var pending = fns && fns.length;
+    if (!pending) return callback(null, []);
+    var finished = false;
+    var results = new Array(pending);
+    fns.forEach(context ? function (fn, i) {
+      fn.call(context, maybeDone(i));
+    } : function (fn, i) {
+      fn(maybeDone(i));
+    });
+
+    function maybeDone(i) {
+      return function (err, result) {
+        if (finished) return;
+
+        if (err) {
+          callback(err, results);
+          finished = true;
+          return;
+        }
+
+        results[i] = result;
+        if (! --pending) callback(null, results);
+      };
+    }
+  };
+
+  function noop() {}
+
+  /**
+   * Always returns a numeric value, given a value. Logic from jQuery's `isNumeric`.
+   * @param {*} value Possibly numeric value.
+   * @return {number} `value` or zero if `value` isn't numeric.
+   */
+  function getNumber(value) {
+    return parseFloat(value) || 0;
+  }
+
+  class Point {
+    /**
+     * Represents a coordinate pair.
+     * @param {number} [x=0] X.
+     * @param {number} [y=0] Y.
+     */
+    constructor(x, y) {
+      this.x = getNumber(x);
+      this.y = getNumber(y);
+    }
+    /**
+     * Whether two points are equal.
+     * @param {Point} a Point A.
+     * @param {Point} b Point B.
+     * @return {boolean}
+     */
+
+
+    static equals(a, b) {
+      return a.x === b.x && a.y === b.y;
+    }
+
+  }
+
+  class Rect {
+    /**
+     * Class for representing rectangular regions.
+     * https://github.com/google/closure-library/blob/master/closure/goog/math/rect.js
+     * @param {number} x Left.
+     * @param {number} y Top.
+     * @param {number} w Width.
+     * @param {number} h Height.
+     * @param {number} id Identifier
+     * @constructor
+     */
+    constructor(x, y, w, h, id) {
+      this.id = id;
+      /** @type {number} */
+
+      this.left = x;
+      /** @type {number} */
+
+      this.top = y;
+      /** @type {number} */
+
+      this.width = w;
+      /** @type {number} */
+
+      this.height = h;
+    }
+    /**
+     * Returns whether two rectangles intersect.
+     * @param {Rect} a A Rectangle.
+     * @param {Rect} b A Rectangle.
+     * @return {boolean} Whether a and b intersect.
+     */
+
+
+    static intersects(a, b) {
+      return a.left < b.left + b.width && b.left < a.left + a.width && a.top < b.top + b.height && b.top < a.top + a.height;
+    }
+
+  }
+
+  var Classes = {
+    BASE: 'shuffle',
+    SHUFFLE_ITEM: 'shuffle-item',
+    VISIBLE: 'shuffle-item--visible',
+    HIDDEN: 'shuffle-item--hidden'
+  };
+
+  let id$1 = 0;
+
+  class ShuffleItem {
+    constructor(element, isRTL) {
+      id$1 += 1;
+      this.id = id$1;
+      this.element = element;
+      /**
+       * Set correct direction of item
+       */
+
+      this.isRTL = isRTL;
+      /**
+       * Used to separate items for layout and shrink.
+       */
+
+      this.isVisible = true;
+      /**
+       * Used to determine if a transition will happen. By the time the _layout
+       * and _shrink methods get the ShuffleItem instances, the `isVisible` value
+       * has already been changed by the separation methods, so this property is
+       * needed to know if the item was visible/hidden before the shrink/layout.
+       */
+
+      this.isHidden = false;
+    }
+
+    show() {
+      this.isVisible = true;
+      this.element.classList.remove(Classes.HIDDEN);
+      this.element.classList.add(Classes.VISIBLE);
+      this.element.removeAttribute('aria-hidden');
+    }
+
+    hide() {
+      this.isVisible = false;
+      this.element.classList.remove(Classes.VISIBLE);
+      this.element.classList.add(Classes.HIDDEN);
+      this.element.setAttribute('aria-hidden', true);
+    }
+
+    init() {
+      this.addClasses([Classes.SHUFFLE_ITEM, Classes.VISIBLE]);
+      this.applyCss(ShuffleItem.Css.INITIAL);
+      this.applyCss(this.isRTL ? ShuffleItem.Css.DIRECTION.rtl : ShuffleItem.Css.DIRECTION.ltr);
+      this.scale = ShuffleItem.Scale.VISIBLE;
+      this.point = new Point();
+    }
+
+    addClasses(classes) {
+      classes.forEach(className => {
+        this.element.classList.add(className);
+      });
+    }
+
+    removeClasses(classes) {
+      classes.forEach(className => {
+        this.element.classList.remove(className);
+      });
+    }
+
+    applyCss(obj) {
+      Object.keys(obj).forEach(key => {
+        this.element.style[key] = obj[key];
+      });
+    }
+
+    dispose() {
+      this.removeClasses([Classes.HIDDEN, Classes.VISIBLE, Classes.SHUFFLE_ITEM]);
+      this.element.removeAttribute('style');
+      this.element = null;
+    }
+
+  }
+
+  ShuffleItem.Css = {
+    INITIAL: {
+      position: 'absolute',
+      top: 0,
+      visibility: 'visible',
+      willChange: 'transform'
+    },
+    DIRECTION: {
+      ltr: {
+        left: 0
+      },
+      rtl: {
+        right: 0
+      }
+    },
+    VISIBLE: {
+      before: {
+        opacity: 1,
+        visibility: 'visible'
+      },
+      after: {
+        transitionDelay: ''
+      }
+    },
+    HIDDEN: {
+      before: {
+        opacity: 0
+      },
+      after: {
+        visibility: 'hidden',
+        transitionDelay: ''
+      }
+    }
+  };
+  ShuffleItem.Scale = {
+    VISIBLE: 1,
+    HIDDEN: 0.001
+  };
+
+  let value = null;
+  var testComputedSize = (() => {
+    if (value !== null) {
+      return value;
+    }
+
+    const element = document.body || document.documentElement;
+    const e = document.createElement('div');
+    e.style.cssText = 'width:10px;padding:2px;box-sizing:border-box;';
+    element.appendChild(e);
+    const {
+      width
+    } = window.getComputedStyle(e, null); // Fix for issue #314
+
+    value = Math.round(getNumber(width)) === 10;
+    element.removeChild(e);
+    return value;
+  });
+
+  /**
+   * Retrieve the computed style for an element, parsed as a float.
+   * @param {Element} element Element to get style for.
+   * @param {string} style Style property.
+   * @param {CSSStyleDeclaration} [styles] Optionally include clean styles to
+   *     use instead of asking for them again.
+   * @return {number} The parsed computed value or zero if that fails because IE
+   *     will return 'auto' when the element doesn't have margins instead of
+   *     the computed style.
+   */
+
+  function getNumberStyle(element, style) {
+    let styles = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : window.getComputedStyle(element, null);
+    let value = getNumber(styles[style]); // Support IE<=11 and W3C spec.
+
+    if (!testComputedSize() && style === 'width') {
+      value += getNumber(styles.paddingLeft) + getNumber(styles.paddingRight) + getNumber(styles.borderLeftWidth) + getNumber(styles.borderRightWidth);
+    } else if (!testComputedSize() && style === 'height') {
+      value += getNumber(styles.paddingTop) + getNumber(styles.paddingBottom) + getNumber(styles.borderTopWidth) + getNumber(styles.borderBottomWidth);
+    }
+
+    return value;
+  }
+
+  /**
+   * Fisher-Yates shuffle.
+   * http://stackoverflow.com/a/962890/373422
+   * https://bost.ocks.org/mike/shuffle/
+   * @param {Array} array Array to shuffle.
+   * @return {Array} Randomly sorted array.
+   */
+  function randomize(array) {
+    let n = array.length;
+
+    while (n) {
+      n -= 1;
+      const i = Math.floor(Math.random() * (n + 1));
+      const temp = array[i];
+      array[i] = array[n];
+      array[n] = temp;
+    }
+
+    return array;
+  }
+
+  const defaults = {
+    // Use array.reverse() to reverse the results
+    reverse: false,
+    // Sorting function
+    by: null,
+    // Custom sort function
+    compare: null,
+    // If true, this will skip the sorting and return a randomized order in the array
+    randomize: false,
+    // Determines which property of each item in the array is passed to the
+    // sorting method.
+    key: 'element'
+  };
+  /**
+   * You can return `undefined` from the `by` function to revert to DOM order.
+   * @param {Array<T>} arr Array to sort.
+   * @param {SortOptions} options Sorting options.
+   * @return {Array<T>}
+   */
+
+  function sorter(arr, options) {
+    const opts = { ...defaults,
+      ...options
+    };
+    const original = Array.from(arr);
+    let revert = false;
+
+    if (!arr.length) {
+      return [];
+    }
+
+    if (opts.randomize) {
+      return randomize(arr);
+    } // Sort the elements by the opts.by function.
+    // If we don't have opts.by, default to DOM order
+
+
+    if (typeof opts.by === 'function') {
+      arr.sort((a, b) => {
+        // Exit early if we already know we want to revert
+        if (revert) {
+          return 0;
+        }
+
+        const valA = opts.by(a[opts.key]);
+        const valB = opts.by(b[opts.key]); // If both values are undefined, use the DOM order
+
+        if (valA === undefined && valB === undefined) {
+          revert = true;
+          return 0;
+        }
+
+        if (valA < valB || valA === 'sortFirst' || valB === 'sortLast') {
+          return -1;
+        }
+
+        if (valA > valB || valA === 'sortLast' || valB === 'sortFirst') {
+          return 1;
+        }
+
+        return 0;
+      });
+    } else if (typeof opts.compare === 'function') {
+      arr.sort(opts.compare);
+    } // Revert to the original array if necessary
+
+
+    if (revert) {
+      return original;
+    }
+
+    if (opts.reverse) {
+      arr.reverse();
+    }
+
+    return arr;
+  }
+
+  const transitions = {};
+  const eventName = 'transitionend';
+  let count = 0;
+
+  function uniqueId() {
+    count += 1;
+    return eventName + count;
+  }
+
+  function cancelTransitionEnd(id) {
+    if (transitions[id]) {
+      transitions[id].element.removeEventListener(eventName, transitions[id].listener);
+      transitions[id] = null;
+      return true;
+    }
+
+    return false;
+  }
+  function onTransitionEnd(element, callback) {
+    const id = uniqueId();
+
+    const listener = evt => {
+      if (evt.currentTarget === evt.target) {
+        cancelTransitionEnd(id);
+        callback(evt);
+      }
+    };
+
+    element.addEventListener(eventName, listener);
+    transitions[id] = {
+      element,
+      listener
+    };
+    return id;
+  }
+
+  function arrayMax(array) {
+    return Math.max(...array);
+  }
+
+  function arrayMin(array) {
+    return Math.min(...array);
+  }
+
+  /**
+   * Determine the number of columns an items spans.
+   * @param {number} itemWidth Width of the item.
+   * @param {number} columnWidth Width of the column (includes gutter).
+   * @param {number} columns Total number of columns
+   * @param {number} threshold A buffer value for the size of the column to fit.
+   * @return {number}
+   */
+
+  function getColumnSpan(itemWidth, columnWidth, columns, threshold) {
+    let columnSpan = itemWidth / columnWidth; // If the difference between the rounded column span number and the
+    // calculated column span number is really small, round the number to
+    // make it fit.
+
+    if (Math.abs(Math.round(columnSpan) - columnSpan) < threshold) {
+      // e.g. columnSpan = 4.0089945390298745
+      columnSpan = Math.round(columnSpan);
+    } // Ensure the column span is not more than the amount of columns in the whole layout.
+
+
+    return Math.min(Math.ceil(columnSpan), columns);
+  }
+  /**
+   * Retrieves the column set to use for placement.
+   * @param {number} columnSpan The number of columns this current item spans.
+   * @param {number} columns The total columns in the grid.
+   * @return {Array.<number>} An array of numbers represeting the column set.
+   */
+
+  function getAvailablePositions(positions, columnSpan, columns) {
+    // The item spans only one column.
+    if (columnSpan === 1) {
+      return positions;
+    } // The item spans more than one column, figure out how many different
+    // places it could fit horizontally.
+    // The group count is the number of places within the positions this block
+    // could fit, ignoring the current positions of items.
+    // Imagine a 2 column brick as the second item in a 4 column grid with
+    // 10px height each. Find the places it would fit:
+    // [20, 10, 10, 0]
+    //  |   |   |
+    //  *   *   *
+    //
+    // Then take the places which fit and get the bigger of the two:
+    // max([20, 10]), max([10, 10]), max([10, 0]) = [20, 10, 10]
+    //
+    // Next, find the first smallest number (the short column).
+    // [20, 10, 10]
+    //      |
+    //      *
+    //
+    // And that's where it should be placed!
+    //
+    // Another example where the second column's item extends past the first:
+    // [10, 20, 10, 0] => [20, 20, 10] => 10
+
+
+    const available = []; // For how many possible positions for this item there are.
+
+    for (let i = 0; i <= columns - columnSpan; i++) {
+      // Find the bigger value for each place it could fit.
+      available.push(arrayMax(positions.slice(i, i + columnSpan)));
+    }
+
+    return available;
+  }
+  /**
+   * Find index of short column, the first from the left where this item will go.
+   *
+   * @param {Array.<number>} positions The array to search for the smallest number.
+   * @param {number} buffer Optional buffer which is very useful when the height
+   *     is a percentage of the width.
+   * @return {number} Index of the short column.
+   */
+
+  function getShortColumn(positions, buffer) {
+    const minPosition = arrayMin(positions);
+
+    for (let i = 0, len = positions.length; i < len; i++) {
+      if (positions[i] >= minPosition - buffer && positions[i] <= minPosition + buffer) {
+        return i;
+      }
+    }
+
+    return 0;
+  }
+  /**
+   * Determine the location of the next item, based on its size.
+   * @param {Object} itemSize Object with width and height.
+   * @param {Array.<number>} positions Positions of the other current items.
+   * @param {number} gridSize The column width or row height.
+   * @param {number} total The total number of columns or rows.
+   * @param {number} threshold Buffer value for the column to fit.
+   * @param {number} buffer Vertical buffer for the height of items.
+   * @return {Point}
+   */
+
+  function getItemPosition(_ref) {
+    let {
+      itemSize,
+      positions,
+      gridSize,
+      total,
+      threshold,
+      buffer
+    } = _ref;
+    const span = getColumnSpan(itemSize.width, gridSize, total, threshold);
+    const setY = getAvailablePositions(positions, span, total);
+    const shortColumnIndex = getShortColumn(setY, buffer); // Position the item
+
+    const point = new Point(gridSize * shortColumnIndex, setY[shortColumnIndex]); // Update the columns array with the new values for each column.
+    // e.g. before the update the columns could be [250, 0, 0, 0] for an item
+    // which spans 2 columns. After it would be [250, itemHeight, itemHeight, 0].
+
+    const setHeight = setY[shortColumnIndex] + itemSize.height;
+
+    for (let i = 0; i < span; i++) {
+      positions[shortColumnIndex + i] = setHeight;
+    }
+
+    return point;
+  }
+  /**
+   * This method attempts to center items. This method could potentially be slow
+   * with a large number of items because it must place items, then check every
+   * previous item to ensure there is no overlap.
+   * @param {Array.<Rect>} itemRects Item data objects.
+   * @param {number} containerWidth Width of the containing element.
+   * @return {Array.<Point>}
+   */
+
+  function getCenteredPositions(itemRects, containerWidth) {
+    const rowMap = {}; // Populate rows by their offset because items could jump between rows like:
+    // a   c
+    //  bbb
+
+    itemRects.forEach(itemRect => {
+      if (rowMap[itemRect.top]) {
+        // Push the point to the last row array.
+        rowMap[itemRect.top].push(itemRect);
+      } else {
+        // Start of a new row.
+        rowMap[itemRect.top] = [itemRect];
+      }
+    }); // For each row, find the end of the last item, then calculate
+    // the remaining space by dividing it by 2. Then add that
+    // offset to the x position of each point.
+
+    let rects = [];
+    const rows = [];
+    const centeredRows = [];
+    Object.keys(rowMap).forEach(key => {
+      const itemRects = rowMap[key];
+      rows.push(itemRects);
+      const lastItem = itemRects[itemRects.length - 1];
+      const end = lastItem.left + lastItem.width;
+      const offset = Math.round((containerWidth - end) / 2);
+      let finalRects = itemRects;
+      let canMove = false;
+
+      if (offset > 0) {
+        const newRects = [];
+        canMove = itemRects.every(r => {
+          const newRect = new Rect(r.left + offset, r.top, r.width, r.height, r.id); // Check all current rects to make sure none overlap.
+
+          const noOverlap = !rects.some(r => Rect.intersects(newRect, r));
+          newRects.push(newRect);
+          return noOverlap;
+        }); // If none of the rectangles overlapped, the whole group can be centered.
+
+        if (canMove) {
+          finalRects = newRects;
+        }
+      } // If the items are not going to be offset, ensure that the original
+      // placement for this row will not overlap previous rows (row-spanning
+      // elements could be in the way).
+
+
+      if (!canMove) {
+        let intersectingRect;
+        const hasOverlap = itemRects.some(itemRect => rects.some(r => {
+          const intersects = Rect.intersects(itemRect, r);
+
+          if (intersects) {
+            intersectingRect = r;
+          }
+
+          return intersects;
+        })); // If there is any overlap, replace the overlapping row with the original.
+
+        if (hasOverlap) {
+          const rowIndex = centeredRows.findIndex(items => items.includes(intersectingRect));
+          centeredRows.splice(rowIndex, 1, rows[rowIndex]);
+        }
+      }
+
+      rects = rects.concat(finalRects);
+      centeredRows.push(finalRects);
+    }); // Reduce array of arrays to a single array of points.
+    // https://stackoverflow.com/a/10865042/373422
+    // Then reset sort back to how the items were passed to this method.
+    // Remove the wrapper object with index, map to a Point.
+
+    return centeredRows.flat().sort((a, b) => a.id - b.id).map(itemRect => new Point(itemRect.left, itemRect.top));
+  }
+
+  /**
+   * Hyphenates a javascript style string to a css one. For example:
+   * MozBoxSizing -> -moz-box-sizing.
+   * @param {string} str The string to hyphenate.
+   * @return {string} The hyphenated string.
+   */
+  function hyphenate(str) {
+    return str.replace(/([A-Z])/g, (str, m1) => `-${m1.toLowerCase()}`);
+  }
+
+  function arrayUnique(x) {
+    return Array.from(new Set(x));
+  } // Used for unique instance variables
+
+
+  let id = 0;
+
+  class Shuffle extends tinyEmitter.exports {
+    /**
+     * Categorize, sort, and filter a responsive grid of items.
+     *
+     * @param {Element} element An element which is the parent container for the grid items.
+     * @param {Object} [options=Shuffle.options] Options object.
+     * @constructor
+     */
+    constructor(element) {
+      let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      super();
+      this.options = { ...Shuffle.options,
+        ...options
+      };
+      this.lastSort = {};
+      this.group = Shuffle.ALL_ITEMS;
+      this.lastFilter = Shuffle.ALL_ITEMS;
+      this.isEnabled = true;
+      this.isDestroyed = false;
+      this.isInitialized = false;
+      this._transitions = [];
+      this.isTransitioning = false;
+      this._queue = [];
+
+      const el = this._getElementOption(element);
+
+      if (!el) {
+        throw new TypeError('Shuffle needs to be initialized with an element.');
+      }
+
+      this.element = el;
+      this.id = `shuffle_${id}`;
+      id += 1;
+
+      this._init();
+
+      this.isInitialized = true;
+    }
+
+    _init() {
+      this.items = this._getItems();
+      this.sortedItems = this.items;
+      this.options.sizer = this._getElementOption(this.options.sizer); // Add class and invalidate styles
+
+      this.element.classList.add(Shuffle.Classes.BASE); // Set initial css for each item
+
+      this._initItems(this.items); // If the page has not already emitted the `load` event, call layout on load.
+      // This avoids layout issues caused by images and fonts loading after the
+      // instance has been initialized.
+
+
+      if (document.readyState !== 'complete') {
+        const layout = this.layout.bind(this);
+        window.addEventListener('load', function onLoad() {
+          window.removeEventListener('load', onLoad);
+          layout();
+        });
+      } // Get container css all in one request. Causes reflow
+
+
+      const containerCss = window.getComputedStyle(this.element, null);
+      const containerWidth = Shuffle.getSize(this.element).width; // Add styles to the container if it doesn't have them.
+
+      this._validateStyles(containerCss); // We already got the container's width above, no need to cause another
+      // reflow getting it again... Calculate the number of columns there will be
+
+
+      this._setColumns(containerWidth); // Kick off!
+
+
+      this.filter(this.options.group, this.options.initialSort); // Bind resize events
+
+      this._rafId = null; // This is true for all supported browsers, but just to be safe, avoid throwing
+      // an error if ResizeObserver is not present. You can manually add a window resize
+      // event and call `update()` if ResizeObserver is missing, or use Shuffle v5.
+
+      if ('ResizeObserver' in window) {
+        this._resizeObserver = new ResizeObserver(this._handleResizeCallback.bind(this));
+
+        this._resizeObserver.observe(this.element);
+      } // The shuffle items haven't had transitions set on them yet so the user
+      // doesn't see the first layout. Set them now that the first layout is done.
+      // First, however, a synchronous layout must be caused for the previous
+      // styles to be applied without transitions.
+
+
+      this.element.offsetWidth; // eslint-disable-line no-unused-expressions
+
+      this.setItemTransitions(this.items);
+      this.element.style.transition = `height ${this.options.speed}ms ${this.options.easing}`;
+    }
+    /**
+     * Retrieve an element from an option.
+     * @param {string|jQuery|Element} option The option to check.
+     * @return {?Element} The plain element or null.
+     * @private
+     */
+
+
+    _getElementOption(option) {
+      // If column width is a string, treat is as a selector and search for the
+      // sizer element within the outermost container
+      if (typeof option === 'string') {
+        return this.element.querySelector(option);
+      } // Check for an element
+
+
+      if (option && option.nodeType && option.nodeType === 1) {
+        return option;
+      } // Check for jQuery object
+
+
+      if (option && option.jquery) {
+        return option[0];
+      }
+
+      return null;
+    }
+    /**
+     * Ensures the shuffle container has the css styles it needs applied to it.
+     * @param {Object} styles Key value pairs for position and overflow.
+     * @private
+     */
+
+
+    _validateStyles(styles) {
+      // Position cannot be static.
+      if (styles.position === 'static') {
+        this.element.style.position = 'relative';
+      } // Overflow has to be hidden.
+
+
+      if (styles.overflow !== 'hidden') {
+        this.element.style.overflow = 'hidden';
+      }
+    }
+    /**
+     * Filter the elements by a category.
+     * @param {string|string[]|function(Element):boolean} [category] Category to
+     *     filter by. If it's given, the last category will be used to filter the items.
+     * @param {Array} [collection] Optionally filter a collection. Defaults to
+     *     all the items.
+     * @return {{visible: ShuffleItem[], hidden: ShuffleItem[]}}
+     * @private
+     */
+
+
+    _filter() {
+      let category = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.lastFilter;
+      let collection = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.items;
+
+      const set = this._getFilteredSets(category, collection); // Individually add/remove hidden/visible classes
+
+
+      this._toggleFilterClasses(set); // Save the last filter in case elements are appended.
+
+
+      this.lastFilter = category; // This is saved mainly because providing a filter function (like searching)
+      // will overwrite the `lastFilter` property every time its called.
+
+      if (typeof category === 'string') {
+        this.group = category;
+      }
+
+      return set;
+    }
+    /**
+     * Returns an object containing the visible and hidden elements.
+     * @param {string|string[]|function(Element):boolean} category Category or function to filter by.
+     * @param {ShuffleItem[]} items A collection of items to filter.
+     * @return {{visible: ShuffleItem[], hidden: ShuffleItem[]}}
+     * @private
+     */
+
+
+    _getFilteredSets(category, items) {
+      let visible = [];
+      const hidden = []; // category === 'all', add visible class to everything
+
+      if (category === Shuffle.ALL_ITEMS) {
+        visible = items; // Loop through each item and use provided function to determine
+        // whether to hide it or not.
+      } else {
+        items.forEach(item => {
+          if (this._doesPassFilter(category, item.element)) {
+            visible.push(item);
+          } else {
+            hidden.push(item);
+          }
+        });
+      }
+
+      return {
+        visible,
+        hidden
+      };
+    }
+    /**
+     * Test an item to see if it passes a category.
+     * @param {string|string[]|function():boolean} category Category or function to filter by.
+     * @param {Element} element An element to test.
+     * @return {boolean} Whether it passes the category/filter.
+     * @private
+     */
+
+
+    _doesPassFilter(category, element) {
+      if (typeof category === 'function') {
+        return category.call(element, element, this);
+      } // Check each element's data-groups attribute against the given category.
+
+
+      const attr = element.dataset[Shuffle.FILTER_ATTRIBUTE_KEY];
+      const keys = this.options.delimiter ? attr.split(this.options.delimiter) : JSON.parse(attr);
+
+      function testCategory(category) {
+        return keys.includes(category);
+      }
+
+      if (Array.isArray(category)) {
+        if (this.options.filterMode === Shuffle.FilterMode.ANY) {
+          return category.some(testCategory);
+        }
+
+        return category.every(testCategory);
+      }
+
+      return keys.includes(category);
+    }
+    /**
+     * Toggles the visible and hidden class names.
+     * @param {{visible, hidden}} Object with visible and hidden arrays.
+     * @private
+     */
+
+
+    _toggleFilterClasses(_ref) {
+      let {
+        visible,
+        hidden
+      } = _ref;
+      visible.forEach(item => {
+        item.show();
+      });
+      hidden.forEach(item => {
+        item.hide();
+      });
+    }
+    /**
+     * Set the initial css for each item
+     * @param {ShuffleItem[]} items Set to initialize.
+     * @private
+     */
+
+
+    _initItems(items) {
+      items.forEach(item => {
+        item.init();
+      });
+    }
+    /**
+     * Remove element reference and styles.
+     * @param {ShuffleItem[]} items Set to dispose.
+     * @private
+     */
+
+
+    _disposeItems(items) {
+      items.forEach(item => {
+        item.dispose();
+      });
+    }
+    /**
+     * Updates the visible item count.
+     * @private
+     */
+
+
+    _updateItemCount() {
+      this.visibleItems = this._getFilteredItems().length;
+    }
+    /**
+     * Sets css transform transition on a group of elements. This is not executed
+     * at the same time as `item.init` so that transitions don't occur upon
+     * initialization of a new Shuffle instance.
+     * @param {ShuffleItem[]} items Shuffle items to set transitions on.
+     * @protected
+     */
+
+
+    setItemTransitions(items) {
+      const {
+        speed,
+        easing
+      } = this.options;
+      const positionProps = this.options.useTransforms ? ['transform'] : ['top', 'left']; // Allow users to transtion other properties if they exist in the `before`
+      // css mapping of the shuffle item.
+
+      const cssProps = Object.keys(ShuffleItem.Css.HIDDEN.before).map(k => hyphenate(k));
+      const properties = positionProps.concat(cssProps).join();
+      items.forEach(item => {
+        item.element.style.transitionDuration = `${speed}ms`;
+        item.element.style.transitionTimingFunction = easing;
+        item.element.style.transitionProperty = properties;
+      });
+    }
+
+    _getItems() {
+      return Array.from(this.element.children).filter(el => el.matches(this.options.itemSelector)).map(el => new ShuffleItem(el, this.options.isRTL));
+    }
+    /**
+     * Combine the current items array with a new one and sort it by DOM order.
+     * @param {ShuffleItem[]} items Items to track.
+     * @return {ShuffleItem[]}
+     */
+
+
+    _mergeNewItems(items) {
+      const children = Array.from(this.element.children);
+      return sorter(this.items.concat(items), {
+        by(element) {
+          return children.indexOf(element);
+        }
+
+      });
+    }
+
+    _getFilteredItems() {
+      return this.items.filter(item => item.isVisible);
+    }
+
+    _getConcealedItems() {
+      return this.items.filter(item => !item.isVisible);
+    }
+    /**
+     * Returns the column size, based on column width and sizer options.
+     * @param {number} containerWidth Size of the parent container.
+     * @param {number} gutterSize Size of the gutters.
+     * @return {number}
+     * @private
+     */
+
+
+    _getColumnSize(containerWidth, gutterSize) {
+      let size; // If the columnWidth property is a function, then the grid is fluid
+
+      if (typeof this.options.columnWidth === 'function') {
+        size = this.options.columnWidth(containerWidth); // columnWidth option isn't a function, are they using a sizing element?
+      } else if (this.options.sizer) {
+        size = Shuffle.getSize(this.options.sizer).width; // if not, how about the explicitly set option?
+      } else if (this.options.columnWidth) {
+        size = this.options.columnWidth; // or use the size of the first item
+      } else if (this.items.length > 0) {
+        size = Shuffle.getSize(this.items[0].element, true).width; // if there's no items, use size of container
+      } else {
+        size = containerWidth;
+      } // Don't let them set a column width of zero.
+
+
+      if (size === 0) {
+        size = containerWidth;
+      }
+
+      return size + gutterSize;
+    }
+    /**
+     * Returns the gutter size, based on gutter width and sizer options.
+     * @param {number} containerWidth Size of the parent container.
+     * @return {number}
+     * @private
+     */
+
+
+    _getGutterSize(containerWidth) {
+      let size;
+
+      if (typeof this.options.gutterWidth === 'function') {
+        size = this.options.gutterWidth(containerWidth);
+      } else if (this.options.sizer) {
+        size = getNumberStyle(this.options.sizer, 'marginLeft');
+      } else {
+        size = this.options.gutterWidth;
+      }
+
+      return size;
+    }
+    /**
+     * Calculate the number of columns to be used. Gets css if using sizer element.
+     * @param {number} [containerWidth] Optionally specify a container width if
+     *    it's already available.
+     */
+
+
+    _setColumns() {
+      let containerWidth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : Shuffle.getSize(this.element).width;
+
+      const gutter = this._getGutterSize(containerWidth);
+
+      const columnWidth = this._getColumnSize(containerWidth, gutter);
+
+      let calculatedColumns = (containerWidth + gutter) / columnWidth; // Widths given from getStyles are not precise enough...
+
+      if (Math.abs(Math.round(calculatedColumns) - calculatedColumns) < this.options.columnThreshold) {
+        // e.g. calculatedColumns = 11.998876
+        calculatedColumns = Math.round(calculatedColumns);
+      }
+
+      this.cols = Math.max(Math.floor(calculatedColumns || 0), 1);
+      this.containerWidth = containerWidth;
+      this.colWidth = columnWidth;
+    }
+    /**
+     * Adjust the height of the grid
+     */
+
+
+    _setContainerSize() {
+      this.element.style.height = `${this._getContainerSize()}px`;
+    }
+    /**
+     * Based on the column heights, it returns the biggest one.
+     * @return {number}
+     * @private
+     */
+
+
+    _getContainerSize() {
+      return arrayMax(this.positions);
+    }
+    /**
+     * Get the clamped stagger amount.
+     * @param {number} index Index of the item to be staggered.
+     * @return {number}
+     */
+
+
+    _getStaggerAmount(index) {
+      return Math.min(index * this.options.staggerAmount, this.options.staggerAmountMax);
+    }
+    /**
+     * Emit an event from this instance.
+     * @param {string} name Event name.
+     * @param {Object} [data={}] Optional object data.
+     */
+
+
+    _dispatch(name) {
+      let data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      if (this.isDestroyed) {
+        return;
+      }
+
+      data.shuffle = this;
+      this.emit(name, data);
+    }
+    /**
+     * Zeros out the y columns array, which is used to determine item placement.
+     * @private
+     */
+
+
+    _resetCols() {
+      let i = this.cols;
+      this.positions = [];
+
+      while (i) {
+        i -= 1;
+        this.positions.push(0);
+      }
+    }
+    /**
+     * Loops through each item that should be shown and calculates the x, y position.
+     * @param {ShuffleItem[]} items Array of items that will be shown/layed
+     *     out in order in their array.
+     */
+
+
+    _layout(items) {
+      const itemPositions = this._getNextPositions(items);
+
+      let count = 0;
+      items.forEach((item, i) => {
+        function callback() {
+          item.applyCss(ShuffleItem.Css.VISIBLE.after);
+        } // If the item will not change its position, do not add it to the render
+        // queue. Transitions don't fire when setting a property to the same value.
+
+
+        if (Point.equals(item.point, itemPositions[i]) && !item.isHidden) {
+          item.applyCss(ShuffleItem.Css.VISIBLE.before);
+          callback();
+          return;
+        }
+
+        item.point = itemPositions[i];
+        item.scale = ShuffleItem.Scale.VISIBLE;
+        item.isHidden = false; // Clone the object so that the `before` object isn't modified when the
+        // transition delay is added.
+
+        const styles = this.getStylesForTransition(item, ShuffleItem.Css.VISIBLE.before);
+        styles.transitionDelay = `${this._getStaggerAmount(count)}ms`;
+
+        this._queue.push({
+          item,
+          styles,
+          callback
+        });
+
+        count += 1;
+      });
+    }
+    /**
+     * Return an array of Point instances representing the future positions of
+     * each item.
+     * @param {ShuffleItem[]} items Array of sorted shuffle items.
+     * @return {Point[]}
+     * @private
+     */
+
+
+    _getNextPositions(items) {
+      // If position data is going to be changed, add the item's size to the
+      // transformer to allow for calculations.
+      if (this.options.isCentered) {
+        const itemsData = items.map((item, i) => {
+          const itemSize = Shuffle.getSize(item.element, true);
+
+          const point = this._getItemPosition(itemSize);
+
+          return new Rect(point.x, point.y, itemSize.width, itemSize.height, i);
+        });
+        return this.getTransformedPositions(itemsData, this.containerWidth);
+      } // If no transforms are going to happen, simply return an array of the
+      // future points of each item.
+
+
+      return items.map(item => this._getItemPosition(Shuffle.getSize(item.element, true)));
+    }
+    /**
+     * Determine the location of the next item, based on its size.
+     * @param {{width: number, height: number}} itemSize Object with width and height.
+     * @return {Point}
+     * @private
+     */
+
+
+    _getItemPosition(itemSize) {
+      return getItemPosition({
+        itemSize,
+        positions: this.positions,
+        gridSize: this.colWidth,
+        total: this.cols,
+        threshold: this.options.columnThreshold,
+        buffer: this.options.buffer
+      });
+    }
+    /**
+     * Mutate positions before they're applied.
+     * @param {Rect[]} itemRects Item data objects.
+     * @param {number} containerWidth Width of the containing element.
+     * @return {Point[]}
+     * @protected
+     */
+
+
+    getTransformedPositions(itemRects, containerWidth) {
+      return getCenteredPositions(itemRects, containerWidth);
+    }
+    /**
+     * Hides the elements that don't match our filter.
+     * @param {ShuffleItem[]} collection Collection to shrink.
+     * @private
+     */
+
+
+    _shrink() {
+      let collection = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this._getConcealedItems();
+      let count = 0;
+      collection.forEach(item => {
+        function callback() {
+          item.applyCss(ShuffleItem.Css.HIDDEN.after);
+        } // Continuing would add a transitionend event listener to the element, but
+        // that listener would not execute because the transform and opacity would
+        // stay the same.
+        // The callback is executed here because it is not guaranteed to be called
+        // after the transitionend event because the transitionend could be
+        // canceled if another animation starts.
+
+
+        if (item.isHidden) {
+          item.applyCss(ShuffleItem.Css.HIDDEN.before);
+          callback();
+          return;
+        }
+
+        item.scale = ShuffleItem.Scale.HIDDEN;
+        item.isHidden = true;
+        const styles = this.getStylesForTransition(item, ShuffleItem.Css.HIDDEN.before);
+        styles.transitionDelay = `${this._getStaggerAmount(count)}ms`;
+
+        this._queue.push({
+          item,
+          styles,
+          callback
+        });
+
+        count += 1;
+      });
+    }
+    /**
+     * Resize handler.
+     * @param {ResizeObserverEntry[]} entries
+     */
+
+
+    _handleResizeCallback(entries) {
+      // If shuffle is disabled, destroyed, don't do anything.
+      // You can still manually force a shuffle update with shuffle.update({ force: true }).
+      if (!this.isEnabled || this.isDestroyed) {
+        return;
+      } // The reason ESLint disables this is because for..of generates a lot of extra
+      // code using Babel, but Shuffle no longer supports browsers that old, so
+      // nothing to worry about.
+      // eslint-disable-next-line no-restricted-syntax
+
+
+      for (const entry of entries) {
+        if (Math.round(entry.contentRect.width) !== Math.round(this.containerWidth)) {
+          // If there was already an animation waiting, cancel it.
+          cancelAnimationFrame(this._rafId); // Offload updating the DOM until the browser is ready.
+
+          this._rafId = requestAnimationFrame(this.update.bind(this));
+        }
+      }
+    }
+    /**
+     * Returns styles which will be applied to the an item for a transition.
+     * @param {ShuffleItem} item Item to get styles for. Should have updated
+     *   scale and point properties.
+     * @param {Object} styleObject Extra styles that will be used in the transition.
+     * @return {!Object} Transforms for transitions, left/top for animate.
+     * @protected
+     */
+
+
+    getStylesForTransition(item, styleObject) {
+      // Clone the object to avoid mutating the original.
+      const styles = { ...styleObject
+      };
+
+      if (this.options.useTransforms) {
+        const sign = this.options.isRTL ? '-' : '';
+        const x = this.options.roundTransforms ? Math.round(item.point.x) : item.point.x;
+        const y = this.options.roundTransforms ? Math.round(item.point.y) : item.point.y;
+        styles.transform = `translate(${sign}${x}px, ${y}px) scale(${item.scale})`;
+      } else {
+        if (this.options.isRTL) {
+          styles.right = `${item.point.x}px`;
+        } else {
+          styles.left = `${item.point.x}px`;
+        }
+
+        styles.top = `${item.point.y}px`;
+      }
+
+      return styles;
+    }
+    /**
+     * Listen for the transition end on an element and execute the itemCallback
+     * when it finishes.
+     * @param {Element} element Element to listen on.
+     * @param {function} itemCallback Callback for the item.
+     * @param {function} done Callback to notify `parallel` that this one is done.
+     */
+
+
+    _whenTransitionDone(element, itemCallback, done) {
+      const id = onTransitionEnd(element, evt => {
+        itemCallback();
+        done(null, evt);
+      });
+
+      this._transitions.push(id);
+    }
+    /**
+     * Return a function which will set CSS styles and call the `done` function
+     * when (if) the transition finishes.
+     * @param {Object} opts Transition object.
+     * @return {function} A function to be called with a `done` function.
+     */
+
+
+    _getTransitionFunction(opts) {
+      return done => {
+        opts.item.applyCss(opts.styles);
+
+        this._whenTransitionDone(opts.item.element, opts.callback, done);
+      };
+    }
+    /**
+     * Execute the styles gathered in the style queue. This applies styles to elements,
+     * triggering transitions.
+     * @private
+     */
+
+
+    _processQueue() {
+      if (this.isTransitioning) {
+        this._cancelMovement();
+      }
+
+      const hasSpeed = this.options.speed > 0;
+      const hasQueue = this._queue.length > 0;
+
+      if (hasQueue && hasSpeed && this.isInitialized) {
+        this._startTransitions(this._queue);
+      } else if (hasQueue) {
+        this._styleImmediately(this._queue);
+
+        this._dispatch(Shuffle.EventType.LAYOUT); // A call to layout happened, but none of the newly visible items will
+        // change position or the transition duration is zero, which will not trigger
+        // the transitionend event.
+
+      } else {
+        this._dispatch(Shuffle.EventType.LAYOUT);
+      } // Remove everything in the style queue
+
+
+      this._queue.length = 0;
+    }
+    /**
+     * Wait for each transition to finish, the emit the layout event.
+     * @param {Object[]} transitions Array of transition objects.
+     */
+
+
+    _startTransitions(transitions) {
+      // Set flag that shuffle is currently in motion.
+      this.isTransitioning = true; // Create an array of functions to be called.
+
+      const callbacks = transitions.map(obj => this._getTransitionFunction(obj));
+      arrayParallel(callbacks, this._movementFinished.bind(this));
+    }
+
+    _cancelMovement() {
+      // Remove the transition end event for each listener.
+      this._transitions.forEach(cancelTransitionEnd); // Reset the array.
+
+
+      this._transitions.length = 0; // Show it's no longer active.
+
+      this.isTransitioning = false;
+    }
+    /**
+     * Apply styles without a transition.
+     * @param {Object[]} objects Array of transition objects.
+     * @private
+     */
+
+
+    _styleImmediately(objects) {
+      if (objects.length) {
+        const elements = objects.map(obj => obj.item.element);
+
+        Shuffle._skipTransitions(elements, () => {
+          objects.forEach(obj => {
+            obj.item.applyCss(obj.styles);
+            obj.callback();
+          });
+        });
+      }
+    }
+
+    _movementFinished() {
+      this._transitions.length = 0;
+      this.isTransitioning = false;
+
+      this._dispatch(Shuffle.EventType.LAYOUT);
+    }
+    /**
+     * The magic. This is what makes the plugin 'shuffle'
+     * @param {string|string[]|function(Element):boolean} [category] Category to filter by.
+     *     Can be a function, string, or array of strings.
+     * @param {SortOptions} [sortOptions] A sort object which can sort the visible set
+     */
+
+
+    filter(category, sortOptions) {
+      if (!this.isEnabled) {
+        return;
+      }
+
+      if (!category || category && category.length === 0) {
+        category = Shuffle.ALL_ITEMS; // eslint-disable-line no-param-reassign
+      }
+
+      this._filter(category); // Shrink each hidden item
+
+
+      this._shrink(); // How many visible elements?
+
+
+      this._updateItemCount(); // Update transforms on visible elements so they will animate to their new positions.
+
+
+      this.sort(sortOptions);
+    }
+    /**
+     * Gets the visible elements, sorts them, and passes them to layout.
+     * @param {SortOptions} [sortOptions] The options object to pass to `sorter`.
+     */
+
+
+    sort() {
+      let sortOptions = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.lastSort;
+
+      if (!this.isEnabled) {
+        return;
+      }
+
+      this._resetCols();
+
+      const items = sorter(this._getFilteredItems(), sortOptions);
+      this.sortedItems = items;
+
+      this._layout(items); // `_layout` always happens after `_shrink`, so it's safe to process the style
+      // queue here with styles from the shrink method.
+
+
+      this._processQueue(); // Adjust the height of the container.
+
+
+      this._setContainerSize();
+
+      this.lastSort = sortOptions;
+    }
+    /**
+     * Reposition everything.
+     * @param {object} options options object
+     * @param {boolean} [options.recalculateSizes=true] Whether to calculate column, gutter, and container widths again.
+     * @param {boolean} [options.force=false] By default, `update` does nothing if the instance is disabled. Setting this
+     *    to true forces the update to happen regardless.
+     */
+
+
+    update() {
+      let {
+        recalculateSizes = true,
+        force = false
+      } = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      if (this.isEnabled || force) {
+        if (recalculateSizes) {
+          this._setColumns();
+        } // Layout items
+
+
+        this.sort();
+      }
+    }
+    /**
+     * Use this instead of `update()` if you don't need the columns and gutters updated
+     * Maybe an image inside `shuffle` loaded (and now has a height), which means calculations
+     * could be off.
+     */
+
+
+    layout() {
+      this.update({
+        recalculateSizes: true
+      });
+    }
+    /**
+     * New items have been appended to shuffle. Mix them in with the current
+     * filter or sort status.
+     * @param {Element[]} newItems Collection of new items.
+     */
+
+
+    add(newItems) {
+      const items = arrayUnique(newItems).map(el => new ShuffleItem(el, this.options.isRTL)); // Add classes and set initial positions.
+
+      this._initItems(items); // Determine which items will go with the current filter.
+
+
+      this._resetCols();
+
+      const allItems = this._mergeNewItems(items);
+
+      const sortedItems = sorter(allItems, this.lastSort);
+
+      const allSortedItemsSet = this._filter(this.lastFilter, sortedItems);
+
+      const isNewItem = item => items.includes(item);
+
+      const applyHiddenState = item => {
+        item.scale = ShuffleItem.Scale.HIDDEN;
+        item.isHidden = true;
+        item.applyCss(ShuffleItem.Css.HIDDEN.before);
+        item.applyCss(ShuffleItem.Css.HIDDEN.after);
+      }; // Layout all items again so that new items get positions.
+      // Synchonously apply positions.
+
+
+      const itemPositions = this._getNextPositions(allSortedItemsSet.visible);
+
+      allSortedItemsSet.visible.forEach((item, i) => {
+        if (isNewItem(item)) {
+          item.point = itemPositions[i];
+          applyHiddenState(item);
+          item.applyCss(this.getStylesForTransition(item, {}));
+        }
+      });
+      allSortedItemsSet.hidden.forEach(item => {
+        if (isNewItem(item)) {
+          applyHiddenState(item);
+        }
+      }); // Cause layout so that the styles above are applied.
+
+      this.element.offsetWidth; // eslint-disable-line no-unused-expressions
+      // Add transition to each item.
+
+      this.setItemTransitions(items); // Update the list of items.
+
+      this.items = this._mergeNewItems(items); // Update layout/visibility of new and old items.
+
+      this.filter(this.lastFilter);
+    }
+    /**
+     * Disables shuffle from updating dimensions and layout on resize
+     */
+
+
+    disable() {
+      this.isEnabled = false;
+    }
+    /**
+     * Enables shuffle again
+     * @param {boolean} [isUpdateLayout=true] if undefined, shuffle will update columns and gutters
+     */
+
+
+    enable() {
+      let isUpdateLayout = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      this.isEnabled = true;
+
+      if (isUpdateLayout) {
+        this.update();
+      }
+    }
+    /**
+     * Remove 1 or more shuffle items.
+     * @param {Element[]} elements An array containing one or more
+     *     elements in shuffle
+     * @return {Shuffle} The shuffle instance.
+     */
+
+
+    remove(elements) {
+      if (!elements.length) {
+        return;
+      }
+
+      const collection = arrayUnique(elements);
+      const oldItems = collection.map(element => this.getItemByElement(element)).filter(item => !!item);
+
+      const handleLayout = () => {
+        this._disposeItems(oldItems); // Remove the collection in the callback
+
+
+        collection.forEach(element => {
+          element.parentNode.removeChild(element);
+        });
+
+        this._dispatch(Shuffle.EventType.REMOVED, {
+          collection
+        });
+      }; // Hide collection first.
+
+
+      this._toggleFilterClasses({
+        visible: [],
+        hidden: oldItems
+      });
+
+      this._shrink(oldItems);
+
+      this.sort(); // Update the list of items here because `remove` could be called again
+      // with an item that is in the process of being removed.
+
+      this.items = this.items.filter(item => !oldItems.includes(item));
+
+      this._updateItemCount();
+
+      this.once(Shuffle.EventType.LAYOUT, handleLayout);
+    }
+    /**
+     * Retrieve a shuffle item by its element.
+     * @param {Element} element Element to look for.
+     * @return {?ShuffleItem} A shuffle item or undefined if it's not found.
+     */
+
+
+    getItemByElement(element) {
+      return this.items.find(item => item.element === element);
+    }
+    /**
+     * Dump the elements currently stored and reinitialize all child elements which
+     * match the `itemSelector`.
+     */
+
+
+    resetItems() {
+      // Remove refs to current items.
+      this._disposeItems(this.items);
+
+      this.isInitialized = false; // Find new items in the DOM.
+
+      this.items = this._getItems(); // Set initial styles on the new items.
+
+      this._initItems(this.items);
+
+      this.once(Shuffle.EventType.LAYOUT, () => {
+        // Add transition to each item.
+        this.setItemTransitions(this.items);
+        this.isInitialized = true;
+      }); // Lay out all items.
+
+      this.filter(this.lastFilter);
+    }
+    /**
+     * Destroys shuffle, removes events, styles, and classes
+     */
+
+
+    destroy() {
+      this._cancelMovement();
+
+      if (this._resizeObserver) {
+        this._resizeObserver.unobserve(this.element);
+
+        this._resizeObserver = null;
+      } // Reset container styles
+
+
+      this.element.classList.remove('shuffle');
+      this.element.removeAttribute('style'); // Reset individual item styles
+
+      this._disposeItems(this.items);
+
+      this.items.length = 0;
+      this.sortedItems.length = 0;
+      this._transitions.length = 0; // Null DOM references
+
+      this.options.sizer = null;
+      this.element = null; // Set a flag so if a debounced resize has been triggered,
+      // it can first check if it is actually isDestroyed and not doing anything
+
+      this.isDestroyed = true;
+      this.isEnabled = false;
+    }
+    /**
+     * Returns the outer width of an element, optionally including its margins.
+     *
+     * There are a few different methods for getting the width of an element, none of
+     * which work perfectly for all Shuffle's use cases.
+     *
+     * 1. getBoundingClientRect() `left` and `right` properties.
+     *   - Accounts for transform scaled elements, making it useless for Shuffle
+     *   elements which have shrunk.
+     * 2. The `offsetWidth` property.
+     *   - This value stays the same regardless of the elements transform property,
+     *   however, it does not return subpixel values.
+     * 3. getComputedStyle()
+     *   - This works great Chrome, Firefox, Safari, but IE<=11 does not include
+     *   padding and border when box-sizing: border-box is set, requiring a feature
+     *   test and extra work to add the padding back for IE and other browsers which
+     *   follow the W3C spec here.
+     *
+     * @param {Element} element The element.
+     * @param {boolean} [includeMargins=false] Whether to include margins.
+     * @return {{width: number, height: number}} The width and height.
+     */
+
+
+    static getSize(element) {
+      let includeMargins = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      // Store the styles so that they can be used by others without asking for it again.
+      const styles = window.getComputedStyle(element, null);
+      let width = getNumberStyle(element, 'width', styles);
+      let height = getNumberStyle(element, 'height', styles);
+
+      if (includeMargins) {
+        const marginLeft = getNumberStyle(element, 'marginLeft', styles);
+        const marginRight = getNumberStyle(element, 'marginRight', styles);
+        const marginTop = getNumberStyle(element, 'marginTop', styles);
+        const marginBottom = getNumberStyle(element, 'marginBottom', styles);
+        width += marginLeft + marginRight;
+        height += marginTop + marginBottom;
+      }
+
+      return {
+        width,
+        height
+      };
+    }
+    /**
+     * Change a property or execute a function which will not have a transition
+     * @param {Element[]} elements DOM elements that won't be transitioned.
+     * @param {function} callback A function which will be called while transition
+     *     is set to 0ms.
+     * @private
+     */
+
+
+    static _skipTransitions(elements, callback) {
+      const zero = '0ms'; // Save current duration and delay.
+
+      const data = elements.map(element => {
+        const {
+          style
+        } = element;
+        const duration = style.transitionDuration;
+        const delay = style.transitionDelay; // Set the duration to zero so it happens immediately
+
+        style.transitionDuration = zero;
+        style.transitionDelay = zero;
+        return {
+          duration,
+          delay
+        };
+      });
+      callback(); // Cause forced synchronous layout.
+
+      elements[0].offsetWidth; // eslint-disable-line no-unused-expressions
+      // Put the duration back
+
+      elements.forEach((element, i) => {
+        element.style.transitionDuration = data[i].duration;
+        element.style.transitionDelay = data[i].delay;
+      });
+    }
+
+  }
+
+  Shuffle.ShuffleItem = ShuffleItem;
+  Shuffle.ALL_ITEMS = 'all';
+  Shuffle.FILTER_ATTRIBUTE_KEY = 'groups';
+  /** @enum {string} */
+
+  Shuffle.EventType = {
+    LAYOUT: 'shuffle:layout',
+    REMOVED: 'shuffle:removed'
+  };
+  /** @enum {string} */
+
+  Shuffle.Classes = Classes;
+  /** @enum {string} */
+
+  Shuffle.FilterMode = {
+    ANY: 'any',
+    ALL: 'all'
+  }; // Overrideable options
+
+  Shuffle.options = {
+    // Initial filter group.
+    group: Shuffle.ALL_ITEMS,
+    // Transition/animation speed (milliseconds).
+    speed: 250,
+    // CSS easing function to use.
+    easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
+    // e.g. '.picture-item'.
+    itemSelector: '*',
+    // Element or selector string. Use an element to determine the size of columns
+    // and gutters.
+    sizer: null,
+    // A static number or function that tells the plugin how wide the gutters
+    // between columns are (in pixels).
+    gutterWidth: 0,
+    // A static number or function that returns a number which tells the plugin
+    // how wide the columns are (in pixels).
+    columnWidth: 0,
+    // If your group is not json, and is comma delimited, you could set delimiter
+    // to ','.
+    delimiter: null,
+    // Useful for percentage based heights when they might not always be exactly
+    // the same (in pixels).
+    buffer: 0,
+    // Reading the width of elements isn't precise enough and can cause columns to
+    // jump between values.
+    columnThreshold: 0.01,
+    // Shuffle can be initialized with a sort object. It is the same object
+    // given to the sort method.
+    initialSort: null,
+    // Transition delay offset for each item in milliseconds.
+    staggerAmount: 15,
+    // Maximum stagger delay in milliseconds.
+    staggerAmountMax: 150,
+    // Whether to use transforms or absolute positioning.
+    useTransforms: true,
+    // Affects using an array with filter. e.g. `filter(['one', 'two'])`. With "any",
+    // the element passes the test if any of its groups are in the array. With "all",
+    // the element only passes if all groups are in the array.
+    // Note, this has no effect if you supply a custom filter function.
+    filterMode: Shuffle.FilterMode.ANY,
+    // Attempt to center grid items in each row.
+    isCentered: false,
+    // Attempt to align grid items to right.
+    isRTL: false,
+    // Whether to round pixel values used in translate(x, y). This usually avoids
+    // blurriness.
+    roundTransforms: true
+  };
+  Shuffle.Point = Point;
+  Shuffle.Rect = Rect; // Expose for testing. Hack at your own risk.
+
+  Shuffle.__sorter = sorter;
+  Shuffle.__getColumnSpan = getColumnSpan;
+  Shuffle.__getAvailablePositions = getAvailablePositions;
+  Shuffle.__getShortColumn = getShortColumn;
+  Shuffle.__getCenteredPositions = getCenteredPositions;
+
+  return Shuffle;
+
+}));
+//# sourceMappingURL=shuffle.js.map
+
+
 /***/ })
 
 /******/ 	});
@@ -21024,7 +24188,26 @@ var __webpack_exports__ = {};
 /*!***********************************!*\
   !*** ./resources/js/home/home.js ***!
   \***********************************/
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+window.Shuffle = __webpack_require__(/*! shufflejs */ "./node_modules/shufflejs/dist/shuffle.js");
 
 __webpack_require__(/*! ../../files/bootstrap-4.5.3-dist/js/bootstrap.bundle */ "./resources/files/bootstrap-4.5.3-dist/js/bootstrap.bundle.js");
 
@@ -21037,6 +24220,10 @@ __webpack_require__(/*! ../home/js/jquery.backstretch */ "./resources/js/home/js
 __webpack_require__(/*! ../home/js/jquery.waypoints */ "./resources/js/home/js/jquery.waypoints.js");
 
 __webpack_require__(/*! ./js/jquery.mCustomScrollbar */ "./resources/js/home/js/jquery.mCustomScrollbar.js");
+
+__webpack_require__(/*! ./js/owl-carousel-min */ "./resources/js/home/js/owl-carousel-min.js");
+
+__webpack_require__(/*! ./js/owl-custom-main */ "./resources/js/home/js/owl-custom-main.js");
 
 function scroll_to(clicked_link, nav_height) {
   var element_class = clicked_link.attr('href').replace('#', '.');
@@ -21172,6 +24359,229 @@ jQuery(document).ready(function () {
       }
     });
   });
+}); //trigger numbers
+
+$(allInView);
+$(window).scroll(allInView);
+
+function isScrolledIntoView(elem) {
+  var docViewTop = $(window).scrollTop();
+  var docViewBottom = docViewTop + $(window).height();
+  var elemTop = $(elem).offset().top;
+  var elemBottom = elemTop + $(elem).height();
+  return elemBottom <= docViewBottom && elemTop >= docViewTop;
+} // Numbers Count Update -------------------------------------
+
+
+var items = _toConsumableArray(document.querySelectorAll(".number"));
+
+var updateCount = function updateCount(el) {
+  var value = parseInt(el.dataset.value);
+  var increment = Math.ceil(value / 1000); // const increment = 1;
+
+  var initialValue = 0;
+  var increaseCount = setInterval(function () {
+    initialValue += increment;
+
+    if (initialValue > value) {
+      el.textContent = "".concat(value.toLocaleString("ar-EG"), "+");
+      clearInterval(increaseCount);
+      return;
+    }
+
+    el.textContent = "".concat(initialValue.toLocaleString("ar-EG"), "+");
+  }, 1); // console.log(increaseCount);
+}; // Trigger Numbers Function -----------------------------------------------
+
+
+var once = true;
+
+function allInView() {
+  if (once) {
+    if (isScrolledIntoView($("#numbers"))) {
+      items.forEach(function (item) {
+        updateCount(item);
+      });
+      once = false;
+    }
+  }
+} //  Shuffle.js
+
+
+var Shuffle = window.Shuffle;
+
+var Demo = /*#__PURE__*/function () {
+  function Demo(element) {
+    _classCallCheck(this, Demo);
+
+    this.element = element;
+    this.shuffle = new Shuffle(element, {
+      itemSelector: '.picture-item',
+      sizer: element.querySelector('.my-sizer-element')
+    }); // Log events.
+
+    this.addShuffleEventListeners();
+    this._activeFilters = [];
+    this.addFilterButtons();
+    this.addSorting();
+    this.addSearchFilter();
+  }
+  /**
+   * Shuffle uses the CustomEvent constructor to dispatch events. You can listen
+   * for them like you normally would (with jQuery for example).
+   */
+
+
+  _createClass(Demo, [{
+    key: "addShuffleEventListeners",
+    value: function addShuffleEventListeners() {
+      this.shuffle.on(Shuffle.EventType.LAYOUT, function (data) {
+        console.log('layout. data:', data);
+      });
+      this.shuffle.on(Shuffle.EventType.REMOVED, function (data) {
+        console.log('removed. data:', data);
+      });
+    }
+  }, {
+    key: "addFilterButtons",
+    value: function addFilterButtons() {
+      var options = document.querySelector('.filter-options');
+
+      if (!options) {
+        return;
+      }
+
+      var filterButtons = Array.from(options.children);
+
+      var onClick = this._handleFilterClick.bind(this);
+
+      filterButtons.forEach(function (button) {
+        button.addEventListener('click', onClick, false);
+      });
+    }
+  }, {
+    key: "_handleFilterClick",
+    value: function _handleFilterClick(evt) {
+      var btn = evt.currentTarget;
+      var isActive = btn.classList.contains('active');
+      var btnGroup = btn.getAttribute('data-group');
+
+      this._removeActiveClassFromChildren(btn.parentNode);
+
+      var filterGroup;
+
+      if (isActive) {
+        btn.classList.remove('active');
+        filterGroup = Shuffle.ALL_ITEMS;
+      } else {
+        btn.classList.add('active');
+        filterGroup = btnGroup;
+      }
+
+      this.shuffle.filter(filterGroup);
+    }
+  }, {
+    key: "_removeActiveClassFromChildren",
+    value: function _removeActiveClassFromChildren(parent) {
+      var children = parent.children;
+
+      for (var i = children.length - 1; i >= 0; i--) {
+        children[i].classList.remove('active');
+      }
+    }
+  }, {
+    key: "addSorting",
+    value: function addSorting() {
+      var buttonGroup = document.querySelector('.sort-options');
+
+      if (!buttonGroup) {
+        return;
+      }
+
+      buttonGroup.addEventListener('change', this._handleSortChange.bind(this));
+    }
+  }, {
+    key: "_handleSortChange",
+    value: function _handleSortChange(evt) {
+      // Add and remove `active` class from buttons.
+      var buttons = Array.from(evt.currentTarget.children);
+      buttons.forEach(function (button) {
+        if (button.querySelector('input').value === evt.target.value) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      }); // Create the sort options to give to Shuffle.
+
+      var value = evt.target.value;
+      var options = {};
+
+      function sortByDate(element) {
+        return element.getAttribute('data-created');
+      }
+
+      function sortByTitle(element) {
+        return element.getAttribute('data-title').toLowerCase();
+      }
+
+      if (value === 'date-created') {
+        options = {
+          reverse: true,
+          by: sortByDate
+        };
+      } else if (value === 'title') {
+        options = {
+          by: sortByTitle
+        };
+      }
+
+      this.shuffle.sort(options);
+    } // Advanced filtering
+
+  }, {
+    key: "addSearchFilter",
+    value: function addSearchFilter() {
+      var searchInput = document.querySelector('.js-shuffle-search');
+
+      if (!searchInput) {
+        return;
+      }
+
+      searchInput.addEventListener('keyup', this._handleSearchKeyup.bind(this));
+    }
+    /**
+     * Filter the shuffle instance by items with a title that matches the search input.
+     * @param {Event} evt Event object.
+     */
+
+  }, {
+    key: "_handleSearchKeyup",
+    value: function _handleSearchKeyup(evt) {
+      var searchText = evt.target.value.toLowerCase();
+      this.shuffle.filter(function (element, shuffle) {
+        // If there is a current filter applied, ignore elements that don't match it.
+        if (shuffle.group !== Shuffle.ALL_ITEMS) {
+          // Get the item's groups.
+          var groups = JSON.parse(element.getAttribute('data-groups'));
+          var isElementInCurrentGroup = groups.indexOf(shuffle.group) !== -1; // Only search elements in the current group
+
+          if (!isElementInCurrentGroup) {
+            return false;
+          }
+        }
+
+        var titleElement = element.querySelector('.skill-card__title');
+        var titleText = titleElement.textContent.toLowerCase().trim();
+        return titleText.indexOf(searchText) !== -1;
+      });
+    }
+  }]);
+
+  return Demo;
+}();
+
+document.addEventListener('DOMContentLoaded', function () {
+  window.demo = new Demo(document.getElementById('grid'));
 });
 })();
 

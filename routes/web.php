@@ -28,4 +28,16 @@ Route::prefix('admin-panel-management')->name('admin.')->group(function(){
 
 Route::get('/', function () {
     return view('home.pages.index');
+    
 });
+
+Route::get('/services', function () {
+    return view('home.pages.services');
+    
+});
+
+Route::get('/products', function () {
+    return view('home.pages.products');
+    
+});
+
