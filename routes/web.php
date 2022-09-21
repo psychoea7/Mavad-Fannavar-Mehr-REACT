@@ -51,3 +51,8 @@ Route::get('/blog', function () {
     
 });
 
+Route::get('/blog-post', function () {
+    return view('home.pages.blog-post');
+    
+});
+

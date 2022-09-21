@@ -1625,6 +1625,49 @@ footer {
     width: 60px;
     height: 10px;
   }
+
+  /* Blog Page And Blog Post */
+  .weblog-post {
+    background-color: #fff;
+    /* padding: 0 1rem 0 1rem; */
+    border-radius: 0.3rem;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+    position: relative;
+}
+
+.weblog-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.weblog-header h3 {
+    color: var(--clr-dark);
+    font-family: "IRANSans", sans-serif;
+}
+.weblog-date h5::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f133";
+    color: var(--clr-light-dark);
+    font-weight: bold;
+    float: right;
+    margin-left: 10px;
+}
+/* .weblog-header img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+} */
+.weblog-picture img {
+    border-radius: 0.3rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.weblog-text p {
+    text-align: justify;
+}
+
   
 /* Scroll Bar */
 ::-webkit-scrollbar-track {
