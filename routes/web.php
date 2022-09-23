@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\admin\AttributesController;
 use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,22 +25,25 @@ Route::prefix('admin-panel-management')->name('admin.')->group(function(){
 
     Route::resource('/blogs', BlogController::class);
     Route::resource('/news', BlogController::class);
+    Route::resource('/attributes' , AttributesController::class);
+    Route::resource('/categories' , CategoriesController::class);
+    Route::resource('/products' , ProductsController::class);
 
 });
 
 
 Route::get('/', function () {
     return view('home.pages.index');
-    
+
 });
 
 Route::get('/services', function () {
     return view('home.pages.services');
-    
+
 });
 
 Route::get('/products', function () {
     return view('home.pages.products');
-    
+
 });
 
