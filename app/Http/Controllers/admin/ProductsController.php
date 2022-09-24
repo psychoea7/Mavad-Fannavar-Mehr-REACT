@@ -20,6 +20,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
+        $products = Product::latest()->paginate(20);
+        return view('admin.products.index' , compact('products'));
     }
 
     /**
@@ -42,17 +44,17 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'slug' => 'required',
-        //     'categories' => 'required',
-        //     'attribute_ids' => 'required',
-        //     'primary_image' => 'required|mimes:jpg,jpeg,png',
-        //     'images' => 'required',
-        //     'images.*' => 'mimes:jpg,jpeg,png',
-        //     'description' => 'required',
-        //     'is_active' => 'required'
-        // ]);
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'categories' => 'required',
+            'attribute_ids' => 'required',
+            'primary_image' => 'required|mimes:jpg,jpeg,png',
+            'images' => 'required',
+            'images.*' => 'mimes:jpg,jpeg,png',
+            'description' => 'required',
+            'is_active' => 'required'
+        ]);
 
         try {
 
@@ -103,9 +105,11 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        $attr = $product->attributes()->with('attribute')->get();
+        $images = $product->images()->get();
+        return view('admin.products.show' , compact('product' , 'attr' , 'images'));
     }
 
     /**

@@ -8,7 +8,7 @@
 
         <div class="mb-4">
 
-            <h5 class="font-weight-bold">برند : {{$brand->name}}</h5>
+            <h5 class="font-weight-bold">محصول : {{$product->name}}</h5>
 
             <hr>
 
@@ -26,7 +26,7 @@
                 <div class="form-group col-md-3">
 
                     <label for="name">وضعیت</label>
-                    <input class="form-control" type="text" value="{{$brand->is_active}}" disabled>
+                    <input class="form-control" type="text" value="{{$product->is_active}}" disabled>
 
                 </div>
 

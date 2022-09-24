@@ -8,13 +8,13 @@
 
         <div class="d-flex justify-content-between mb-4">
 
-            <h5 class="font-weight-bold">لیست ویژگی ها ({{$attribute->total()}})</h5>
+            <h5 class="font-weight-bold">لیست ویژگی ها ({{$products->total()}})</h5>
 
-            <a class="btn btn-sm btn-outline-primary" href="{{route('admin.attributes.create')}}">
+            <a class="btn btn-sm btn-outline-primary" href="{{route('admin.products.create')}}">
 
                 <li class="fa fa-plus"></li>
 
-                ایجاد ویژگی
+                ایجاد محصول
 
             </a>
 
@@ -35,6 +35,10 @@
                     </th>
 
                     <th>
+                        وضعیت
+                    </th>
+
+                    <th>
                         عملیات
                     </th>
 
@@ -44,20 +48,24 @@
 
             <tbody>
 
-                @foreach ($attribute as $key => $attributes)
+                @foreach ($products as $key => $product)
 
                 <tr>
                     <th>
-                    {{$attribute->firstItem() + $key}}
+                    {{$products->firstItem() + $key}}
                     </th>
 
                     <th>
-                        {{$attributes->name}}
+                        {{$product->name}}
                     </th>
 
+                    <th>
+                        <span class="{{$product->getRawOriginal('is_active') ? 'text-success' : 'text-danger'}}">{{$product->is_active}}</span>
+                    </th>
 
                     <th>
-                        <a href="{{route('admin.attributes.edit' , ['attribute' => $attributes->id])}}" class="btn btn-outline-info">ویرایش</a>
+                        <a href="{{route('admin.products.edit' , ['product' => $product->id])}}" class="btn btn-outline-info">ویرایش</a>
+                        <a href="{{route('admin.products.show' , ['product' => $product->id])}}" class="btn btn-outline-info">نمایش</a>
                     </th>
                 </tr>
 
@@ -68,7 +76,7 @@
         </table>
 
     </div>
-    <div>{{$attribute->links()}}</div>
+    <div>{{$products->links()}}</div>
 </div>
 
 @endsection
