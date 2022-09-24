@@ -94,6 +94,7 @@
                                     @foreach ($productAttr as $value)
                                     <li>{{$value->attribute->name}}</li>
                                     @endforeach
+                                    <a href="{{ route('showProduct', ['product'=>$product->id]) }}">نمایش محصول</a>
                                 </ul>
                             </section>
                         </div>

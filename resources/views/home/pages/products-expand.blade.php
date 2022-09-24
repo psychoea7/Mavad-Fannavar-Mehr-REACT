@@ -10,29 +10,24 @@
         <div class="container my-4 py-5 expanded-product">
             <div class="row">
                 <div class="col-md-7 col-sm-12">
-                    <h2>نام محصول</h2>
+                    <h2>{{$product->name}}</h2>
                     <div class="divider-1 wow fadeInUp"><span class="w-100"></span></div>
                     <ul>
-                        <li>ویژگی های محصول</li>
-                        <li>ویژگی های محصول</li>
-                        <li>ویژگی های محصول</li>
-                        <li>ویژگی های محصول</li>
+                        @foreach ($productAttr as $value)
+                        <li>{{$value->attribute->name}}</li>
+                        @endforeach
                     </ul>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
-                        و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
-                        کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
-                        آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه
-                        ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. </p>
+                    <p>{{$product->description}}</p>
 
                 </div>
                 <div class="col-md-5 col-sm-12 h-100">
                     <div class="owl-carousel owl-theme .owl-dots .owl-dot text-center p-relative">
-                        <div> <img  src="{{ asset('images/prod-1.jpg') }}" alt="HTML5 Logo"/> </div>
-                        <div> <img  src="{{ asset('images/prod-2.jpg') }}" alt="HTML5 Logo"/> </div>
-                        <div> <img  src="{{ asset('images/prod-3.jpg') }}" alt="HTML5 Logo"/> </div>
+                        @foreach ($images as $image)
+                        <div> <img  src="{{ asset(env('PRODUCT_IMAGE_PATH') . $image->image) }}" alt="HTML5 Logo"/> </div>
+                        @endforeach
                       </div>
-                   
-                    
+
+
                 </div>
             </div>
         </div>

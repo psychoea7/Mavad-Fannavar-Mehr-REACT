@@ -51,10 +51,12 @@ Route::get('/products', function () {
 
 });
 
-Route::get('/products-expand', function () {
-    return view('home.pages.products-expand');
+Route::get('/products-expand/{product}', function (Product $product) {
+    $images = $product->images()->get();
+    $productAttr = $product->attributes()->with('attribute')->get();
+    return view('home.pages.products-expand' , compact('product' , 'images' , 'productAttr'));
 
-});
+})->name('showProduct');
 
 Route::get('/blog', function () {
     return view('home.pages.blog');
