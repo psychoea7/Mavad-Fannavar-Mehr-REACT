@@ -22,6 +22,7 @@
                 </div>
                 <div class="col-md-5 col-sm-12 h-100">
                     <div class="owl-carousel owl-theme .owl-dots .owl-dot text-center p-relative">
+                        <div> <img  src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}" alt="HTML5 Logo"/> </div>
                         @foreach ($images as $image)
                         <div> <img  src="{{ asset(env('PRODUCT_IMAGE_PATH') . $image->image) }}" alt="HTML5 Logo"/> </div>
                         @endforeach
