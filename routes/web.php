@@ -47,3 +47,18 @@ Route::get('/products', function () {
 
 });
 
+Route::get('/products-expand', function () {
+    return view('home.pages.products-expand');
+    
+});
+
+Route::get('/blog', function () {
+    return view('home.pages.blog');
+    
+});
+
+Route::get('/blog-post', function () {
+    return view('home.pages.blog-post');
+    
+});
+

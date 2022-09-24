@@ -1,0 +1,126 @@
+<html>
+<style type="text/css" media="screen">
+footer,header{display:block;}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+body{margin:0;}
+h1{font-size:2em;margin:0.67em 0;}
+pre{font-family:monospace, serif;font-size:1em;}
+pre{white-space:pre-wrap;}
+img{border:0;}
+html{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;font-size:0.875em;}
+body{background-color:#f9fafa;color:#333;}
+a{color:#045fab;line-height:inherit;text-decoration:none;}
+a:visited{color:#045fab;}
+a:hover,a:focus{text-decoration:underline;}
+a:active{color:#034379;font-weight:normal;border-radius:1px;}
+h1,h3{color:#252525;font-family:inherit;font-style:normal;font-weight:normal;margin:8px 0;padding:0 0 2px;}
+h1{font-size:2.429rem;font-weight:200;}
+h3{font-size:1.429rem;font-weight:300;}
+ul{margin:12px 0;padding-left:40px;}
+ul li{line-height:1.25;}
+.oj-text-sm{font-size:0.857rem;}
+.oj-text-secondary-color{color:#4d4d4d;}
+.oj-margin{margin:10px;}
+.oj-panel{border:1px solid #d6dfe6;background-color:#fff;border-radius:1px;box-sizing:border-box;overflow:hidden;padding:0.8571rem;position:relative;}
+.oj-panel-alt4{background-color:#ffe4e1;border-color:#ffcdc8;}
+.oj-flex-bar{position:relative;}
+.oj-flex-bar,.oj-flex-bar-middle,.oj-flex-bar-end{box-sizing:border-box;display:-webkit-flex;display:flex;}
+.oj-flex-bar-middle{-webkit-flex:auto;flex:auto;}
+.oj-header-border{border:solid #ffcdc8;border-width:0 0 1px;padding:0 0 7px}
+html:not([dir="rtl"]) .oj-flex-bar-end{margin-left:auto;}
+@media print, screen{
+.oj-sm-align-items-center{-webkit-align-items:center;align-items:center;}
+}
+.oj-web-applayout-body{overflow-y:scroll;}
+.oj-web-applayout-page{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;box-sizing:border-box;min-height:100vh;}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
+.oj-web-applayout-page{height:100vh;min-height:0;}
+}
+.oj-web-applayout-max-width{margin-left:auto;margin-right:auto;width:100%;max-width:1440px;box-sizing:border-box;}
+.oj-web-applayout-header,.oj-web-applayout-footer{-webkit-flex:0 0 auto;flex:0 0 auto;}
+.oj-web-applayout-header{background-color:#f0f0f0;box-shadow:0 3px 3px rgba(0,0,0,0.1);}
+.oj-web-applayout-header>div:first-child{box-sizing:border-box;}
+.oj-web-applayout-header>div:first-child::before{content:"";display:inline-block;min-height:3.143rem;visibility:hidden;}
+.oj-web-applayout-header>div,.oj-web-applayout-footer>div{padding-left:20px;padding-right:20px;}
+.oj-web-applayout-header-title{font-size:1.143rem;font-weight:normal;color:#4d4d4d;line-height:0;padding:0;margin:0;}
+.oj-web-applayout-content{-webkit-flex:1 0 auto;flex:1 0 auto;padding:10px;}
+.oj-web-applayout-footer{min-height:3.571rem;box-sizing:border-box;border-top:1px solid #d9dfe3;background-color:#f0f0f0;padding-top:10px;padding-bottom:10px;}
+.oj-web-applayout-footer-item{box-sizing:border-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex:0 1 auto;flex:0 1 auto;}
+@media screen and (max-width: 767px){
+.oj-web-applayout-footer-item{-webkit-justify-content:center;justify-content:center;text-align:center;}
+}
+.oj-web-applayout-footer ul{margin:0;}
+html:not([dir="rtl"]) .oj-web-applayout-footer ul{padding-left:0;}
+.oj-web-applayout-footer li{list-style:none;display:inline-block;}
+html:not([dir="rtl"]) .oj-web-applayout-footer li{margin-right:10px;margin-left:0;padding-right:10px;border-right:1px solid #d9dfe3;}
+html:not([dir="rtl"]) .oj-web-applayout-footer li:last-child{margin-right:0;padding-right:0;border-right:none;}
+.traceBox{overflow-x:auto;overflow-y:auto;max-height:60vh;padding:0.8571rem!important;margin:0;}
+.panelCollapsible{border:1px solid #d6dfe6;background-color:#fff;border-radius:1px;box-sizing:border-box;overflow:hidden;position:relative;}
+.titleCollapsible{padding:0.8571rem!important;border:1px solid #d6dfe6;border-width:0 0 1px;margin:0;}
+@font-face{font-family:"Segoe UI";font-weight:100;src:local("Segoe UI Light");}
+@font-face{font-family:"Segoe UI";font-weight:200;src:local("Segoe UI Semilight"),local("Segoe UI Light");}
+@font-face{font-family:"Segoe UI";font-weight:300;src:local("Segoe UI Semilight"),local("Segoe UI Light");}
+@font-face{font-family:"Segoe UI";font-weight:400;src:local("Segoe UI");}
+@font-face{font-family:"Segoe UI";font-weight:500;src:local("Segoe UI Semibold");}
+@font-face{font-family:"Segoe UI";font-weight:600;src:local("Segoe UI Semibold");}
+@font-face{font-family:"Segoe UI";font-weight:700;src:local("Segoe UI Bold");}
+@font-face{font-family:"Segoe UI";font-weight:800;src:local("Segoe UI Bold");}
+@font-face{font-family:"Segoe UI";font-weight:900;src:local("Segoe UI Bold");}
+@font-face{font-family:"Helvetica Neue";font-weight:100;src:local("HelveticaNeue-Ultralight");}
+@font-face{font-family:"Helvetica Neue";font-weight:200;src:local("HelveticaNeue-Thin");}
+@font-face{font-family:"Helvetica Neue";font-weight:300;src:local("HelveticaNeue-Light");}
+@font-face{font-family:"Helvetica Neue";font-weight:400;src:local("Helvetica Neue");}
+@font-face{font-family:"Helvetica Neue";font-weight:500;src:local("HelveticaNeue-Medium");}
+@font-face{font-family:"Helvetica Neue";font-weight:600;src:local("HelveticaNeue-Medium");}
+@font-face{font-family:"Helvetica Neue";font-weight:700;src:local("HelveticaNeue-Bold");}
+@font-face{font-family:"Helvetica Neue";font-weight:800;src:local("Helvetica-Bold");}
+@font-face{font-family:"Helvetica Neue";font-weight:900;src:local("Helvetica-Bold");}
+@font-face{font-family:"Arial";font-weight:100;src:local("sans-serif-thin"),local("Arial");}
+@font-face{font-family:"Arial";font-weight:200;src:local("sans-serif-thin"),local("Arial");}
+@font-face{font-family:"Arial";font-weight:300;src:local("sans-serif-light"),local("Arial");}
+@font-face{font-family:"Arial";font-weight:400;src:local("sans-serif-regular"),local("Arial");}
+@font-face{font-family:"Arial";font-weight:500;src:local("sans-serif-medium"),local("Arial");}
+@font-face{font-family:"Arial";font-weight:600;src:local("sans-serif-medium"),local("Arial");}
+@font-face{font-family:"Arial";font-weight:700;src:local("sans-serif-bold"),local("Arial Bold");}
+@font-face{font-family:"Arial";font-weight:800;src:local("sans-serif-bold"),local("Arial Bold");}
+@font-face{font-family:"Arial";font-weight:900;src:local("sans-serif-bold"),local("Arial Bold");}
+	
+	.oj-collapsible {
+	    margin-bottom: 0 !important;
+	}
+	
+	.header-grid {
+    	display: grid;
+	    grid-template-columns: auto 1fr;
+	    grid-column-gap: 1rem;
+	    grid-template-areas: "ords-logo oracle-logo" "ords-logo product-name";
+    }
+    .ords-logo {
+    	grid-area: ords-logo;
+    }
+    .oracle-logo {
+    	grid-area: oracle-logo;
+    	padding-top: 0.2rem;
+    }
+    .product-name {
+    	grid-area: product-name;
+    	font-size: 1rem;
+    	padding-bottom: 0.2rem;
+    }
+
+</style>
+<head>
+	<title>Internal Server Error</title>
+	
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="oj-web-applayout-body">
+    <div id="globalBody" class="oj-web-applayout-page">
+    
+      <header role="banner" class="oj-web-applayout-header">
+        <div class="oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center oj-web-applayout-content">
+          <div class="oj-sm-align-items-center">
+            <h1 class="header-grid oj-web-applayout-header-title" title="Oracle REST Data Services">
+            	<a class="ords-logo" style="" href="../"><img style="height:40px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAACjZJREFUeNrcW2lwFMcV/npmtSDtSgIVOFQsbofDR8DBUAbMZQ6bOEGJAbtI/CN/uA3lMpAygVTioojL5TgYxGUI2BgqgRgfSAKDJIJjbhwwOIAFYaVgCEaCSKuAjj1mOq9nR9JqD+3M7KyBdNW3u6DZmX7fvPe+93p7GOccSQ3GcEdHkvNnd5AAmfAwQSGcJ6j/7wS4CIMJIwjDCEMJ2frfagmHCUcIhwgnCA33OgFddCNH6u8/IKRFzV+cIvq7AcIpnYwmYirvZgLESz/CcMIT+h3+XqzD1TCIK3sJEsGps9NOj40Y4yLhKOEz/b1MO8UdIYAxMc9BurHDdYM7xTpUCTM41vDGOr1OhjOMmBjjhk5Ek5ecJDJ8qSGAsRzdyKa7O0S/WVHurOpGG6XVa/A4Rxghzthh00j4XA+Xgxo5nFdbJ4CxSfT6jG50/1jXjHRnK8Nr8XtSBCExwo

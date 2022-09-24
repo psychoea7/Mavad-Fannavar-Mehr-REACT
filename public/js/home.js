@@ -11038,41 +11038,41 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //   autoplay:true,
 //   responsive: {
 //     0: {
-//       items: 2
+//       items: 1
 //     },
 //     576: {
-//       items: 2
+//       items: 1
 //     },
 //     768: {
-//       items: 2
+//       items: 1
 //     },
 //     1200: {
-//       items: 4
+//       items: 1
 //     }
 //   }
 // });
-//  $(".owl-carousel").owlCarousel({
-//       rtl: true,
-//       loop: true,
-//       nav: false,
-//       dots: true,
-//       autoplaySpeed:300,
-//       autoplay:true,
-//       responsive: {
-//         0: {
-//           items: 1
-//         },
-//         576: {
-//           items: 1
-//         },
-//         768: {
-//           items: 1
-//         },
-//         1200: {
-//           items: 4
-//         }
-//       }
-//     });
+$(".owl-carousel").owlCarousel({
+  rtl: true,
+  loop: true,
+  nav: false,
+  dots: true,
+  autoplaySpeed: 300,
+  autoplay: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+    576: {
+      items: 1
+    },
+    768: {
+      items: 1
+    },
+    1200: {
+      items: 1
+    }
+  }
+});
 
 /***/ }),
 
@@ -24223,7 +24223,8 @@ __webpack_require__(/*! ./js/jquery.mCustomScrollbar */ "./resources/js/home/js/
 
 __webpack_require__(/*! ./js/owl-carousel-min */ "./resources/js/home/js/owl-carousel-min.js");
 
-__webpack_require__(/*! ./js/owl-custom-main */ "./resources/js/home/js/owl-custom-main.js");
+__webpack_require__(/*! ./js/owl-custom-main */ "./resources/js/home/js/owl-custom-main.js"); // require('../../../node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs');
+
 
 function scroll_to(clicked_link, nav_height) {
   var element_class = clicked_link.attr('href').replace('#', '.');
