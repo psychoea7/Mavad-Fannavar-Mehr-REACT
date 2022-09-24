@@ -10,7 +10,8 @@ class Product extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function attributes(){
+    public function attributes()
+    {
         return $this->hasMany(ProductAttribute::class);
     }
 }

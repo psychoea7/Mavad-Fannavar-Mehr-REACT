@@ -77,7 +77,7 @@ class ProductsController extends Controller
                     ]);
                 }
 
-                foreach ($request->attributes as $attribute) {
+                foreach ($request->attribute_ids as $attribute) {
                     ProductAttribute::create([
                         'product_id' => $product->id,
                         'attribute_id' => $attribute

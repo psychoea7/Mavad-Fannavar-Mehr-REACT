@@ -63,128 +63,50 @@
                     <div class="filters-group">
                         <p class="filter-label">فیلتر</p>
                         <div class="btn-group filter-options">
-                            <button class="btn btn--primary" data-group="space">لورم</button>
-                            <button class="btn btn--primary" data-group="nature">ایپسوم</button>
-                            <button class="btn btn--primary" data-group="animal">ساختگی</button>
-                            <button class="btn btn--primary" data-group="city">سادگی</button>
+                            @foreach ($categories as $category)
+                                <button class="btn btn--primary"
+                                    data-group="{{ $category->id }}">{{ $category->name }}</button>
+                            @endforeach
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
 
         <div class="container mt-5 py-5">
             <div id="grid" class="row my-shuffle-container">
-                
-
-                <div class="col-md-4 picture-item" data-groups='["nature","city"]'
-                data-date-created="2015-10-20" data-title="Central Park">
-                <div class="skill-card">
-                    <header class="skill-card__header"><img class="skill-card__icon" src="{{ asset('images/prod-1.jpg') }}" alt="HTML5 Logo"/></header>
-                    <section class="skill-card__body">
-                      <h2 class="skill-card__title">لورم ایپسوم</h2><span class="skill-card__duration">تولید سادگی نامفهوم</span>
-                      <ul class="skill-card__knowledge">
-                        <li>تکنولوژی</li>
-                        <li>روزنامه</li>
-                        <li>کاربردی</li>
-                        <li>جامعه</li>
-                      </ul>
-                    </section>
-                  </div>
-                </div>
-
-                
-
-                <div class="col-md-4 picture-item" data-groups='["nature"]'
-                data-date-created="2015-10-20" data-title="Central Park">
-                <div class="skill-card">
-                    <header class="skill-card__header"><img class="skill-card__icon" src="{{ asset('images/prod-2.jpg') }}" alt="HTML5 Logo"/></header>
-                    <section class="skill-card__body">
-                      <h2 class="skill-card__title">لورم ایپسوم</h2><span class="skill-card__duration">تولید سادگی نامفهوم</span>
-                      <ul class="skill-card__knowledge">
-                        <li>تکنولوژی</li>
-                        <li>روزنامه</li>
-                        <li>کاربردی</li>
-                        <li>جامعه</li>
-                      </ul>
-                    </section>
-                  </div>
-                </div>
-
-                <div class="col-md-4 picture-item" data-groups='["city"]'
-                data-date-created="2015-10-20" data-title="Central Park">
-                <div class="skill-card">
-                    <header class="skill-card__header"><img class="skill-card__icon" src="{{ asset('images/prod-3.jpg') }}" alt="HTML5 Logo"/></header>
-                    <section class="skill-card__body">
-                      <h2 class="skill-card__title">لورم ایپسوم</h2><span class="skill-card__duration">تولید سادگی نامفهوم</span>
-                      <ul class="skill-card__knowledge">
-                        <li>تکنولوژی</li>
-                        <li>روزنامه</li>
-                        <li>کاربردی</li>
-                        <li>جامعه</li>
-                      </ul>
-                    </section>
-                  </div>
-                </div>
-
-                <div class="col-md-4 picture-item" data-groups='["nature","city"]'
-                data-date-created="2015-10-20" data-title="Central Park">
-                <div class="skill-card">
-                    <header class="skill-card__header"><img class="skill-card__icon" src="{{ asset('images/prod-2.jpg') }}" alt="HTML5 Logo"/></header>
-                    <section class="skill-card__body">
-                      <h2 class="skill-card__title">لورم ایپسوم</h2><span class="skill-card__duration">تولید سادگی نامفهوم</span>
-                      <ul class="skill-card__knowledge">
-                        <li>تکنولوژی</li>
-                        <li>روزنامه</li>
-                        <li>کاربردی</li>
-                        <li>جامعه</li>
-                      </ul>
-                    </section>
-                  </div>
-                </div>
 
 
-                <div class="col-md-4 picture-item" data-groups='["city"]'
-                data-date-created="2015-10-20" data-title="Central Park">
-                <div class="skill-card">
-                    <header class="skill-card__header"><img class="skill-card__icon" src="{{ asset('images/prod-3.jpg') }}" alt="HTML5 Logo"/></header>
-                    <section class="skill-card__body">
-                      <h2 class="skill-card__title">لورم ایپسوم</h2><span class="skill-card__duration">تولید سادگی نامفهوم</span>
-                      <ul class="skill-card__knowledge">
-                        <li>تکنولوژی</li>
-                        <li>روزنامه</li>
-                        <li>کاربردی</li>
-                        <li>جامعه</li>
-                      </ul>
-                    </section>
-                  </div>
-                </div>
+                @foreach ($products as $product)
+                    @php
+                        $productAttr = $product->attributes()->with('attribute')->get();
+                    @endphp
+
+                    <div class="col-md-4 picture-item" data-groups='["{{$product->category_id}}"]' data-date-created="2015-10-20"
+                        data-title="Central Park">
+                        <div class="skill-card">
+                            <header class="skill-card__header"><img class="skill-card__icon"
+                                    src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}" alt="HTML5 Logo" /></header>
+                            <section class="skill-card__body">
+                                <h2 class="skill-card__title">{{$product->name}}</h2><span class="skill-card__duration">{{$product->description}}</span>
+                                <ul class="skill-card__knowledge">
+                                    @foreach ($productAttr as $value)
+                                    <li>{{$value->attribute->name}}</li>
+                                    @endforeach
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                @endforeach
 
 
-                <div class="col-md-4 picture-item" data-groups='["nature"]'
-                data-date-created="2015-10-20" data-title="Central Park">
-                <div class="skill-card">
-                    <header class="skill-card__header"><img class="skill-card__icon" src="{{ asset('images/prod-1.jpg') }}" alt="HTML5 Logo"/></header>
-                    <section class="skill-card__body">
-                      <h2 class="skill-card__title">لورم ایپسوم</h2><span class="skill-card__duration">تولید سادگی نامفهوم</span>
-                      <ul class="skill-card__knowledge">
-                        <li>تکنولوژی</li>
-                        <li>روزنامه</li>
-                        <li>کاربردی</li>
-                        <li>جامعه</li>
-                      </ul>
-                    </section>
-                  </div>
-                </div>
 
-
-                
                 <div class="col-1@sm col-1@xs my-sizer-element"></div>
             </div>
         </div>
 
-        
+
         <footer class="footer-container">
             <div class="container">
                 <div class="row">
@@ -194,5 +116,5 @@
                 </div>
             </div>
         </footer>
-      </div>
-      @endsection
+    </div>
+@endsection

@@ -4,6 +4,8 @@ use App\Http\Controllers\admin\AttributesController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\ProductsController;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,22 +45,24 @@ Route::get('/services', function () {
 });
 
 Route::get('/products', function () {
-    return view('home.pages.products');
+    $categories = Category::all();
+    $products = Product::where('is_active' , '=' , 1)->get();
+    return view('home.pages.products' , compact('categories' , 'products'));
 
 });
 
 Route::get('/products-expand', function () {
     return view('home.pages.products-expand');
-    
+
 });
 
 Route::get('/blog', function () {
     return view('home.pages.blog');
-    
+
 });
 
 Route::get('/blog-post', function () {
     return view('home.pages.blog-post');
-    
+
 });
 
