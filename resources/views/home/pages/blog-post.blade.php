@@ -9,7 +9,7 @@
 
         <main>
             <div class="container">
-                <div class="row my-5">
+                <div class="row py-5">
                     <div class="col-md-12 weblog-post">
                         <div class="weblog-picture my-5">
                             <img class="img-fluid" src="{{ asset('images/portfolio/3.jpg') }}" alt="blog post image">

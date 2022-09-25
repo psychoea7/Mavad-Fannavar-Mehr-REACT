@@ -13128,7 +13128,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
     margin-top: 30px;
     text-align: justify;
 }
-.section-2-box ul {
+/* .section-2-box ul {
     color: var(--clr-dark);
     text-align: justify;
 }
@@ -13143,7 +13143,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
     font-weight: bold;
     float: right;
     margin-left: 5px;
-}
+} */
 ​ .section-2-box h3 {
     margin-top: 0;
 }
@@ -14129,6 +14129,40 @@ footer {
 .weblog-text p {
     text-align: justify;
 }
+
+/* About Us Page */
+.about-us-container h2 {
+    color: var(--clr-dark);
+    font-size: 2rem;
+    text-align: right;
+}
+.about-us-container p {
+    margin: 1rem 0;
+    word-spacing: 0.3rem;
+    line-height: 2.2rem;
+}
+.about-us-container .divider-1 span {
+    width: 100%;
+}
+.about-us-container ul {
+    color: var(--clr-dark);
+    text-align: justify;
+    padding: 0;
+}
+.about-us-container ul li {
+    line-height: 2.4rem;
+    color: var(--clr-dark);
+}
+.about-us-container li:before {
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    content: "\f00c";
+    color: var(--clr-light-dark);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
 
   
 /* Scroll Bar */

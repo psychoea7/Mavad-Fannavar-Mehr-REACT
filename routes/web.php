@@ -68,3 +68,13 @@ Route::get('/blog-post', function () {
 
 });
 
+Route::get('/about-us', function () {
+    return view('home.pages.about-us');
+
+});
+
+Route::get('/contact-us', function () {
+    return view('home.pages.contact-us');
+
+});
+
