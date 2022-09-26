@@ -1,6 +1,7 @@
 /* Shabnam Font --------------------------------------*/
 /* @import url("https://v1.fontapi.ir/css/Shabnam"); */
 @import "./owl.carousel.min.css";
+@import "../../../../node_modules/leaflet/dist/leaflet.css";
 @import url("https://v1.fontapi.ir/css/Lalezar");
 @font-face {
     font-family: "IRANSans";
@@ -1701,6 +1702,15 @@ footer {
     margin-left: 5px;
 }
 
+/* Contact Us Page */
+.contact-us-wrapper {
+    color: var(--clr-dark);
+}
+.contact-us-wrapper .section-6-form input[type="text"]:focus,
+.contact-us-wrapper .section-6-form textarea:focus {
+    outline: 0;
+    border: 1px solid var(--clr-light-dark);
+}
 
   
 /* Scroll Bar */

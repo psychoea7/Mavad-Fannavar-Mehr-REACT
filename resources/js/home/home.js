@@ -8,6 +8,8 @@ require('../home/js/jquery.waypoints');
 require('./js/jquery.mCustomScrollbar');
 require('./js/owl-carousel-min');
 require('./js/owl-custom-main');
+require('../../../node_modules/leaflet/dist/leaflet');
+require('../../../node_modules/leaflet-providers/leaflet-providers');
 // require('../../../node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs');
 
 
@@ -348,4 +350,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Leaflet Map
+var lat = 35.815826;
+        var lng = 50.964871;
+        var map = L.map('map', {
+            center: [lat, lng],
+            zoom: 13
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: false
+        }).addTo(map);
+
+        
+        
+
+            
 
