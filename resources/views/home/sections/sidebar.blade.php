@@ -51,7 +51,7 @@
         </a>
         <ul class="collapse list-unstyled p-0" id="otherSections">
           <li>
-            <a class="scroll-link" href="#section-3"> ارتباط با ما</a>
+            <a class="scroll-link" href="#section-3"> درباره ما</a>
           </li>
           <li>
             <a class="scroll-link" href="#section-4"> همکاری با ما</a>
