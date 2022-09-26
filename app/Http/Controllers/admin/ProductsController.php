@@ -69,7 +69,8 @@ class ProductsController extends Controller
                     'category_id' => $request->categories,
                     'slug' => $request->slug,
                     'primary_image' => $uploadImages['primary'],
-                    'description' => $request->description
+                    'description' => $request->description,
+                    'is_active' => $request->is_active
                 ]);
 
                 foreach ($uploadImages['images'] as $image) {
