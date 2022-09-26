@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\ProductsController;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,8 +46,8 @@ Route::get('/services', function () {
 });
 
 Route::get('/products', function () {
-    $categories = Category::all();
-    $products = Product::where('is_active' , '=' , 1)->get();
+    $categories = Category::where('is_active' , '=' , 1)->get();
+    $products = Product::where('is_active' , '=' , 1)->with('category')->get();
     return view('home.pages.products' , compact('categories' , 'products'));
 
 });
