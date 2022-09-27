@@ -362,8 +362,7 @@ var lat = 35.68177;
             attribution: false
         }).addTo(map);
 
-        var marker = L.marker([lat, lng]).addTo(map)
-            .openPopup();
+        
         
 
             
