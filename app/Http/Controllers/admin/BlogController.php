@@ -118,4 +118,10 @@ class BlogController extends Controller
 
         return redirect()->back();
     }
+
+    public function getImage(Request $request){
+        $fileName=$request->file('file')->getClientOriginalName();
+        $path=$request->file('file')->move(public_path(env('BLOG_IMAGE_PATH')) , $fileName);
+        return response()->json(['location'=>"/upload/files/blog/images/$fileName"]);
+    }
 }
