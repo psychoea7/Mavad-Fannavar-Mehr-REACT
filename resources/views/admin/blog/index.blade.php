@@ -25,7 +25,7 @@
                             alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $blog->title }}</h5>
-                            <p class="card-text">{{ $blog->text }}</p>
+                            {{-- <p class="card-text">{{ $blog->text }}</p> --}}
                             <a href="{{ route('admin.blogs.show', ['blog' => $blog->id]) }}"
                                 class="btn btn-outline-info">نمایش بلاگ</a>
                             <div>

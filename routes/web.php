@@ -34,6 +34,7 @@ Route::prefix('admin-panel-management')->name('admin.')->group(function(){
 
 });
 
+Route::post('/uploadImage' , [BlogController::class , 'getImage']);
 
 Route::get('/', function () {
     return view('home.pages.index');

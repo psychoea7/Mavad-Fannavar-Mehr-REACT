@@ -6,7 +6,7 @@
     <img class="card-img-top" src="{{url(env('BLOG_IMAGE_PATH') . $blog->image)}}" alt="Card image cap">
     <div class="card-body">
         <h5 class="card-title">{{$blog->title}}</h5>
-        <p class="card-text">{{$blog->text}}</p>
+        <p class="card-text">{!! $blog->text !!}</p>
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 /* Shabnam Font --------------------------------------*/
 /* @import url("https://v1.fontapi.ir/css/Shabnam"); */
 @import "./owl.carousel.min.css";
-@import "../../../../node_modules/leaflet/dist/leaflet.css";
+/* @import "../../../../node_modules/leaflet/dist/leaflet.css"; */
 @import url("https://v1.fontapi.ir/css/Lalezar");
 @font-face {
     font-family: "IRANSans";
@@ -1013,7 +1013,7 @@ footer {
 } */
 /* .picture-item--h2 {
     height: 464px;
-      
+
 }
 .picture-item__inner {
     position: relative;
@@ -1712,7 +1712,7 @@ footer {
     border: 1px solid var(--clr-light-dark);
 }
 
-  
+
 /* Scroll Bar */
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);

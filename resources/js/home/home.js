@@ -8,7 +8,7 @@ require('../home/js/jquery.waypoints');
 require('./js/jquery.mCustomScrollbar');
 require('./js/owl-carousel-min');
 require('./js/owl-custom-main');
-require('../../../node_modules/leaflet/dist/leaflet');
+// require('../../../node_modules/leaflet/dist/leaflet');
 // require('../../../node_modules/leaflet-providers/leaflet-providers');
 // require('../../../node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs');
 
@@ -232,7 +232,7 @@ class Demo {
     if (!options) {
       return;
     }
-    
+
     const filterButtons = Array.from(options.children);
     const onClick = this._handleFilterClick.bind(this);
     filterButtons.forEach((button) => {
@@ -244,9 +244,9 @@ class Demo {
     const btn = evt.currentTarget;
     const isActive = btn.classList.contains('active');
     const btnGroup = btn.getAttribute('data-group');
-    
+
     this._removeActiveClassFromChildren(btn.parentNode);
-    
+
     let filterGroup;
     if (isActive) {
       btn.classList.remove('active');
@@ -255,7 +255,7 @@ class Demo {
       btn.classList.add('active');
       filterGroup = btnGroup;
     }
-    
+
     this.shuffle.filter(filterGroup);
   }
 
@@ -284,19 +284,19 @@ class Demo {
         button.classList.remove('active');
       }
     });
-    
+
     // Create the sort options to give to Shuffle.
     const { value } = evt.target;
     let options = {};
-    
+
     function sortByDate(element) {
       return element.getAttribute('data-created');
     }
-    
+
     function sortByTitle(element) {
       return element.getAttribute('data-title').toLowerCase();
     }
-    
+
     if (value === 'date-created') {
       options = {
         reverse: true,
@@ -362,8 +362,9 @@ var lat = 35.68177;
             attribution: false
         }).addTo(map);
 
-        
-        
+        var marker = L.marker([lat, lng]).addTo(map)
+            .openPopup();
 
-            
+
+
 
