@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AttributesController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\ProductsController;
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
@@ -61,14 +62,15 @@ Route::get('/products-expand/{product}', function (Product $product) {
 })->name('showProduct');
 
 Route::get('/blog', function () {
-    return view('home.pages.blog');
+    $blogs = Blog::all();
+    return view('home.pages.blog' , compact('blogs'));
 
 });
 
-Route::get('/blog-post', function () {
-    return view('home.pages.blog-post');
+Route::get('/blog-post/{blog}', function (Blog $blog) {
+    return view('home.pages.blog-post' , compact('blog'));
 
-});
+})->name('blogContent');
 
 Route::get('/about-us', function () {
     return view('home.pages.about-us');
