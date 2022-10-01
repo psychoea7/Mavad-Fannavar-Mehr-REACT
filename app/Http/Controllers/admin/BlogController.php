@@ -95,13 +95,15 @@ class BlogController extends Controller
 
         $getImage = new GetimageController();
 
-        $file = $getImage->upload($request->image);
-
         $blog->update([
             'title' => $request->title,
             'text' => $request->text,
-            'image' => $file['img_name']
         ]);
+
+        if ($request->has('image')) {
+            $file = $getImage->upload($request->image);
+            $blog->update(['image' => $file['img_name']]);
+        }
 
         return redirect()->back();
     }
