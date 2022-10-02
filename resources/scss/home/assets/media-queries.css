@@ -55,7 +55,12 @@
 	footer {
 		font-size: 0.9rem;
 	}
-	
+	.collab-form input {
+		width: 100% !important;
+		display: block !important;
+		margin-top: 1rem;
+		text-align: right !important;
+	}
 
 }
 

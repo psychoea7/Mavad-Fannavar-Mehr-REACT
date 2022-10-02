@@ -82,3 +82,8 @@ Route::get('/contact-us', function () {
 
 });
 
+Route::get('/collab', function () {
+    return view('home.pages.collab');
+
+});
+

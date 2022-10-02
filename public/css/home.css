@@ -12430,7 +12430,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	footer {
 		font-size: 0.9rem;
 	}
-	
+	.collab-form input {
+		width: 100% !important;
+		display: block !important;
+		margin-top: 1rem;
+		text-align: right !important;
+	}
 
 }
 
@@ -13299,12 +13304,13 @@ article p {
 }
 
 .section-6-form input[type="text"],
+.section-6-form input[type="number"],
 .section-6-form textarea {
     background: none;
     border: 2px solid var(--clr-light-dark);
     font-size: 16px;
     font-weight: 300;
-    color: var(--clr-primary);
+    color: var(--clr-dark);
     box-shadow: none;
     transition: all 0.3s;
 }
@@ -13314,6 +13320,7 @@ article p {
 }
 
 .section-6-form input[type="text"]:focus,
+.section-6-form input[type="number"]:focus,
 .section-6-form textarea:focus {
     outline: 0;
     background: var(--clr-primary);
@@ -13328,16 +13335,19 @@ article p {
 }
 
 .section-6-form input[type="text"]::-moz-placeholder,
+.section-6-form input[type="number"]::-moz-placeholder,
 .section-6-form textarea::-moz-placeholder {
     color: #ccc;
 }
 
 .section-6-form input[type="text"]:-ms-input-placeholder,
+.section-6-form input[type="number"]:-ms-input-placeholder,
 .section-6-form textarea:-ms-input-placeholder {
     color: #ccc;
 }
 
 .section-6-form input[type="text"]::-webkit-input-placeholder,
+.section-6-form input[type="number"]::-webkit-input-placeholder,
 .section-6-form textarea::-webkit-input-placeholder {
     color: #ccc;
 }
@@ -14080,17 +14090,17 @@ footer {
     /* -webkit-border-radius: 30px;
     -moz-border-radius: 30px; */
     /* border-radius: 30px; */
-  }
-  .owl-theme .owl-dots .owl-dot.active span {
+}
+.owl-theme .owl-dots .owl-dot.active span {
     /* box-shadow: 0 0 3px var(--clr-dark); */
     background: var(--clr-accent) !important;
     box-shadow: var(--clr-accent) 0px 0px 5px;
     width: 60px;
     height: 10px;
-  }
+}
 
-  /* Blog Page And Blog Post */
-  .weblog-post {
+/* Blog Page And Blog Post */
+.weblog-post {
     background-color: #fff;
     /* padding: 0 1rem 0 1rem; */
     border-radius: 0.3rem;
@@ -14169,11 +14179,17 @@ footer {
     color: var(--clr-dark);
 }
 .contact-us-wrapper .section-6-form input[type="text"]:focus,
+.contact-us-wrapper .section-6-form input[type="number"]:focus,
 .contact-us-wrapper .section-6-form textarea:focus {
     outline: 0;
-    border: 1px solid var(--clr-light-dark);
+    border: 1px solid var(--clr-accent);
 }
 
+/* Collab Page */
+.collab-form input {
+    width: 32.9%;
+    display: inline;
+}
 
 /* Scroll Bar */
 ::-webkit-scrollbar-track {
