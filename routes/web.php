@@ -87,3 +87,7 @@ Route::get('/collab', function () {
 
 });
 
+Route::get('/english', function () {
+    return view('home.pages.english');
+
+});
