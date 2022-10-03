@@ -7,6 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+   
 
     <title>  Speedkar Trading | Speedkar</title>
 
@@ -128,7 +129,7 @@
     <!-- End wrapper -->
 
     <!-- Javascript -->
-    <script src="{{ asset('js/home.js') }}"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
+    {{-- <script src="{{ asset('js/home.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script> --}}
   </body>
 </html>
