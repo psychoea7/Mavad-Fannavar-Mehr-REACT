@@ -10,124 +10,85 @@
    
 
     <title>  Speedkar Trading | Speedkar</title>
+    <link
+    href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+  <!-- Bootstrap RTL ----------------------------------------------------->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
+    crossorigin="anonymous"
+  />
+  {{-- Fav Icon --}}
+  <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+  <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
 
-    
+  {{-- <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  /> --}}
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous"
+  />
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
+
   </head>
 
   <body>
+    @include('home.sections.sidebar')
     <!-- Wrapper -->
-    <div class="wrapper">
-      <!-- Sidebar -->
-      <nav class="sidebar">
-        <!-- close sidebar menu -->
-        <div class="dismiss">
-          <i class="fas fa-arrow-right"></i>
+    <div class="content">
+        <!-- open sidebar menu -->
+        <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+            <i class="fas fa-align-left"></i> <span>منو</span>
+        </a>
+
+        <div class="top-content section-container" id="top-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                        <h1 class="wow fadeIn">
+
+                            <strong>درباره بازرگانی اسپیدکار</strong>
+                        </h1>
+                        <div class="description wow fadeInLeft">
+                            <p>
+                                واردات و عرضه آلیاژ ها صنعتی با پشتوانه بیش از ۱۰ سال تجربه فعالیت بازرگانی و خدمات مهندسی
+                                سطح
+
+                            </p>
+                        </div>
+                        <div class="buttons wow fadeInUp">
+                            <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-3" role="button">
+                                صفحه اصلی <i class="fas fa-home"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    
-        <div class="logo">
-          <h3>
-            <a href="index.html"
-              >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a
-            >
-          </h3>
-        </div>
-    
-        <ul class="list-unstyled menu-elements">
-          <li class="active">
-            <a class="scroll-link" href="#top-content"
-              ><i class="fas fa-home"></i> خانه</a
-            >
-          </li>
-          <li>
-            <a class="scroll-link" href="#section-1"
-              ><i class="fas fa-briefcase"></i> خدمات بازرگانی</a
-            >
-          </li>
-          <li>
-            <a class="scroll-link" href="#section-2"
-              ><i class="fas fa-tags"></i> محصولات</a
-            >
-          </li>
-          <li>
-            <a class="scroll-link" href="#section-5"
-              ><i class="fas fa-pencil-alt"></i> وبلاگ</a
-            >
-          </li>
-          <li>
-            <a class="scroll-link" href="#section-6"
-              ><i class="fas fa-envelope"></i> تماس با ما</a
-            >
-          </li>
-          <li>
-            <a
-              href="#otherSections"
-              data-toggle="collapse"
-              aria-expanded="false"
-              class="dropdown-toggle"
-              role="button"
-              aria-controls="otherSections"
-            >
-              بخش های دیگر
-            </a>
-            <ul class="collapse list-unstyled p-0" id="otherSections">
-              <li>
-                <a class="scroll-link" href="#section-3"> درباره ما</a>
-              </li>
-              <li>
-                <a class="scroll-link" href="#section-4"> همکاری با ما</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-    
-        <div class="to-top">
-          <a class="btn btn-primary btn-customized-3" href="#" role="button">
-            <i class="fas fa-arrow-up"></i> به بالا
-          </a>
-        </div>
-    
-        <div class="dark-light-buttons">
-          <a
-            class="btn btn-primary btn-customized-4 btn-customized-dark"
-            href="#"
-            role="button"
-            >Dark</a
-          >
-          <a
-            class="btn btn-primary btn-customized-4 btn-customized-light"
-            href="#"
-            role="button"
-            >Light</a
-          >
-        </div>
-      </nav>
-    
-      <!-- End sidebar -->
-
-      <!-- Dark overlay -->
-      <div class="overlay"></div>
-
-      <!-- Content -->
-       
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-      <!-- End content -->
+        <footer class="footer-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        &copy; شرکت به نگاران تجارت آزما <a href=""> به نگاران تجارت آزما</a>.
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-    <!-- End wrapper -->
-
     <!-- Javascript -->
     {{-- <script src="{{ asset('js/home.js') }}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script> --}}
