@@ -42,12 +42,12 @@
   </head>
 
   <body>
-    @include('home.sections.sidebar')
+    {{-- @include('home.sections.sidebar') --}}
     <!-- Wrapper -->
     <div class="content">
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-            <i class="fas fa-align-left"></i> <span>منو</span>
+            <i class="fas fa-align-left"></i> <span>Menu</span>
         </a>
 
         <div class="top-content section-container" id="top-content">
@@ -90,7 +90,7 @@
         </footer>
     </div>
     <!-- Javascript -->
-    {{-- <script src="{{ asset('js/home.js') }}"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script> --}}
+    <script src="{{ asset('js/home.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
   </body>
 </html>
