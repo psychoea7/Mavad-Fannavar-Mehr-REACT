@@ -7,6 +7,8 @@
             <i class="fas fa-align-left"></i> <span>منو</span>
         </a>
 
+        <a href="#" class="eng-flag"></a>
+
         <!-- Top content -->
         <div class="top-content section-container" id="top-content">
             <div class="container">
@@ -267,7 +269,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col section-4 section-description wow fadeInLeftBig">
-                        <h2> کلامی از ما...</h2>
+                        <h2>اسپیدکار؟</h2>
                         <p class="text-center">
                             اسپیدکار یا سپیدکار در متون فارسی شخصی را گویند که ظروف مس را سفید کند و او را قلعی گر و سفیدگر
                             نیز گویند.
