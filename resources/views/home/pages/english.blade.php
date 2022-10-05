@@ -211,15 +211,84 @@
                     <div class="divider-1 wow fadeInUp"><span></span></div>
                 </div>
 
-                <p><strong>Speedkar</strong> supplies Europe and Asian manufacture of materials. Laser Cladding ans PTA systems have been successfully implemented laser clad coatings for a variety
+                <p><strong>Speedkar</strong> supplies Europe and Asian manufacture of materials. Laser Cladding ans PTA
+                    systems have been successfully implemented laser clad coatings for a variety
                     of applications e.g. gas turbine rotor coatings, valve ball coatings, internal diameter coatings,
                     etc and mobile on-site laser clad repair coatings.</p>
             </div>
 
-            <div class="row eng-stat-table">
-                
-            
-              </div>
+            <div class="row">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;" scope="col">ALLOY</th>
+                            <th style="width: 45%;" scope="col">BRIEF</th>
+
+                            <th style="width: 35%;" scope="col">FORMS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">COLMONOY®
+                                Nickel-based Alloys</th>
+                            <td>
+                                <ul class="p-0 text-left">
+                                    <li>: 1.8B-2.5Si-0.4Fe Bal Ni (HRC 30)</li>
+                                    <li>: 0.3C-5.8Cr-1.0N-4.1Si-1.5Fe Bal Ni (HRC 36)</li>
+                                    <li>W2C: 133L with Tungsten Carbide (HRC 36)</li>
+                                    <li>0.45C-10.0Cr-1.75B-3.15Si-2.5Fe-7.5Mo Bal Ni (HRC 50)</li>
+                                    <li>0.7C-15.0Cr-3.0-B-4.0Si-3.5Fe-15.5W Bal Ni (HRC 59-64)</li>
+                                    <li>625: <0.1C-21.5Cr-<0.5Si-<0.5Fe-9.0Mo Bal Ni (HRB 97)</li>
+                                </ul>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <th scope="row">WALLEX™
+                                Cobalt-based Alloys</th>
+                            <td>
+                                <ul class="p-0 text-left">
+                                    <li>Wallex 1: 2.3C-30.0Cr-1.3Si-12.5W (HRC 50-55)</li>
+                                    <li>Wallex 6: 1.0C-29.0Cr-1.3Si-4.5W (HRC 38-44)</li>
+                                    <li>Wallex 12: 1.8C-29.0Cr-1.3Si-9W (HRC 45-50)</li>
+                                    <li>Wallex 40: 0.6C-16.2Cr-2.0B-1.9Si-23.5Ni-7.6W (HRC 40-47)</li>
+                                    <li>Wallex 50: 0.8C-19.0Cr-3.4B-2.8Si-18.0Ni-10.0W (HRC 56-61)</li>
+                                </ul>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <th scope="row">Laser Cladding & PTA Powder </th>
+                            <td rowspan="2">
+                                <ul class="p-0 text-left">
+                                    <li>IN625</li>
+                                    <li>Hastelloy C276</li>
+                                    <li>NiBSi 22 HRC</li>
+                                    <li>NiCrBSi 30 HRC</li>
+                                    <li>NiCrBSi 40 HRC</li>
+                                    <li>NiCrBSi 50 HRC</li>
+                                    <li>NiCrBSi 60 HRC</li>
+                                    <li>NiCrBSi CuMo</li>
+                                    <li>Stellite 1</li>
+                                    <li>Stellite 6</li>
+                                    <li>Stellite SF6</li>
+                                    <li>Stellite 12</li>
+                                    <li>Stellite 21</li>
+                                    <li>T-400</li>
+                                    <li>T-800</li>
+                                    <li>Fe Based Alloys (308L, 431, 316L, 410L)</li>
+                                    <li>FeCrV15</li>
+                                    <li>FeCrV12</li>
+                                    <li>Carbide Reinforced Powders (NiBSi/WSC, NiCrBSi/FTC)</li>
+                                </ul>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
 
