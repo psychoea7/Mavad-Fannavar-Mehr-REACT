@@ -217,7 +217,7 @@
                     etc and mobile on-site laser clad repair coatings.</p>
             </div>
 
-            <div class="row">
+            <div class="row my-5">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -261,7 +261,7 @@
                         </tr>
                         <tr>
                             <th scope="row">Laser Cladding & PTA Powder </th>
-                            <td rowspan="2">
+                            <td rowspan="1">
                                 <ul class="p-0 text-left">
                                     <li>IN625</li>
                                     <li>Hastelloy C276</li>
@@ -283,6 +283,23 @@
                                     <li>FeCrV12</li>
                                     <li>Carbide Reinforced Powders (NiBSi/WSC, NiCrBSi/FTC)</li>
                                 </ul>
+                            </td>
+                            
+
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Customer-specific Alloys</th>
+                            <td class="text-left">
+                                Many customers have applications which require specific alloys in order to achieve
+                                specific required coating properties. We can work with you to help address specific
+                                requirements.
+                            </td>
+
+                            <td class="border-0">
+                                The laser clad and PTA alloys are supplied as 100-270 mesh size. Other sizes available
+                                upon request..
                             </td>
 
                         </tr>

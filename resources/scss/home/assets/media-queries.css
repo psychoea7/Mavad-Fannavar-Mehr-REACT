@@ -113,8 +113,19 @@
         left: -9999px;
     }
     tbody tr:nth-of-type(1):before {
-        content: "ALLOY";
+        content: "ALLOY & BRIEF";
 		font-weight: 900;
+		font-size: 1.3rem;
+		padding: 1rem 0;
+		background-color: var(--clr-dark);
+		color: var(--clr-primary);
+		border-radius: 4px;
+    }
+	tbody tr:nth-of-type(4) td:nth-of-type(2):before {
+        content: "FORMS";
+		font-weight: 900;
+		display: block;
+		margin-bottom: 1rem;
 		font-size: 1.3rem;
 		padding: 1rem 0;
 		background-color: var(--clr-dark);
