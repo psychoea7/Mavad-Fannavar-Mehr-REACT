@@ -221,10 +221,9 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th style="width: 20%;" scope="col">ALLOY</th>
-                            <th style="width: 45%;" scope="col">BRIEF</th>
-
-                            <th style="width: 35%;" scope="col">FORMS</th>
+                            <th class="text-left" style="width: 25%;" scope="col">ALLOY</th>
+                            <th class="text-left" style="width: 50%;" scope="col">BRIEF</th>
+                            <th class="text-left" style="width: 25%;" scope="col">FORMS</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -284,20 +283,20 @@
                                     <li>Carbide Reinforced Powders (NiBSi/WSC, NiCrBSi/FTC)</li>
                                 </ul>
                             </td>
-                            
+
 
 
                         </tr>
 
                         <tr>
                             <th scope="row">Customer-specific Alloys</th>
-                            <td class="text-left">
+                            <td class="text-justify">
                                 Many customers have applications which require specific alloys in order to achieve
                                 specific required coating properties. We can work with you to help address specific
                                 requirements.
                             </td>
 
-                            <td class="border-0">
+                            <td class="border-0 text-justify">
                                 The laser clad and PTA alloys are supplied as 100-270 mesh size. Other sizes available
                                 upon request..
                             </td>
@@ -306,6 +305,126 @@
                     </tbody>
                 </table>
             </div>
+
+            <div class="row">
+
+                <div class="col section-1 section-description wow fadeIn">
+                    <h2 class="text-center">ADDITIVE MANUFACTURING POWDERS</h2>
+                    <div class="divider-1 wow fadeInUp"><span></span></div>
+                </div>
+
+                <p>Additive manufacturing (AM) – otherwise commonly known as 3-D printing – has seen implementation in
+                    the manufacturing of niche products and plastic prototypes for engineers and designers. However, it
+                    has also now begun to be part of mass production of critical parts for a wider range of applications
+                    in areas such as aerospace, automotive and medical. The benefits of AM include:</p>
+
+                <ul class="list-unstyled text-left check-list-eng">
+                    <li>Costs less to manufacturing a part with a complex design</li>
+                    <li>Fewer design constraints</li>
+                    <li>Changes of design are easy – simply by changing the CAD file</li>
+                    <li>Prototypes can be manufactured and used immediately</li>
+                    <li>Reduce wastage because only the material that is needed is used</li>
+                </ul>
+                <p><strong>Speedkar</strong> provides a range of quality gas-atomized, spherical metal additive
+                    manufacturing powders
+                    from Germany, USA , Turkey and China to suit your range of applications.</p>
+            </div>
+
+            <div class="row my-5">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-left" style="width: 25%;" scope="col">POWDER</th>
+                            <th class="text-left" style="width: 30%;" scope="col">PRODUCT NAME (MATERIAL TYPE)
+                            </th>
+                            <th class="text-left" style="width: 45%;" scope="col">BRIEF</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sec-table">
+                        <tr>
+                            <th scope="row">Cobalt-based</th>
+                            <td>
+                                <ul class="p-0 text-left">
+                                    <li>Co-222 (Similar to MAR-M-509®)</li>
+                                    <li>Co-538 (Cobalt Chrome)</li>
+                                </ul>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <th scope="row">Iron-based</th>
+                            <td>
+                                <ul class="p-0 text-left">
+                                    <li>316 Stainless Steel. 316L variant is also available)</li>
+                                    <li>17-4 PH Stainless Steel</li>
+                                    <li>Fe-339 (Maraging Steel)</li>
+                                    <li>Fe-347 (15-5 Stainless Steel)</li>
+                                </ul>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <th scope="row">Nickel-based</th>
+                            <td rowspan="1">
+                                <ul class="p-0 text-left">
+                                    <li>Ni-111 (Hastelloy®)</li>
+                                    <li>Ni-202 (Inconel® 718)</li>
+                                    <li>Ni-238 (Inconel® 939)</li>
+                                    <li>Ni-284 (Inconel® 738)</li>
+                                    <li>Ni-328 (Inconel® 625)</li>
+                                    <li>Ni-335 (MAR-M-247®)</li>
+                                    <li>Ni-365 (Rene™ 142)</li>
+                                    <li>Ni-914 (Pure Nickel)</li>
+                                    <li>Ni-1066 (Inconel® 617)</li>
+                                    <li>Ni-1111 (Haynes® 282)</li>
+
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Titanium-based</th>
+                            <td rowspan="1" class="text-left">
+                                <ul class="p-0 text-left">
+                                    <li>Ti-101 (Ti6Al4V, Grades 5 and 23)</li>
+                                    <li>Ti-201 (Ti Aluminide)</li>
+                                    <li>Ti-301 (Ti6242)</li>
+
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Other Powders</th>
+                            <td  class="text-left">
+                                Contact us for other custom powder material and specification requirements.
+                            </td>
+
+                            <td class="border-0 text-justify">
+                                The additive manufacturing powders are:
+                                <ul class="p-0 text-left">
+                                    <li>Approved aerospace grade</li>
+                                    <li>Spherical free-flowing and fully dense</li>
+                                    <li>Available in standard and custom sizing and chemistries</li>
+                                    <li>Available in large lot sizes and R&D volumes</li>
+                                </ul>
+                                These gas atomized metal powders are available in a wide range of standard alloys for
+                                all your additive manufacturing techniques and applications.
+
+                                These powders are custom-engineered for specific industries – including aerospace,
+                                automotive and medical – and the chemistries and particle sizing can be modified to
+                                ensure your finished products meet your performance and surface finish specifications.
+                            </td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
         </div>
 
 

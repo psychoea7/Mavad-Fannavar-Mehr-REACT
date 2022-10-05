@@ -12496,6 +12496,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		color: var(--clr-primary);
 		border-radius: 4px;
     }
+	
 	tbody tr:nth-of-type(4) td:nth-of-type(2):before {
         content: "FORMS";
 		font-weight: 900;
@@ -12503,6 +12504,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		margin-bottom: 1rem;
 		font-size: 1.3rem;
 		padding: 1rem 0;
+		text-align: center;
+		background-color: var(--clr-dark);
+		color: var(--clr-primary);
+		border-radius: 4px;
+    }
+	.sec-table  tr:nth-of-type(1):before {
+        content: "POWDER & PRODUCT NAME (MATERIAL TYPE)";
+		font-weight: 900;
+		font-size: 1.3rem;
+		padding: 1rem 0;
+		background-color: var(--clr-dark);
+		color: var(--clr-primary);
+		border-radius: 4px;
+    }
+	tbody tr:nth-of-type(5) td:nth-of-type(2):before {
+        content: "BRIEF";
+		font-weight: 900;
+		display: block;
+		margin-bottom: 1rem;
+		font-size: 1.3rem;
+		padding: 1rem 0;
+		text-align: center;
 		background-color: var(--clr-dark);
 		color: var(--clr-primary);
 		border-radius: 4px;
@@ -14367,6 +14390,15 @@ footer {
 }
 .table th, .table td {
     vertical-align: inherit;
+}
+.table li:before {
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    content: "\f105";
+    color: var(--clr-light-dark);
+    font-weight: bold;
+    float: left;
+    margin-right: 10px;
 }
 /* Scroll Bar */
 ::-webkit-scrollbar-track {
