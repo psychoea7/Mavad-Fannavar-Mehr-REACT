@@ -12906,6 +12906,7 @@ a[aria-expanded="true"] {
     width: 5rem;
     height: 3rem;
     border-radius: 4px;
+    border: none;
 }
 
 .eng-flag {
@@ -14272,7 +14273,7 @@ footer {
     color: var(--clr-dark);
     font-weight: 700;
 }
-.eng-container li:before {
+.check-list-eng li:before {
     display: inline-block;
     font-family: "Font Awesome 5 Free";
     content: "\f00c";
@@ -14284,6 +14285,18 @@ footer {
 /* .eng-page-body * {
     font-family: 'Quicksand', sans-serif ;
 } */
+.eng-contact img {
+    width: 14rem;
+    height: 14rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin: 0 auto;
+    filter: drop-shadow(-7px 7px 9px var(--clr-dark));
+}
+.eng-contact li {
+    margin: 1rem 0;
+}
+
 /* Scroll Bar */
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
