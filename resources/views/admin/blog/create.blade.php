@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content')
-    <form class="col-md-5 content" action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data">
+    <form class="col-md-12 content" action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="exampleFormControlInput1">عنوان</label>

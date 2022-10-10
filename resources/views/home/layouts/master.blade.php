@@ -11,6 +11,7 @@
     <title> بازرگانی اسپیدکار | Speedkar</title>
 
     <!-- CSS -->
+    <link rel="stylesheet" href="../../">
     <!-- Box Icons -------------------------------------------------------->
     <link
       href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"

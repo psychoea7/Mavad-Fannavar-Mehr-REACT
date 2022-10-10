@@ -8,7 +8,7 @@ require('../home/js/jquery.waypoints');
 require('./js/jquery.mCustomScrollbar');
 require('./js/owl-carousel-min');
 require('./js/owl-custom-main');
-// require('../../../node_modules/leaflet/dist/leaflet');
+require('../../../node_modules/leaflet/dist/leaflet');
 // require('../../../node_modules/leaflet-providers/leaflet-providers');
 // require('../../../node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs');
 

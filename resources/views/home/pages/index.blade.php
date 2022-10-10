@@ -27,10 +27,10 @@
                             </p>
                         </div>
                         <div class="buttons wow fadeInUp">
-                            <a class="btn btn-primary btn-customized scroll-link" href="#section-1" role="button">
+                            <a class="btn btn-primary btn-customized scroll-link" href="#" role="button">
                                 خدمات <i class="fas fa-briefcase"></i>
                             </a>
-                            <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-3" role="button">
+                            <a class="btn btn-primary btn-customized-2 scroll-link" href="#" role="button">
                                 محصولات <i class="fas fa-tags"></i>
                             </a>
                         </div>

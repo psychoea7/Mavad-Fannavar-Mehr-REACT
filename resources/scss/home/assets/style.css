@@ -1,7 +1,7 @@
 /* Shabnam Font --------------------------------------*/
 /* @import url("https://v1.fontapi.ir/css/Shabnam"); */
 @import "./owl.carousel.min.css";
-/* @import "../../../../node_modules/leaflet/dist/leaflet.css"; */
+@import "../../../../node_modules/leaflet/dist/leaflet.css";
 @import url("https://v1.fontapi.ir/css/Lalezar");
 
 @font-face {
@@ -1834,7 +1834,7 @@ footer {
 .table li:before {
     display: inline-block;
     font-family: "Font Awesome 5 Free";
-    content: "\f105";
+    content: "\f054";
     color: var(--clr-light-dark);
     font-weight: bold;
     float: left;

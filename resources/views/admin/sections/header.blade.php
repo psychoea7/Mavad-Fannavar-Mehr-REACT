@@ -1,11 +1,7 @@
 <header class="bmd-layout-header ">
-    <div class="navbar navbar-light bg-faded animate__animated animate__fadeInDown">
-        <button class="navbar-toggler animate__animated animate__wobble animate__delay-2s" type="button"
-            data-toggle="drawer" data-target="#dw-s1">
-            <span class="navbar-toggler-icon"></span>
-            <!-- <i class="material-Animation">menu</i> -->
-        </button>
-        <ul class="nav navbar-nav p-0">
+    <div class="navbar navbar-light d-flex justify-content-end bg-faded animate__animated animate__fadeInDown">
+        
+        {{-- <ul class="nav navbar-nav p-0">
             <li class="nav-item">
                 <div class="dropdown">
                     <button class="btn  dropdown-toggle  m-0" type="button" id="dropdownMenu2"
@@ -92,6 +88,11 @@
 
 
 
-        </ul>
+        </ul> --}}
+        <button id="toggleSide" class="navbar-toggler animate__animated animate__wobble animate__delay-2s" type="button"
+            data-toggle="drawer" data-target="#dw-s1">
+            <span class="navbar-toggler-icon"></span>
+            <!-- <i class="material-Animation">menu</i> -->
+        </button>
     </div>
 </header>
