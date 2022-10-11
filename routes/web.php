@@ -43,7 +43,7 @@ Route::get('/', function () {
 });
 
 Route::get('/services', function () {
-    return view('home.pages.services');
+    return view('home.pages.services')->name('home.pages.services');
 
 });
 
@@ -73,21 +73,21 @@ Route::get('/blog-post/{blog}', function (Blog $blog) {
 })->name('blogContent');
 
 Route::get('/about-us', function () {
-    return view('home.pages.about-us');
+    return view('home.pages.about-us')->name('home.pages.about-us');
 
 });
 
 Route::get('/contact-us', function () {
-    return view('home.pages.contact-us');
+    return view('home.pages.contact-us')->name('home.pages.contact-us');
 
 });
 
 Route::get('/collab', function () {
-    return view('home.pages.collab');
+    return view('home.pages.collab')->name('home.pages.collab');
 
 });
 
 Route::get('/english', function () {
-    return view('home.pages.english');
+    return view('home.pages.english')->name('home.pages.english');
 
 });
