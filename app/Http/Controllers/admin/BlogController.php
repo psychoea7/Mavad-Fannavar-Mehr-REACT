@@ -53,8 +53,8 @@ class BlogController extends Controller
             'text' => $request->text,
             'image' => $file['img_name']
         ]);
-
-        return redirect()->back();
+        alert()->success('مقاله با موفقیت ایجاد شد', '');
+        return redirect()->route('admin.blogs.index');
     }
 
     /**
@@ -104,8 +104,9 @@ class BlogController extends Controller
             $file = $getImage->upload($request->image);
             $blog->update(['image' => $file['img_name']]);
         }
+        alert()->success('مقاله با موفقیت ویرایش شد', '');
+        return redirect()->route('admin.blogs.index');
 
-        return redirect()->back();
     }
 
     /**
