@@ -24,7 +24,7 @@
         >
       </li>
       <li>
-        <a class="scroll-link" href="#section-2"
+        <a class="scroll-link" href="{{ route('product') }}"
           ><i class="fas fa-tags"></i> محصولات</a
         >
       </li>

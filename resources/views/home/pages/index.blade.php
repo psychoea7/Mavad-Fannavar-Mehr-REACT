@@ -7,7 +7,7 @@
             <i class="fas fa-align-left"></i> <span>منو</span>
         </a>
 
-        <a href="#" class="eng-flag"></a>
+        <a href="{{ route('home.pages.english') }}" class="eng-flag"></a>
 
         <!-- Top content -->
         <div class="top-content section-container" id="top-content">
@@ -144,7 +144,7 @@
                             طیف وسیعی از قطعات، تجهیزات و ماشین‌آلات مورد نیاز در پروژه‌های صنعتی شرکت‌ها و صنایع کشور و
                             ارائه خدمات پس از فروش مناسب آنها را در کوتاه‌ترین زمان ممکن و تحت استانداردهای بین‌المللی روز
                             دنیا را دارا می‌باشد.</p>
-                        
+
                     </div>
                     <div class="col-md-4 col-sm-12 section-2-box wow fadeInUp">
                         <img class="h-100" src="{{ asset('images/about-us.jpg') }}" alt="about-us" />

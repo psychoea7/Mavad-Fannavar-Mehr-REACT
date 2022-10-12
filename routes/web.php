@@ -43,16 +43,16 @@ Route::get('/', function () {
 });
 
 Route::get('/services', function () {
-    return view('home.pages.services')->name('home.pages.services');
+    return view('home.pages.services');
 
-});
+})->name('home.pages.services');
 
 Route::get('/products', function () {
     $categories = Category::where('is_active' , '=' , 1)->get();
     $products = Product::where('is_active' , '=' , 1)->with('category')->get();
     return view('home.pages.products' , compact('categories' , 'products'));
 
-});
+})->name('product');
 
 Route::get('/products-expand/{product}', function (Product $product) {
     $images = $product->images()->get();
