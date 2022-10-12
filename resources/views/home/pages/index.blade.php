@@ -7,7 +7,7 @@
             <i class="fas fa-align-left"></i> <span>منو</span>
         </a>
 
-        <a href="#" class="eng-flag"></a>
+        <a href="{{ route ("home.pages.english") }}" class="eng-flag"></a>
 
         <!-- Top content -->
         <div class="top-content section-container" id="top-content">
@@ -27,7 +27,7 @@
                             </p>
                         </div>
                         <div class="buttons wow fadeInUp">
-                            <a class="btn btn-primary btn-customized scroll-link" href="#" role="button">
+                            <a class="btn btn-primary btn-customized scroll-link" href="{{ route ("home.pages.services") }}" role="button">
                                 خدمات <i class="fas fa-briefcase"></i>
                             </a>
                             <a class="btn btn-primary btn-customized-2 scroll-link" href="#" role="button">
