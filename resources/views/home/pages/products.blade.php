@@ -80,28 +80,32 @@
 
                 @foreach ($products as $product)
                     @php
-                        $productAttr = $product->attributes()->with('attribute')->get();
+                        $productAttr = $product
+                            ->attributes()
+                            ->with('attribute')
+                            ->get();
                     @endphp
 
                     @if ($product->category->getRawOriginal('is_active') == 1)
-
-                    <div class="col-md-4 picture-item" data-groups='["{{$product->category_id}}"]' data-date-created="2015-10-20"
-                        data-title="Central Park">
-                        <div class="skill-card">
-                            <header class="skill-card__header"><img class="skill-card__icon"
-                                    src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}" alt="HTML5 Logo" /></header>
-                            <section class="skill-card__body">
-                                <h2 class="skill-card__title">{{$product->name}}</h2><span class="skill-card__duration">{{$product->description}}</span>
-                                <ul class="skill-card__knowledge">
-                                    @foreach ($productAttr as $value)
-                                    <li>{{$value->attribute->name}}</li>
-                                    @endforeach
-                                    <a href="{{ route('showProduct', ['product'=>$product->id]) }}">نمایش محصول</a>
-                                </ul>
-                            </section>
+                        <div id="product{{ $product->id }}" onclick="location.href='{{route('showProduct' , ['product' => $product->id])}}'" class="col-md-4 picture-item"
+                            data-groups='["{{ $product->category_id }}"]' data-date-created="2015-10-20"
+                            data-title="Central Park">
+                            <div id="product" class="skill-card">
+                                <header class="skill-card__header"><img class="skill-card__icon"
+                                        src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}"
+                                        alt="HTML5 Logo" /></header>
+                                <section class="skill-card__body">
+                                    <h2 class="skill-card__title">{{ $product->name }}</h2><span
+                                        class="skill-card__duration">{{ $product->description }}</span>
+                                    <ul class="skill-card__knowledge">
+                                        @foreach ($productAttr as $value)
+                                            <li>{{ $value->attribute->name }}</li>
+                                        @endforeach
+                                        <a href="{{ route('showProduct', ['product' => $product->id]) }}">نمایش محصول</a>
+                                    </ul>
+                                </section>
+                            </div>
                         </div>
-                    </div>
-
                     @endif
                 @endforeach
 

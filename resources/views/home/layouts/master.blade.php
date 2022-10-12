@@ -84,5 +84,6 @@
     <!-- Javascript -->
     <script src="{{ asset('js/home.js') }}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
+    @yield('js')
   </body>
 </html>

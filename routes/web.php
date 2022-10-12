@@ -52,7 +52,7 @@ Route::get('/products', function () {
     $products = Product::where('is_active' , '=' , 1)->with('category')->get();
     return view('home.pages.products' , compact('categories' , 'products'));
 
-});
+})->name('product');
 
 Route::get('/products-expand/{product}', function (Product $product) {
     $images = $product->images()->get();

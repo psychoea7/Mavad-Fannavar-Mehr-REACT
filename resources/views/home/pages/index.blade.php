@@ -7,7 +7,7 @@
             <i class="fas fa-align-left"></i> <span>منو</span>
         </a>
 
-        <a href="{{ route ("home.pages.english") }}" class="eng-flag"></a>
+        <a href="{{ route('home.pages.english') }}" class="eng-flag"></a>
 
         <!-- Top content -->
         <div class="top-content section-container" id="top-content">
@@ -27,7 +27,7 @@
                             </p>
                         </div>
                         <div class="buttons wow fadeInUp">
-                            <a class="btn btn-primary btn-customized scroll-link" href="{{ route ("home.pages.services") }}" role="button">
+                            <a class="btn btn-primary btn-customized scroll-link" href="#" role="button">
                                 خدمات <i class="fas fa-briefcase"></i>
                             </a>
                             <a class="btn btn-primary btn-customized-2 scroll-link" href="#" role="button">
@@ -144,7 +144,7 @@
                             طیف وسیعی از قطعات، تجهیزات و ماشین‌آلات مورد نیاز در پروژه‌های صنعتی شرکت‌ها و صنایع کشور و
                             ارائه خدمات پس از فروش مناسب آنها را در کوتاه‌ترین زمان ممکن و تحت استانداردهای بین‌المللی روز
                             دنیا را دارا می‌باشد.</p>
-                        
+
                     </div>
                     <div class="col-md-4 col-sm-12 section-2-box wow fadeInUp">
                         <img class="h-100" src="{{ asset('images/about-us.jpg') }}" alt="about-us" />
