@@ -1,4 +1,3 @@
-@import url(https://v1.fontapi.ir/css/Lalezar);
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -13223,6 +13222,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 /* Shabnam Font --------------------------------------*/
 /* @import url("https://v1.fontapi.ir/css/Shabnam"); */
+/* @import url("https://v1.fontapi.ir/css/Lalezar"); */
 
 @font-face {
     font-family: "IRANSans";
@@ -13258,6 +13258,7 @@ p {
 }
 ul {
     list-style: none;
+    font-size: 12px;
 }
 /* Variables ----------------------------------------------------------------- */
 :root {
@@ -13288,27 +13289,26 @@ a:focus {
 h1,
 h2 {
     margin-top: 10px;
-    font-size: 38px;
-    font-weight: 100;
+    font-size: 18px !important;  
     color: var(--clr-dark);
-    line-height: 50px;
-    font-family: Lalezar, sans-serif;
+    /* line-height: 50px; */
+    
 }
 h3 {
-    font-size: 22px;
-    font-weight: 300;
+    font-size: 18px !important;
     color: var(--clr-dark);
-    line-height: 30px;
-    font-family: Lalezar, sans-serif;
+    /* line-height: 30px; */
+    
 }
 h4 {
-    font-size: 18px;
-    font-weight: 300;
+    font-size: 18px !important;
     color: var(--clr-dark);
-    line-height: 26px;
-    font-family: Lalezar, sans-serif;
+    /* line-height: 26px; */
+    
 }
-
+p {
+    font-size: 12px !important;
+}
 img {
     max-width: 100%;
 }
@@ -13617,47 +13617,25 @@ a[aria-expanded="true"] {
 }
 
 .open-menu {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 10px;
     z-index: 997;
     box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2);
 }
 
-.ir-flag {
-    position: fixed;
-    top: 20px;
-    right: 10px;
-    z-index: 997;
-    box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2);
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 0.75rem 1.5rem;
-    background: url(/images/ir.svg?04c2367365c6904679217597cd75bbfd);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 5rem;
-    height: 3rem;
-    border-radius: 4px;
-    border: none;
-}
 
-.eng-flag {
-    position: fixed;
+.language-select {
+    position: absolute;
     top: 20px;
     left: 10px;
     z-index: 997;
-    box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2);
+    /* box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2); */
     margin-left: 5px;
     margin-right: 5px;
-    padding: 0.75rem 1.5rem;
-    background: url(/images/gb.svg?516897fd3988e35032b772b026a19f75);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 5rem;
-    height: 3rem;
+    padding: 0.75rem 1.5rem;   
+    /* width: 5rem;
+    height: 3rem; */
     border-radius: 4px;
     border: none;
 }
@@ -13666,7 +13644,7 @@ a[aria-expanded="true"] {
     left: 10px;
     right: unset;
 }
-.open-menu.btn-customized,
+/* .open-menu.btn-customized,
 .open-menu.btn-customized:hover,
 .open-menu.btn-customized:active,
 .open-menu.btn-customized:focus,
@@ -13675,7 +13653,7 @@ a[aria-expanded="true"] {
 .open-menu.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
 .open-menu.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
     box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2);
-}
+} */
 
 /***** Buttons *****/
 
@@ -13683,11 +13661,11 @@ a.btn-customized {
     margin-left: 5px;
     margin-right: 5px;
     padding: 0.75rem 1.5rem;
-    background: var(--clr-accent);
+    background: transparent;
     border: 0;
     border-radius: 4px;
-    font-size: 16px;
-    font-weight: 300;
+    /* font-size: 16px; */
+    /* font-weight: 300; */
     color: #fff;
     box-shadow: none;
 }
@@ -13700,8 +13678,8 @@ a.btn-customized.active:focus,
 a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
 a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
     outline: 0;
-    background: #cd533d;
-    background: rgba(243, 91, 63, 0.7);
+    background: transparent;
+    /* background: rgba(243, 91, 63, 0.7); */
     border: 0;
     color: #fff;
     box-shadow: none;
@@ -13711,11 +13689,11 @@ a.btn-customized-2 {
     margin-left: 5px;
     margin-right: 5px;
     padding: 0.75rem 1.5rem;
-    background: #fff;
+    background: transparent;
     border: 0;
     border-radius: 4px;
-    font-size: 16px;
-    font-weight: 300;
+    /* font-size: 16px;
+    font-weight: 300; */
     color: #555;
     box-shadow: none;
 }
@@ -13740,11 +13718,11 @@ a.btn-customized-3 {
     width: 100%;
     margin: 0;
     padding: 0.75rem 1.5rem;
-    background: #555;
+    background: transparent;
     border: 0;
     border-radius: 4px;
-    font-size: 16px;
-    font-weight: 300;
+    /* font-size: 16px;
+    font-weight: 300; */
     color: #fff;
     box-shadow: none;
 }
@@ -13914,24 +13892,32 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
     text-align: left;
 }
 
-.section-1-box .section-1-box-icon {
-    width: 80px;
-    height: 80px;
+.section-1-box .section-1-box-icon  {
+    width: 70px;
+    height: 70px;
     margin: 1rem auto;
     background-color: var(--clr-accent);
     border: 1px solid var(--clr-accent);
-    font-size: 40px;
+    font-size: 30px;
     color: var(--clr-primary);
-    line-height: 90px;
+    line-height: 70px;
     text-align: center;
     border-radius: 50%;
-    box-shadow: 0 0 3px var(--clr-light-dark);
+    /* box-shadow: 0 0 3px var(--clr-light-dark); */
+    /* cursor: pointer; */
 }
-
-.section-1-box h3 {
+.services-icons a {
+    color: var(--clr-dark);
+    border: none;
+    display: block;
+}
+.services-icons i {
+    color: var(--clr-primary) !important;
+}
+/* .section-1-box h3 {
     margin-top: 0;
     padding: 0 0 10px 0;
-}
+} */
 
 /***** Section 2 *****/
 
@@ -14009,7 +13995,7 @@ article span {
     font-size: 2rem;
     font-weight: 500;
     line-height: 1.5;
-    font-family: Lalezar, sans-serif;
+    
     color: var(--clr-primary);
 }
 
@@ -14240,8 +14226,6 @@ footer {
 }
 .services-container p {
     margin: 1rem 0;
-    word-spacing: 0.3rem;
-    line-height: 2.2rem;
 }
 .services-container .divider-1 span {
     width: 100%;
@@ -14954,8 +14938,7 @@ footer {
 }
 .about-us-container p {
     margin: 1rem 0;
-    word-spacing: 0.3rem;
-    line-height: 2.2rem;
+    
 }
 .about-us-container .divider-1 span {
     width: 100%;

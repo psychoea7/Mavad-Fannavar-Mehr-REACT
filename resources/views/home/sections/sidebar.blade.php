@@ -39,6 +39,16 @@
         >
       </li>
       <li>
+        <a class="scroll-link" href="#section-6"
+          ><i class="fas fa-address-card"></i> درباره ما</a
+        >
+      </li>
+      <li>
+        <a class="scroll-link" href="#section-6"
+          ><i class="fas fa-user-friends"></i> همکاری با ما</a
+        >
+      </li>
+      {{-- <li>
         <a
           href="#otherSections"
           data-toggle="collapse"
@@ -57,7 +67,7 @@
             <a class="scroll-link" href="#section-4"> همکاری با ما</a>
           </li>
         </ul>
-      </li>
+      </li> --}}
     </ul>
 
     <div class="to-top">

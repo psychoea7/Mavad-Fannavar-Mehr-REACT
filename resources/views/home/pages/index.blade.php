@@ -4,10 +4,12 @@
     <div class="content">
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-            <i class="fas fa-align-left"></i> <span>منو</span>
+            {{-- <i class="fas fa-align-left"></i>  --}}
+            <i class="fas fa-bars"></i>
         </a>
 
-        <a href="{{ route('home.pages.english') }}" class="eng-flag"></a>
+        @include('home.sections.language')
+        {{-- <a href="{{ route('home.pages.english') }}" class="eng-flag"></a> --}}
 
         <!-- Top content -->
         <div class="top-content section-container" id="top-content">
@@ -19,28 +21,22 @@
                             <strong><img class="img-fluid logo-text" src="{{ asset('images/logo-head.png') }}"
                                     alt=""> | بازرگانی اسپیدکار</strong>
                         </h1>
-                        <div class="description wow fadeInLeft">
-                            <p>
-                                واردات و عرضه آلیاژ ها صنعتی با پشتوانه بیش از ۱۰ سال تجربه فعالیت بازرگانی و خدمات مهندسی
-                                سطح
-                                {{-- <a href=""><strong></strong></a>. --}}
-                            </p>
-                        </div>
-                        <div class="buttons wow fadeInUp">
+                        
+                        {{-- <div class="buttons wow fadeInUp">
                             <a class="btn btn-primary btn-customized scroll-link" href="#" role="button">
                                 خدمات <i class="fas fa-briefcase"></i>
                             </a>
                             <a class="btn btn-primary btn-customized-2 scroll-link" href="#" role="button">
                                 محصولات <i class="fas fa-tags"></i>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Section 1 -->
-        <div class="section-1-container section-container" id="section-1">
+        <div class="section-1-container section-container services-icons" id="section-1">
             <div class="container">
                 <div class="row">
                     <div class="col section-1 section-description wow fadeIn">
@@ -53,14 +49,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <i class="fas fa-shopping-bag"></i>
+                                    <a href="{{ route('home.pages.services') }}/#serviceFirst"><i class="fas fa-shopping-bag"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <h3 class="text-center">خدمات خرید و تامین کالا</h3>
-                                <p class="text-center">
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
-                                </p>
+                                <a href="{{ route('home.pages.services') }}/#serviceFirst" class="text-center">خدمات خرید و تامین کالا</a>
+                               
                             </div>
                         </div>
                     </div>
@@ -68,14 +62,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <i class="fas fa-money-check-alt"></i>
+                                    <a href="{{ route('home.pages.services') }}/#serviceSecond"><i class="fas fa-money-check-alt"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <h3 class="text-center">خدمات ارزی بازرگانی</h3>
-                                <p class="text-center">
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
-                                </p>
+                                <a href="{{ route('home.pages.services') }}/#serviceSecond" class="text-center">خدمات ارزی بازرگانی</a>
+                               
                             </div>
                         </div>
                     </div>
@@ -83,14 +75,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <i class="fas fa-shipping-fast"></i>
+                                    <a href="{{ route('home.pages.services') }}/#serviceThird"><i class="fas fa-shipping-fast"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <h3 class="text-center">خدمات حمل بین المللی</h3>
-                                <p class="text-center">
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
-                                </p>
+                                <a href="{{ route('home.pages.services') }}/#serviceThird" class="text-center">خدمات حمل بین المللی</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -98,14 +88,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <i class="fas fa-truck-loading"></i>
+                                    <a href="{{ route('home.pages.services') }}/#serviceFour"><i class="fas fa-truck-loading"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <h3 class="text-center">خدمات گمرکی</h3>
-                                <p class="text-center">
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.
-                                </p>
+                                <a href="{{ route('home.pages.services') }}/#serviceFour" class="text-center">خدمات گمرکی</a>
+                               
                             </div>
                         </div>
                     </div>

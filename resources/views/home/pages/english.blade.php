@@ -62,6 +62,12 @@
                 <a class="scroll-link" href="#section-6"><i class="fas fa-envelope"></i>Contact Us</a>
             </li>
             <li>
+                <a class="scroll-link" href="#section-6"><i class="fas fa-address-card"></i>About Us</a>
+            </li>
+            <li>
+                <a class="scroll-link" href="#section-6"><i class="fas fa-user-friends"></i>Collaborate</a>
+            </li>
+            {{-- <li>
                 <a href="#otherSections" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
                     role="button" aria-controls="otherSections">
                     Other Sections
@@ -74,7 +80,7 @@
                         <a class="scroll-link pl-2" href="#section-4">Collaborate</a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>
 
         <div class="to-top">
@@ -97,7 +103,7 @@
             <i class="fas fa-align-left"></i> <span>Menu</span>
         </a>
 
-        <a href="#" class="ir-flag"></a>
+        {{-- <a href="#" class="ir-flag"></a> --}}
 
         <div class="top-content section-container" id="top-content">
             <div class="container">

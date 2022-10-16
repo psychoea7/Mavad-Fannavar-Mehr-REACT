@@ -1,6 +1,6 @@
 @import "../../files/bootstrap-4.5.3-dist/css/bootstrap.css";
 @import "../../files/fontawsome/all.min.css";
-// @import "~bootstrap-select/dist/css/bootstrap-select.css";
+@import "~bootstrap-select/dist/css/bootstrap-select.css";
 // @import "../../files/webfonts/fa-brands-400.ttf";
 // @import "../../files/webfonts/fa-regular-400.ttf";
 // @import "../../files/webfonts/fa-solid-900.ttf";
@@ -2256,10 +2256,15 @@
     
   }
 
-  .open-menu-toggle {
+  #dw-s1 {
     position: fixed;
     top: 0;
     right: -25rem;
+  }
+  .open-menu-toggle {
+    position: fixed;
+    top: 0;
+    right: 0 !important;
   }
 
   .rtl .bmd-drawer-f-l>.bmd-layout-content {

@@ -33,7 +33,7 @@
         </div>
 
         <div class="container services-container">
-            <div class="row mt-4">
+            {{-- <div class="row mt-4">
                 <div class="col-md-12 quick-service-icons text-left wow fadeIn">
                     <span class="d-block  mb-2">دسترسی سریع</span>
                     
@@ -51,7 +51,7 @@
                     </a>
                     
                 </div>
-            </div>
+            </div> --}}
             
             <div id="serviceFirst" class="row py-5">
                 
