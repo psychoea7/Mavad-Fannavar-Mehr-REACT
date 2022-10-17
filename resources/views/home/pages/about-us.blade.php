@@ -4,35 +4,14 @@
     <div class="content">
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-            <i class="fas fa-align-left"></i> <span>منو</span>
+            <i class="fas fa-bars"></i> 
         </a>
 
-        <div class="top-content section-container" id="top-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                        <h1 class="wow fadeIn">
+        @include('home.sections.language')
 
-                            <strong>درباره بازرگانی اسپیدکار</strong>
-                        </h1>
-                        <div class="description wow fadeInLeft">
-                            <p>
-                                واردات و عرضه آلیاژ ها صنعتی با پشتوانه بیش از ۱۰ سال تجربه فعالیت بازرگانی و خدمات مهندسی
-                                سطح
+        <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
 
-                            </p>
-                        </div>
-                        <div class="buttons wow fadeInUp">
-                            <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-3" role="button">
-                                صفحه اصلی <i class="fas fa-home"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container about-us-container">
+        <div class="container about-us-container py-5">
             <div class="row py-5">
                 <div class="col-md-12">
                     <h2>درباره ما</h2>
@@ -87,14 +66,6 @@
 
 
 
-        <footer class="footer-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        &copy; شرکت به نگاران تجارت آزما <a href=""> به نگاران تجارت آزما</a>.
-                    </div>
-                </div>
-            </div>
-        </footer>
+        @include('home.sections.footer')
     </div>
 @endsection

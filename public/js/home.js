@@ -24209,18 +24209,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 window.Shuffle = __webpack_require__(/*! shufflejs */ "./node_modules/shufflejs/dist/shuffle.js");
 
@@ -24390,41 +24378,36 @@ function isScrolledIntoView(elem) {
   var elemBottom = elemTop + $(elem).height();
   return elemBottom <= docViewBottom && elemTop >= docViewTop;
 } // Numbers Count Update -------------------------------------
-
-
-var items = _toConsumableArray(document.querySelectorAll(".number"));
-
-var updateCount = function updateCount(el) {
-  var value = parseInt(el.dataset.value);
-  var increment = Math.ceil(value / 1000); // const increment = 1;
-
-  var initialValue = 0;
-  var increaseCount = setInterval(function () {
-    initialValue += increment;
-
-    if (initialValue > value) {
-      el.textContent = "".concat(value.toLocaleString("ar-EG"), "+");
-      clearInterval(increaseCount);
-      return;
-    }
-
-    el.textContent = "".concat(initialValue.toLocaleString("ar-EG"), "+");
-  }, 1); // console.log(increaseCount);
-}; // Trigger Numbers Function -----------------------------------------------
-
-
-var once = true;
-
-function allInView() {
-  if (once) {
-    if (isScrolledIntoView($("#numbers"))) {
-      items.forEach(function (item) {
-        updateCount(item);
-      });
-      once = false;
-    }
-  }
-} //  Shuffle.js
+//  const items = [...document.querySelectorAll(".number")];
+//  const updateCount = (el) => {
+//      const value = parseInt(el.dataset.value);
+//      const increment = Math.ceil(value / 1000);
+//      // const increment = 1;
+//      let initialValue = 0;
+//      const increaseCount = setInterval(() => {
+//          initialValue += increment;
+//          if (initialValue > value) {
+//              el.textContent = `${value.toLocaleString("ar-EG")}+`;
+//              clearInterval(increaseCount);
+//              return;
+//          }
+//          el.textContent = `${initialValue.toLocaleString("ar-EG")}+`;
+//      }, 1);
+//      // console.log(increaseCount);
+//  };
+// Trigger Numbers Function -----------------------------------------------
+//  let once = true;
+//  function allInView() {
+//      if (once) {
+//          if (isScrolledIntoView($("#numbers"))) {
+//              items.forEach((item) => {
+//                  updateCount(item);
+//              });
+//              once = false;
+//          }
+//      }
+//  }
+//  Shuffle.js
 
 
 var Shuffle = window.Shuffle;

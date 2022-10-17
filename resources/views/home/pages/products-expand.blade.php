@@ -4,10 +4,14 @@
     <div class="content">
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-            <i class="fas fa-align-left"></i> <span>منو</span>
+            <i class="fas fa-bars"></i> 
         </a>
 
-        <div class="container my-4 py-5 expanded-product">
+        @include('home.sections.language')
+
+        <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
+
+        <div class="container my-4 py-5 expanded-product pt-5 pb-5">
             <div class="row">
                 <div class="col-md-7 col-sm-12">
                     <h2>{{$product->name}}</h2>
@@ -47,15 +51,7 @@
 
 
 
-        <footer class="footer-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        &copy; شرکت به نگاران تجارت آزما <a href=""> به نگاران تجارت آزما</a>.
-                    </div>
-                </div>
-            </div>
-        </footer>
+        @include('home.sections.footer')
 
     </div>
 @endsection

@@ -5,23 +5,23 @@
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
             {{-- <i class="fas fa-align-left"></i>  --}}
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars text-light"></i>
         </a>
 
         @include('home.sections.language')
-        {{-- <a href="{{ route('home.pages.english') }}" class="eng-flag"></a> --}}
+       
 
         <!-- Top content -->
         <div class="top-content section-container" id="top-content">
             <div class="container">
                 <div class="row">
                     <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                        <h1 class="wow fadeIn">
+                        <h1 class="wow fadeIn page-header-logo">
+                            <img class="img-fluid logo-text" src="{{ asset('images/logo-1.png') }}" alt="">
 
-                            <strong><img class="img-fluid logo-text" src="{{ asset('images/logo-head.png') }}"
-                                    alt=""> | بازرگانی اسپیدکار</strong>
+                            {{-- <strong> | بازرگانی اسپیدکار</strong> --}}
                         </h1>
-                        
+
                         {{-- <div class="buttons wow fadeInUp">
                             <a class="btn btn-primary btn-customized scroll-link" href="#" role="button">
                                 خدمات <i class="fas fa-briefcase"></i>
@@ -49,12 +49,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <a href="{{ route('home.pages.services') }}/#serviceFirst"><i class="fas fa-shopping-bag"></i></a>
+                                    <a href="{{ route('home.pages.services') }}/#serviceFirst"><i
+                                            class="fas fa-shopping-bag"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <a href="{{ route('home.pages.services') }}/#serviceFirst" class="text-center">خدمات خرید و تامین کالا</a>
-                               
+                                <a href="{{ route('home.pages.services') }}/#serviceFirst" class="text-center">خدمات خرید و
+                                    تامین کالا</a>
+
                             </div>
                         </div>
                     </div>
@@ -62,12 +64,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <a href="{{ route('home.pages.services') }}/#serviceSecond"><i class="fas fa-money-check-alt"></i></a>
+                                    <a href="{{ route('home.pages.services') }}/#serviceSecond"><i
+                                            class="fas fa-money-check-alt"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <a href="{{ route('home.pages.services') }}/#serviceSecond" class="text-center">خدمات ارزی بازرگانی</a>
-                               
+                                <a href="{{ route('home.pages.services') }}/#serviceSecond" class="text-center">خدمات ارزی
+                                    بازرگانی</a>
+
                             </div>
                         </div>
                     </div>
@@ -75,12 +79,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <a href="{{ route('home.pages.services') }}/#serviceThird"><i class="fas fa-shipping-fast"></i></a>
+                                    <a href="{{ route('home.pages.services') }}/#serviceThird"><i
+                                            class="fas fa-shipping-fast"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <a href="{{ route('home.pages.services') }}/#serviceThird" class="text-center">خدمات حمل بین المللی</a>
-                                
+                                <a href="{{ route('home.pages.services') }}/#serviceThird" class="text-center">خدمات حمل بین
+                                    المللی</a>
+
                             </div>
                         </div>
                     </div>
@@ -88,12 +94,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-1-box-icon">
-                                    <a href="{{ route('home.pages.services') }}/#serviceFour"><i class="fas fa-truck-loading"></i></a>
+                                    <a href="{{ route('home.pages.services') }}/#serviceFour"><i
+                                            class="fas fa-truck-loading"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <a href="{{ route('home.pages.services') }}/#serviceFour" class="text-center">خدمات گمرکی</a>
-                               
+                                <a href="{{ route('home.pages.services') }}/#serviceFour" class="text-center">خدمات
+                                    گمرکی</a>
+
                             </div>
                         </div>
                     </div>
@@ -146,109 +154,35 @@
             <div class="container">
                 <div class="row">
                     <div class="col section-3 section-description wow fadeIn">
-                        <h2 class="text-center">آمار ما</h2>
+                        <h2 class="text-center">محصولات</h2>
                         <div class="divider-1 wow fadeInUp"><span></span></div>
                     </div>
                 </div>
 
-                <!-- Numbers Section ----------------------------------------------->
-                <div class="row mt-5" id="numbers">
-                    <div class="col-md-4 col-sm-12">
-                        <article class="service-number">
-                            <span class="number" data-value="130">۰</span>
-                            <p>مشتریان</p>
-                        </article>
-                    </div>
+                <div class="row index-products wow fadeIn">
+                    {{-- <div id="product{{ $product->id }}" onclick="location.href='{{route('showProduct' , ['product' => $product->id])}}'" class="col-md-3 picture-item"
+                        data-groups='["{{ $product->category_id }}"]' data-date-created="2015-10-20"
+                        data-title="Central Park">
+                        <div id="product" class="skill-card">
+                            <header class="skill-card__header"><img class="skill-card__icon"
+                                    src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}"
+                                    alt="HTML5 Logo" /></header>
+                            <section class="skill-card__body">
+                                <h2 class="skill-card__title">{{ $product->name }}</h2><span
+                                    class="skill-card__duration">{{ $product->description }}</span>
+                                <ul class="skill-card__knowledge">
+                                    @foreach ($productAttr as $value)
+                                        <li>{{ $value->attribute->name }}</li>
+                                    @endforeach
+                                    <a href="{{ route('showProduct', ['product' => $product->id]) }}">نمایش محصول</a>
+                                </ul>
+                            </section>
+                        </div>
+                    </div> --}}
 
-                    <div class="col-md-4 col-sm-12">
-                        <article class="done-projects-number">
-                            <span class="number" data-value="560">۰</span>
-                            <p>محصولات</p>
-                        </article>
-                    </div>
-
-                    <div class="col-md-4 col-sm-12">
-                        <article class="current-projects-number">
-                            <span class="number" data-value="34">۰</span>
-                            <p>پروژه ها</p>
-                        </article>
-                    </div>
                 </div>
 
-                {{-- <div class="row">
-                    <div class="col-md-6 section-3-box wow fadeInLeft">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="section-3-box-icon">
-                                    <i class="fas fa-paperclip"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h3>لورم ایپسوم متن ساختگی</h3>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                                    و با استفاده از طراحان گرافیک است.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 section-3-box wow fadeInLeft">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="section-3-box-icon">
-                                    <i class="fas fa-pencil-alt"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h3>لورم ایپسوم متن ساختگی</h3>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                                    و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه
-                                    روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
-                                    شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6 section-3-box wow fadeInLeft">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="section-3-box-icon">
-                                    <i class="fas fa-cloud"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h3>لورم ایپسوم متن ساختگی با تولید سادگی</h3>
-                                <p>
-                                    در این صورت می توان امید داشت که تمام و دشواری موجود در
-                                    ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد
-                                    نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته
-                                    اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 section-3-box wow fadeInLeft">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="section-3-box-icon">
-                                    <i class="fab fa-google"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h3>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</h3>
-                                <p>
-                                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-                                    لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
-                                    متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
 
@@ -281,14 +215,11 @@
                     <div class="col section-5 section-description wow fadeIn">
                         <h2 class="text-center">وبلاگ</h2>
                         <div class="divider-1 wow fadeInUp"><span></span></div>
-                        <p class="text-center">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                            استفاده از طراحان گرافیک است.
-                        </p>
+                        
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 section-5-box wow fadeInUp">
+                    <div class="col-md-3 section-5-box wow fadeInUp">
                         <div class="section-5-box-image">
                             <img src="{{ asset('images/portfolio/1.jpg') }}" alt="portfolio-1" />
                         </div>
@@ -305,7 +236,7 @@
                             هدف بهبود ابزارهای کاربردی می باشد.
                         </p>
                     </div>
-                    <div class="col-md-4 section-5-box wow fadeInDown">
+                    <div class="col-md-3 section-5-box wow fadeInDown">
                         <div class="section-5-box-image">
                             <img src="{{ asset('images/portfolio/2.jpg') }}" alt="portfolio-2" />
                         </div>
@@ -321,7 +252,7 @@
                             استفاده از طراحان گرافیک است.
                         </p>
                     </div>
-                    <div class="col-md-4 section-5-box wow fadeInUp">
+                    <div class="col-md-3 section-5-box wow fadeInUp">
                         <div class="section-5-box-image">
                             <img src="{{ asset('images/portfolio/3.jpg') }}" alt="portfolio-3" />
                         </div>
@@ -338,10 +269,27 @@
                             دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                         </p>
                     </div>
+                    <div class="col-md-3 section-5-box wow fadeInUp">
+                        <div class="section-5-box-image">
+                            <img src="{{ asset('images/portfolio/1.jpg') }}" alt="portfolio-1" />
+                        </div>
+                        <h3>
+                            <a href="#">لورم ایپسوم</a>
+                            <i class="fas fa-angle-left"></i>
+                        </h3>
+                        <div class="section-5-box-date">
+                            <i class="far fa-calendar"></i> شهریور ۱۴۰۰
+                        </div>
+                        <p>
+                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                            است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با
+                            هدف بهبود ابزارهای کاربردی می باشد.
+                        </p>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col section-bottom-button wow fadeInUp">
-                        <a class="btn btn-primary btn-customized" href="#" role="button">
+                        <a class="btn btn-primary btn-customized-2" href="#" role="button">
                             مشاهده همه <i class="fas fa-sync"></i>
                         </a>
                     </div>
@@ -350,7 +298,7 @@
         </div>
 
         <!-- Section 6 -->
-        <div class="section-6-container section-container section-container-image-bg" id="section-6">
+        {{-- <div class="section-6-container section-container section-container-image-bg" id="section-6">
             <div class="container">
                 <div class="row">
                     <div class="col section-6 section-description wow fadeIn">
@@ -408,17 +356,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Footer -->
-        <footer class="footer-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        &copy; شرکت به نگاران تجارت آزما <a href=""> به نگاران تجارت آزما</a>.
-                    </div>
-                </div>
-            </div>
-        </footer>
+        @include('home.sections.footer')
     </div>
 @endsection

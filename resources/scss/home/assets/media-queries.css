@@ -79,15 +79,19 @@
         text-align: center;
     }
 
-    #numbers article {
-        margin-top: 1rem;
+    
+    .top-content h1 {
+        /* padding-top: 60px; */  
+        top: 0.3rem !important;
+        right: 5rem !important;
     }
 
-    .logo-text {
-        width: 150px;
-        margin-top: 8px;
+    .header-logo {
+        top: 35px !important;
+        right: 5rem !important;
+        width: 11rem !important;
+        height: 2rem !important;
     }
-
     .quick-service-icons a.btn-customized {
         padding: 0.7rem 1.2rem;
     }
