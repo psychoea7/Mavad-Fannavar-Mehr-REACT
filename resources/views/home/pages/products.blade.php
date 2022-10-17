@@ -4,46 +4,31 @@
     <div class="content">
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-            <i class="fas fa-align-left"></i> <span>منو</span>
+            <i class="fas fa-bars"></i>
         </a>
 
-        <div class="top-content section-container" id="top-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                        <h1 class="wow fadeIn">
+        @include('home.sections.language')
 
-                            <strong>محصولات بازرگانی اسپیدکار</strong>
-                        </h1>
-                        <div class="description wow fadeInLeft">
-                            <p>
-                                واردات و عرضه آلیاژ ها صنعتی با پشتوانه بیش از ۱۰ سال تجربه فعالیت بازرگانی و خدمات مهندسی
-                                سطح
-
-                            </p>
-                        </div>
-                        <div class="buttons wow fadeInUp">
-                            <a class="btn btn-primary btn-customized scroll-link" href="#section-1" role="button">
-                                خدمات <i class="fas fa-briefcase"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="to-top rounded-top-btn">
+            <a href="#" role="button">
+                <i class="fas fa-chevron-circle-up"></i>
+            </a>
         </div>
 
-        <div class="container mt-5">
-            <div class="row mb-3">
-                <div class="col-md-8 col-sm-12">
+        <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
+
+        <div class="container pt-5">
+            <div class="row pt-5">
+                <div class="col-md-3 col-sm-12">
                     <div class="filters-group">
-                        <label for="filters-search-input" class="filter-label">جستجو</label>
+                        <p class="filter-label">جستجو</p>
                         <input class="textfield filter__search js-shuffle-search" type="search"
                             id="filters-search-input" />
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-12  filters-group-wrap">
+                <div class="col-md-9 col-sm-12  filters-group-wrap">
                     <fieldset class="filters-group">
-                        <legend class="filter-label">مرتب سازی</legend>
+                        <p class="filter-label">ویژگی محصول</p>
                         <div class="btn-group sort-options">
                             <label class="btn active">
                                 <input type="radio" name="sort-value" value="dom" checked /> پیش فرض
@@ -61,7 +46,7 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 filters-group-wrap">
                     <div class="filters-group">
-                        <p class="filter-label">فیلتر</p>
+                        <p class="filter-label">دسته بندی محصول</p>
                         <div class="btn-group filter-options">
                             @foreach ($categories as $category)
                                 <button class="btn btn--primary"
@@ -87,16 +72,17 @@
                     @endphp
 
                     @if ($product->category->getRawOriginal('is_active') == 1)
-                        <div id="product{{ $product->id }}" onclick="location.href='{{route('showProduct' , ['product' => $product->id])}}'" class="col-md-3 picture-item"
-                            data-groups='["{{ $product->category_id }}"]' data-date-created="2015-10-20"
-                            data-title="Central Park">
+                        <div id="product{{ $product->id }}"
+                            onclick="location.href='{{ route('showProduct', ['product' => $product->id]) }}'"
+                            class="col-md-3 picture-item" data-groups='["{{ $product->category_id }}"]'
+                            data-date-created="2015-10-20" data-title="Central Park">
                             <div id="product" class="skill-card">
                                 <header class="skill-card__header"><img class="skill-card__icon"
                                         src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}"
                                         alt="HTML5 Logo" /></header>
                                 <section class="skill-card__body">
-                                    <h2 class="skill-card__title">{{ $product->name }}</h2><span
-                                        class="skill-card__duration">{{ $product->description }}</span>
+                                    <h2 class="skill-card__title">{{ $product->name }}</h2><p
+                                        class="skill-card__duration">{{ $product->description }}</p>
                                     <ul class="skill-card__knowledge">
                                         @foreach ($productAttr as $value)
                                             <li>{{ $value->attribute->name }}</li>
@@ -116,14 +102,6 @@
         </div>
 
 
-        <footer class="footer-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        &copy; شرکت به نگاران تجارت آزما <a href=""> به نگاران تجارت آزما</a>.
-                    </div>
-                </div>
-            </div>
-        </footer>
+        @include('home.sections.footer')
     </div>
 @endsection

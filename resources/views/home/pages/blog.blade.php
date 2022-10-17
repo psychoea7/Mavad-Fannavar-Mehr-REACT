@@ -9,6 +9,12 @@
 
         @include('home.sections.language')
 
+        <div class="to-top rounded-top-btn">
+            <a href="#" role="button">
+                <i class="fas fa-chevron-circle-up"></i>
+            </a>
+          </div>
+
         <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
 
         <!-- Section 5 -->
@@ -16,7 +22,7 @@
             <div class="container pt-5">
                 <div class="row">
                     @foreach ($blogs as $blog)
-                        <div class="col-md-4 section-5-box wow fadeInUp">
+                        <div class="col-md-3 section-5-box wow fadeInUp">
                             <div class="section-5-box-image">
                                 <img src="{{ url(env('BLOG_IMAGE_PATH') . $blog->image) }}" alt="portfolio-1" />
                             </div>

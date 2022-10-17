@@ -146,18 +146,18 @@ jQuery(document).ready(function () {
 });
 
  //trigger numbers
- $(allInView);
- $(window).scroll(allInView);
+//  $(allInView);
+//  $(window).scroll(allInView);
 
- function isScrolledIntoView(elem) {
-     var docViewTop = $(window).scrollTop();
-     var docViewBottom = docViewTop + $(window).height();
+//  function isScrolledIntoView(elem) {
+//      var docViewTop = $(window).scrollTop();
+//      var docViewBottom = docViewTop + $(window).height();
 
-     var elemTop = $(elem).offset().top;
-     var elemBottom = elemTop + $(elem).height();
+//      var elemTop = $(elem).offset().top;
+//      var elemBottom = elemTop + $(elem).height();
 
-     return elemBottom <= docViewBottom && elemTop >= docViewTop;
- }
+//      return elemBottom <= docViewBottom && elemTop >= docViewTop;
+//  }
 
  // Numbers Count Update -------------------------------------
 //  const items = [...document.querySelectorAll(".number")];

@@ -196,8 +196,5 @@
     .sidebar.light .logo a {
         background-image: url("../../../../public/images/logo-dark-2.png") !important;
     }
-    /* Numbers */
-    #numbers article {
-        margin-top: 1rem;
-    }
+    
 }

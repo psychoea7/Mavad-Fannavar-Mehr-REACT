@@ -9,6 +9,12 @@
         </a>
 
         @include('home.sections.language')
+
+        <div class="to-top rounded-top-btn">
+            <a href="#" role="button">
+                <i class="fas fa-chevron-circle-up"></i>
+            </a>
+          </div>
        
 
         <!-- Top content -->

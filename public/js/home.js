@@ -24367,17 +24367,16 @@ jQuery(document).ready(function () {
     });
   });
 }); //trigger numbers
-
-$(allInView);
-$(window).scroll(allInView);
-
-function isScrolledIntoView(elem) {
-  var docViewTop = $(window).scrollTop();
-  var docViewBottom = docViewTop + $(window).height();
-  var elemTop = $(elem).offset().top;
-  var elemBottom = elemTop + $(elem).height();
-  return elemBottom <= docViewBottom && elemTop >= docViewTop;
-} // Numbers Count Update -------------------------------------
+//  $(allInView);
+//  $(window).scroll(allInView);
+//  function isScrolledIntoView(elem) {
+//      var docViewTop = $(window).scrollTop();
+//      var docViewBottom = docViewTop + $(window).height();
+//      var elemTop = $(elem).offset().top;
+//      var elemBottom = elemTop + $(elem).height();
+//      return elemBottom <= docViewBottom && elemTop >= docViewTop;
+//  }
+// Numbers Count Update -------------------------------------
 //  const items = [...document.querySelectorAll(".number")];
 //  const updateCount = (el) => {
 //      const value = parseInt(el.dataset.value);
@@ -24408,7 +24407,6 @@ function isScrolledIntoView(elem) {
 //      }
 //  }
 //  Shuffle.js
-
 
 var Shuffle = window.Shuffle;
 

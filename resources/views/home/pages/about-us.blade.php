@@ -9,6 +9,12 @@
 
         @include('home.sections.language')
 
+        <div class="to-top rounded-top-btn">
+            <a href="#" role="button">
+                <i class="fas fa-chevron-circle-up"></i>
+            </a>
+          </div>
+
         <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
 
         <div class="container about-us-container py-5">

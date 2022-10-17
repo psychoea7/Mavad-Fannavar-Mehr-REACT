@@ -9,11 +9,39 @@
 
         @include('home.sections.language')
 
-        <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-2.png') }}" alt="">
+        <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
 
         <div class="container contact-us-wrapper pt-5 pb-5">
-            <div class="row">
-                <div class="col-md-6 mt-5">
+            <div class="row pt-5">
+
+                <div class="col-md-6">
+                    <h3 class="text-right">ارتباط با ما</h3>
+                    <div class="divider-1 wow fadeInUp text-right"><span></span></div>
+                    <div class="address-tel">
+                        <h4 class="text-right">آدرس</h4>
+                        <p>تهران، بزرگراه فتح، خیابان فتح یازدهم، گلبن یازدهم غربی، پلاک 7</p>
+                        <h4 class="text-right">کد پستی</h4>
+                        <p>۴۱۶۵۴۹۸۷۷</p>
+                        <h4>تلفن</h4>
+                        <div class="text-right">
+                             <a href="tel:02166811664">۰۲۱۶۶۸۱۱۶۶۴</a>
+                        </div>
+                        <h4 class="mt-4">ایمیل</h4>
+                        <div class="text-right">
+                            <a href="mailto:info@speedkar.ir">speedkar@gmail.com</a>
+                       </div>
+                    </div>
+                    <div class="section-6-social">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><img class="aparat-icon" src="{{ asset('images/icons8-aparat-40.png') }}" alt=""></a>
+                        <a href="#"><i class="fas fa-phone"></i></a>
+                        <a href="#"><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
                     <div class="section-6-form">
                         <form role="form" action="assets/contact.php" method="post">
                             <div class="form-group">
@@ -37,32 +65,14 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div id="map" class="d-flex align-items-stretch rounded" style="position: relative;top: 60px; height: 28rem; margin-bottom: 3rem;">
-                    </div>
-                </div>
+                
             </div>
 
-            <div class="row mt-5">
+            <div class="row py-3">
                 <div class="col-md-12 section-6-box wow fadeInDown">
-                    <h3 class="text-right">ما را دنبال کنید</h3>
-                    <div class="section-6-social">
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fas fa-video"></i></a>
-                        <a href="#"><i class="fas fa-phone"></i></a>
-                        <a href="#"><i class="fa fa-envelope"></i></a>
+                    <div id="map" class="d-flex align-items-stretch rounded" style="position: relative;top: 0; height: 25rem; ">
                     </div>
-                    <div class="address-tel">
-                        <h4 class="text-right">آدرس شرکت</h4>
-                        <p>دفتر مرکزی و انبار : تهران، بزرگراه فتح، خیابان فتح یازدهم، گلبن یازدهم غربی، پلاک 7</p>
-                        <h4>تلفن شرکت</h4>
-                        <div class="text-right">
-                            <span>ثابت :</span> <a href="tel:02166811664">۰۲۱۶۶۸۱۱۶۶۴</a> | <span>همراه :</span> <a
-                                href="tel:09125248632">۰۹۱۲۵۲۴۸۶۳۲</a>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -9,10 +9,16 @@
 
         @include('home.sections.language')
 
+        <div class="to-top rounded-top-btn">
+            <a href="#" role="button">
+                <i class="fas fa-chevron-circle-up"></i>
+            </a>
+          </div>
+
         <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
 
         <div class="container my-4 py-5 expanded-product pt-5 pb-5">
-            <div class="row">
+            <div class="row pt-5">
                 <div class="col-md-7 col-sm-12">
                     <h2>{{$product->name}}</h2>
                     <div class="divider-1 wow fadeInUp"><span class="w-100"></span></div>
