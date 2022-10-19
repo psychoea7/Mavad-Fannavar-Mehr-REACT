@@ -38,7 +38,9 @@ Route::prefix('admin-panel-management')->name('admin.')->group(function(){
 Route::post('/uploadImage' , [BlogController::class , 'getImage']);
 
 Route::get('/', function () {
-    return view('home.pages.index');
+    $product = Product::latest()->limit(5)->get();
+    $blogs = Blog::latest()->limit(4)->get();
+    return view('home.pages.index' , compact('blogs'));
 
 });
 
@@ -91,3 +93,6 @@ Route::get('/english', function () {
     return view('home.pages.english');
 
 })->name('home.pages.english');
+
+Route::get('/test',[ProductsController::class , 'test']);
+

@@ -80,12 +80,7 @@ class ProductsController extends Controller
                     ]);
                 }
 
-                foreach ($request->attribute_ids as $attribute) {
-                    ProductAttribute::create([
-                        'product_id' => $product->id,
-                        'attribute_id' => $attribute
-                    ]);
-                }
+                $product->attributes()->attach($request->attribute_ids);
 
             DB::commit();
         } catch (\Exception $exception) {
@@ -145,5 +140,11 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function test(){
+        $attribute = Attribute::where('name' , 'سلام')->first();
+        $get = ProductAttribute::where('attribute_id' , $attribute->id)->with('product')->get();
+        dd($get);
     }
 }

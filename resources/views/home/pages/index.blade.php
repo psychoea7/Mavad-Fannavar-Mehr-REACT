@@ -15,7 +15,7 @@
                 <i class="fas fa-chevron-circle-up"></i>
             </a>
           </div>
-       
+
 
         <!-- Top content -->
         <div class="top-content section-container" id="top-content">
@@ -221,77 +221,27 @@
                     <div class="col section-5 section-description wow fadeIn">
                         <h2 class="text-center">وبلاگ</h2>
                         <div class="divider-1 wow fadeInUp"><span></span></div>
-                        
+
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3 section-5-box wow fadeInUp">
+                    @foreach ($blogs as $blog)
+                    <div class="col-md-3 section-5-box wow fadeInUp" onclick="location.href='{{route('blogContent' , ['blog' => $blog->id])}}'">
                         <div class="section-5-box-image">
-                            <img src="{{ asset('images/portfolio/1.jpg') }}" alt="portfolio-1" />
+                            <img src="{{ url(env('BLOG_IMAGE_PATH') . $blog->image) }}" alt="portfolio-1" />
                         </div>
                         <h3>
-                            <a href="#">لورم ایپسوم</a>
+                            <a href="#">{{$blog->title}}</a>
                             <i class="fas fa-angle-left"></i>
                         </h3>
                         <div class="section-5-box-date">
-                            <i class="far fa-calendar"></i> شهریور ۱۴۰۰
+                            <i class="far fa-calendar"></i>{{$blog->updated_at}}
                         </div>
                         <p>
-                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                            است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با
-                            هدف بهبود ابزارهای کاربردی می باشد.
+                            {!! $blog->text !!}
                         </p>
                     </div>
-                    <div class="col-md-3 section-5-box wow fadeInDown">
-                        <div class="section-5-box-image">
-                            <img src="{{ asset('images/portfolio/2.jpg') }}" alt="portfolio-2" />
-                        </div>
-                        <h3>
-                            <a href="#">متن ساختگی</a>
-                            <i class="fas fa-angle-left"></i>
-                        </h3>
-                        <div class="section-5-box-date">
-                            <i class="far fa-calendar"></i> مهر ۱۴۰۱
-                        </div>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                            استفاده از طراحان گرافیک است.
-                        </p>
-                    </div>
-                    <div class="col-md-3 section-5-box wow fadeInUp">
-                        <div class="section-5-box-image">
-                            <img src="{{ asset('images/portfolio/3.jpg') }}" alt="portfolio-3" />
-                        </div>
-                        <h3>
-                            <a href="#">سادگی نامفهوم</a>
-                            <i class="fas fa-angle-left"></i>
-                        </h3>
-                        <div class="section-5-box-date">
-                            <i class="far fa-calendar"></i> آذر ۱۳۹۹
-                        </div>
-                        <p>
-                            ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز
-                            شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل
-                            دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
-                    </div>
-                    <div class="col-md-3 section-5-box wow fadeInUp">
-                        <div class="section-5-box-image">
-                            <img src="{{ asset('images/portfolio/1.jpg') }}" alt="portfolio-1" />
-                        </div>
-                        <h3>
-                            <a href="#">لورم ایپسوم</a>
-                            <i class="fas fa-angle-left"></i>
-                        </h3>
-                        <div class="section-5-box-date">
-                            <i class="far fa-calendar"></i> شهریور ۱۴۰۰
-                        </div>
-                        <p>
-                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                            است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با
-                            هدف بهبود ابزارهای کاربردی می باشد.
-                        </p>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="row">
                     <div class="col section-bottom-button wow fadeInUp">
