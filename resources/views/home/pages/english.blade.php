@@ -99,9 +99,18 @@
     <!-- Wrapper -->
     <div class="content eng-content">
         <!-- open sidebar menu -->
-        <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-            <i class="fas fa-align-left"></i> <span>Menu</span>
+        <a class="btn btn-primary btn-customized  open-menu" href="#" role="button">
+            {{-- <i class="fas fa-align-left"></i>  --}}
+            <i class="fas fa-bars text-light"></i>
         </a>
+
+        @include('home.sections.language')
+
+        <div class="to-top rounded-top-btn">
+            <a href="#" role="button">
+                <i class="fas fa-chevron-circle-up"></i>
+            </a>
+        </div>
 
         {{-- <a href="#" class="ir-flag"></a> --}}
 
@@ -109,21 +118,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                        <h1 class="wow fadeIn">
+                        <h1 class="wow fadeIn page-header-logo-2">
+                            <img class="img-fluid logo-text" src="{{ asset('images/logo-1.png') }}" alt="">
 
-                            <strong>SpeedKar Trading</strong>
+                            {{-- <strong> | بازرگانی اسپیدکار</strong> --}}
                         </h1>
-                        <div class="description wow fadeInLeft">
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, nulla.
-                                Lorem ipsum dolor sit amet.
-                            </p>
-                        </div>
-                        <div class="buttons wow fadeInUp">
-                            <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-3" role="button">
-                                <i class="fas fa-tags"></i> Products
+
+                        {{-- <div class="buttons wow fadeInUp">
+                            <a class="btn btn-primary btn-customized scroll-link" href="#" role="button">
+                                خدمات <i class="fas fa-briefcase"></i>
                             </a>
-                        </div>
+                            <a class="btn btn-primary btn-customized-2 scroll-link" href="#" role="button">
+                                محصولات <i class="fas fa-tags"></i>
+                            </a>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -150,26 +158,35 @@
                     of specialists with many years of experience, we provide competent and reliable technical support
                     and service.</p>
             </div>
-
-            <div class="row">
-                <div class="col section-1 section-description wow fadeIn">
+        </div>
+        <div class="container-fluid mt-5">
+            <div class="row dark-row-eng">
+                <div class="col-md-12 section-1 section-description wow fadeIn">
                     <h2 class="text-center">SERVICES AND TECHNICAL SUPPORT</h2>
                     <div class="divider-1 wow fadeInUp"><span></span></div>
                 </div>
-                <p><strong>Speedkar</strong> has a team of technical specialists to offer a range of technical support
-                    and services. With our extensive experience and technical know-how, we are well placed to provide
-                    offer high service performance to address specific customer requirements:</p>
-                <ul class="p-0 text-left check-list-eng">
-                    <li>System integration and turnkey installation</li>
-                    <li>Preventive maintenance programs</li>
-                    <li>System calibration services</li>
-                    <li>Training for system operation</li>
-                    <li>Training for spraying techniques</li>
-                    <li>Material, coating and system consulting</li>
-                </ul>
-            </div>
+                <div class="col-md-8">
+                    <p><strong>Speedkar</strong> has a team of technical specialists to offer a range of technical
+                        support
+                        and services. With our extensive experience and technical know-how, we are well placed to
+                        provide
+                        offer high service performance to address specific customer requirements:</p>
+                    <ul class="p-0 text-left check-list-eng">
+                        <li>System integration and turnkey installation</li>
+                        <li>Preventive maintenance programs</li>
+                        <li>System calibration services</li>
+                        <li>Training for system operation</li>
+                        <li>Training for spraying techniques</li>
+                        <li>Material, coating and system consulting</li>
+                    </ul>
+                </div>
 
-            <div class="row eng-contact py-5">
+                <div class="col-md-4">
+                    <img src="{{ asset('images/about-us.jpg') }}" alt="about-us" />
+                </div>
+            </div>
+        </div>
+        {{-- <div class="row eng-contact py-5">
                 <div class="col-md-8 col-sm-12 p-0">
                     <p><strong>Contact us</strong> for technical data sheets, more information or any other enquiries.
                     </p>
@@ -186,27 +203,70 @@
                 <div class="col-md-4 col-sm-12 p-0">
                     <img src="{{ asset('images/chat-text-dynamic-clay.png') }}" alt="">
                 </div>
-            </div>
-
+            </div> --}}
+        <div class="container eng-container">
             <div class="row">
                 <div class="col section-1 section-description wow fadeIn">
-                    <h2 class="text-center">THERMAL SPRAY AND HARDFACING / CLADDING TECHNOLOGY SPECIALIST IN IRAN</h2>
+                    <h2 class="text-center">PRODUCTS</h2>
                     <div class="divider-1 wow fadeInUp"><span></span></div>
                 </div>
 
-                <p>At <strong>Speedkar</strong>, we understand that it’s about having the best technology put into the
-                    right solution –
-                    resulting in greater performance, improved product life, reduced costs, and risk mitigation. With
-                    our industry experience and technical knowledge, coupled with the latest technology from our
-                    partners around the world, you can partner with us to build a solution for even the most demanding
-                    applications.</p>
+                <div class="col-md-12 mb-5">
+                    <p>At <strong>Speedkar</strong>, we understand that it’s about having the best technology put into
+                        the
+                        right solution –
+                        resulting in greater performance, improved product life, reduced costs, and risk mitigation.
+                        With
+                        our industry experience and technical knowledge, coupled with the latest technology from our
+                        partners around the world, you can partner with us to build a solution for even the most
+                        demanding
+                        applications.</p>
 
-                <ul class="list-unstyled text-left">
-                    <li><strong>1.</strong> Thermal Spray</li>
-                    <li><strong>2.</strong> Hardfacig&Cladding</li>
-                    <li><strong>3.</strong> LASER CLADDING & PTA</li>
-                    <li><strong>4.</strong> Additive manufacturing</li>
-                </ul>
+                    <ul class="list-unstyled text-left">
+                        <li><strong>1.</strong> Thermal Spray</li>
+                        <li><strong>2.</strong> Hardfacig&Cladding</li>
+                        <li><strong>3.</strong> LASER CLADDING & PTA</li>
+                        <li><strong>4.</strong> Additive manufacturing</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="col eng-product-card-1">
+                        <div class="eng-product-card-inner">
+                            <a href="">FORTEBRAZE</a>
+                            <p>Brazing Alloys & Fluxes</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="col eng-product-card-2">
+                        <div class="eng-product-card-inner">
+                            <a href="">FORTEBRAZE</a>
+                            <p>Brazing Foils & Pastes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="col eng-product-card-3">
+                        <div class="eng-product-card-inner">
+                            <a href="">FORTECOAT</a>
+                            <p>Thermal Spray Powders</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="col eng-product-card-4">
+                        <div class="eng-product-card-inner">
+                            <a href="">PURESPHERE</a>
+                            <p>Powders For AM</p>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
@@ -223,7 +283,7 @@
                     etc and mobile on-site laser clad repair coatings.</p>
             </div>
 
-            <div class="row my-5">
+            {{-- <div class="row my-5">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -310,7 +370,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
 
             <div class="row">
 
@@ -336,7 +396,7 @@
                     from Germany, USA , Turkey and China to suit your range of applications.</p>
             </div>
 
-            <div class="row my-5">
+            {{-- <div class="row my-5">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -404,7 +464,7 @@
 
                         <tr>
                             <th scope="row">Other Powders</th>
-                            <td  class="text-left">
+                            <td class="text-left">
                                 Contact us for other custom powder material and specification requirements.
                             </td>
 
@@ -429,7 +489,7 @@
 
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
 
         </div>
 
@@ -437,15 +497,58 @@
 
 
 
-        <footer class="footer-container">
+        <footer class="footer-container mt-5">
             <div class="container">
                 <div class="row">
-                    <div class="col">
-                        &copy; شرکت به نگاران تجارت آزما <a href=""> به نگاران تجارت آزما</a>.
+                    <div class="col-md-3 col-sm-12">
+                        <img class="img-fluid logo-text" src="{{ asset('images/logo-head-white.png') }}"
+                            alt="">
                     </div>
+
+                    <div class="col-md-4 col-sm-12 mt-3">
+                        <ul class="text-left">
+                            <h4>Speedkar</h4>
+                            <div class="divider-1 wow fadeInUp"><span></span></div>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">Contact Us</a></li>
+                            <li><a href="">Collaborate</a></li>
+                            <li><a href="">Blog</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-md-5 col-sm-12 mt-3">
+                        <ul class="text-left">
+                            <h4>Get In Touch</h4>
+                            <div class="divider-1 wow fadeInUp"><span></span></div>
+                            <li>Tehran, Fateh Highway, 11th Fateh Street, West 11th Golban, No 7</li>
+                            <li><a href="tel:02166811664">02166811664</a></li>
+                            <li><a href="mailto:info@speedkar.ir">speedkar@gmail.com</a></li>
+                            <li>
+                                <div class="section-6-social">
+                                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                    <a href="#"><i class="fab fa-telegram"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><img class="aparat-icon"
+                                            src="{{ asset('images/icons8-aparat-40.png') }}" alt=""></a>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="divider-1 w-100 wow fadeInUp"><span></span></div>
+                    <p class="text-center w-100"><i class="far fa-copyright"></i> کلیه حقوق متعلق به شرکت سپیدکار
+                        تجارت نیوساد</p>
+                    <p class="text-center w-100">طراحی شده توسط<a href=""> به نگاران</a></p>
                 </div>
             </div>
         </footer>
+
     </div>
     <!-- Javascript -->
     <script src="{{ asset('js/home.js') }}"></script>

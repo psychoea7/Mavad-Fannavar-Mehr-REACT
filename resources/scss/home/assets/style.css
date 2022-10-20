@@ -119,8 +119,8 @@ img {
     top: 0;
     right: -255px;
     z-index: 999;
-    background: var(--clr-dark);
-    color: #fff;
+    background: var(--clr-primary);
+    color: var(--clr-dark);
     transition: all 0.3s;
     box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.5);
     text-align: right;
@@ -145,10 +145,11 @@ img {
     top: 10px;
     left: 10px;
     transition: all 0.3s;
-    background: #555;
+    background: var(--clr-secondary);
     border-radius: 4px;
     text-align: center;
     line-height: 35px;
+    color: var(--clr-light-dark);
     cursor: pointer;
 }
 .sidebar-eng .dismiss {
@@ -163,7 +164,7 @@ img {
 
 .sidebar .logo {
     padding: 40px 20px;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--clr-secondary);
     transition: all 0.3s;
 }
 
@@ -171,14 +172,14 @@ img {
     display: inline-block;
     width: 172px;
     height: 34px;
-    background: url("../../../../public/images/logo-1.png") left top no-repeat;
+    background: url("../../../../public/images/logo-dark-1.png") left top no-repeat;
     border: 0;
     text-indent: -999999px;
 }
 
 .sidebar ul.menu-elements {
     padding: 10px 0;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--clr-secondary);
     transition: all 0.3s;
 }
 
@@ -186,7 +187,7 @@ img {
     display: block;
     padding: 10px 20px;
     border: 0;
-    color: #fff;
+    color: var(--clr-dark);
 }
 .sidebar ul li a:hover,
 .sidebar ul li a:focus,
@@ -247,23 +248,31 @@ a[aria-expanded="true"] {
 .sidebar .to-top {
     padding: 20px;
     text-align: center;
+    
+}
+.to-top .btn-customized-3 {
+    background-color: var(--clr-secondary);
+    color: var(--clr-light-dark);
 }
 
 .sidebar .dark-light-buttons {
     padding: 10px 20px 30px 20px;
     text-align: center;
 }
+.sidebar .dark-light-buttons a {
+    box-shadow: 0 0 1px var(--clr-light-dark);
+}
 
 /* sidebar light */
 
 .sidebar.light {
-    background: #fff;
-    color: #888;
+    background: var(--clr-dark);
+    color: var(--clr-secondary);
 }
 
 .sidebar.light .dismiss {
-    background: #ddd;
-    color: #888;
+    background-color: var(--clr-secondary);
+    color: var(--clr-light-dark);
 }
 
 .sidebar.light .dismiss:hover,
@@ -276,15 +285,15 @@ a[aria-expanded="true"] {
     border-color: #eee;
 }
 .sidebar.light .logo a {
-    background-image: url("../../../../public/images/logo-dark-1.png");
+    background-image: url("../../../../public/images/logo-1.png");
 }
 
 .sidebar.light ul.menu-elements {
-    border-color: #eee;
+    border-color: var(--clr-secondary);
 }
 
 .sidebar.light ul li a {
-    color: #888;
+    color: var(--clr-secondary);
 }
 
 .sidebar.light ul li a:hover,
@@ -426,10 +435,75 @@ a[aria-expanded="true"] {
     border-radius: 4px;
     border: none;
 }
-
+.eng-content .language-select {
+    right: 0;
+    left: unset;
+}
 .eng-content .open-menu {
     left: 10px;
     right: unset;
+}
+.eng-content .top-content h1 {
+    /* padding-top: 60px; */
+    left: 0;
+}
+.eng-content .dark-row-eng {
+    background-image: url("../../../../public/images/grey-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 5rem 3rem 5rem;
+}
+.eng-content .dark-row-eng img {
+    border-radius: 4px;
+    box-shadow: 0 0 1px var(--clr-light-dark);
+    height: 20rem;
+}
+.eng-content .dark-row-eng p strong {
+    font-weight: 600;
+}
+.eng-product-card-1,
+.eng-product-card-2,
+.eng-product-card-3,
+.eng-product-card-4 {
+    background-image: url("../../../../public/images/product_1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20rem;
+    width: 100%;
+    border-radius: 4px;
+    padding: 1rem;
+    position: relative;
+}
+.eng-product-card-2 {
+    background-image: url("../../../../public/images/product_2.png");
+    
+}
+.eng-product-card-3 {
+    background-image: url("../../../../public/images/product_3.png");
+    
+}
+.eng-product-card-4 {
+    background-image: url("../../../../public/images/product_4.png");
+    
+}
+.eng-product-card-inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 50%;
+    background-color: rgba(255, 255, 255, 0.600);
+    text-align: center;
+}
+.eng-product-card-inner p {
+    text-align: center;
+}
+.eng-product-card-inner a {
+    font-weight: 700;
+    text-shadow: 0 0 1px var(--clr-dark);
 }
 /* .open-menu.btn-customized,
 .open-menu.btn-customized:hover,

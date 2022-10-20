@@ -24266,11 +24266,11 @@ jQuery(document).ready(function () {
   });
   /* change sidebar style */
 
-  $('a.btn-customized-dark').on('click', function (e) {
+  $('a.btn-customized-light').on('click', function (e) {
     e.preventDefault();
     $('.sidebar').removeClass('light');
   });
-  $('a.btn-customized-light').on('click', function (e) {
+  $('a.btn-customized-dark').on('click', function (e) {
     e.preventDefault();
     $('.sidebar').addClass('light');
   });
