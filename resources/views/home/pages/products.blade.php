@@ -64,12 +64,6 @@
 
 
                 @foreach ($products as $product)
-                    @php
-                        $productAttr = $product
-                            ->attributes()
-                            ->with('attribute')
-                            ->get();
-                    @endphp
 
                     @if ($product->category->getRawOriginal('is_active') == 1)
                         <div id="product{{ $product->id }}"
@@ -84,8 +78,8 @@
                                     <h2 class="skill-card__title">{{ $product->name }}</h2><p
                                         class="skill-card__duration">{{ $product->description }}</p>
                                     <ul class="skill-card__knowledge">
-                                        @foreach ($productAttr as $value)
-                                            <li>{{ $value->attribute->name }}</li>
+                                        @foreach ($product->attributes as $value)
+                                            <li>{{ $value->name }}</li>
                                         @endforeach
                                         <a href="{{ route('showProduct', ['product' => $product->id]) }}">نمایش محصول</a>
                                     </ul>

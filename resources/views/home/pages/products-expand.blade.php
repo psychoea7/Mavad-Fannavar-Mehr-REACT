@@ -4,7 +4,7 @@
     <div class="content">
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-            <i class="fas fa-bars"></i> 
+            <i class="fas fa-bars"></i>
         </a>
 
         @include('home.sections.language')
@@ -23,8 +23,8 @@
                     <h2>{{$product->name}}</h2>
                     <div class="divider-1 wow fadeInUp"><span class="w-100"></span></div>
                     <ul>
-                        @foreach ($productAttr as $value)
-                        <li>{{$value->attribute->name}}</li>
+                        @foreach ($product->attributes as $value)
+                        <li>{{$value->name}}</li>
                         @endforeach
                     </ul>
                     <p>{{$product->description}}</p>

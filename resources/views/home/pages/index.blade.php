@@ -14,7 +14,7 @@
             <a href="#" role="button">
                 <i class="fas fa-chevron-circle-up"></i>
             </a>
-          </div>
+        </div>
 
 
         <!-- Top content -->
@@ -166,25 +166,28 @@
                 </div>
 
                 <div class="row index-products wow fadeIn">
-                    {{-- <div id="product{{ $product->id }}" onclick="location.href='{{route('showProduct' , ['product' => $product->id])}}'" class="col-md-3 picture-item"
-                        data-groups='["{{ $product->category_id }}"]' data-date-created="2015-10-20"
-                        data-title="Central Park">
-                        <div id="product" class="skill-card">
-                            <header class="skill-card__header"><img class="skill-card__icon"
-                                    src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}"
-                                    alt="HTML5 Logo" /></header>
-                            <section class="skill-card__body">
-                                <h2 class="skill-card__title">{{ $product->name }}</h2><span
-                                    class="skill-card__duration">{{ $product->description }}</span>
-                                <ul class="skill-card__knowledge">
-                                    @foreach ($productAttr as $value)
-                                        <li>{{ $value->attribute->name }}</li>
-                                    @endforeach
-                                    <a href="{{ route('showProduct', ['product' => $product->id]) }}">نمایش محصول</a>
-                                </ul>
-                            </section>
+                    @foreach ($products as $product)
+                        <div id="product{{ $product->id }}"
+                            onclick="location.href='{{ route('showProduct', ['product' => $product->id]) }}'"
+                            class="col-md-3 picture-item" data-groups='["{{ $product->category_id }}"]'
+                            data-date-created="2015-10-20" data-title="Central Park">
+                            <div id="product" class="skill-card">
+                                <header class="skill-card__header"><img class="skill-card__icon"
+                                        src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}"
+                                        alt="HTML5 Logo" /></header>
+                                <section class="skill-card__body">
+                                    <h2 class="skill-card__title">{{ $product->name }}</h2><span
+                                        class="skill-card__duration">{{ $product->description }}</span>
+                                    <ul class="skill-card__knowledge">
+                                        @foreach ($product->attributes as $value)
+                                            <li>{{ $value->name }}</li>
+                                        @endforeach
+                                        <a href="{{ route('showProduct', ['product' => $product->id]) }}">نمایش محصول</a>
+                                    </ul>
+                                </section>
+                            </div>
                         </div>
-                    </div> --}}
+                    @endforeach
 
                 </div>
 
@@ -226,21 +229,22 @@
                 </div>
                 <div class="row">
                     @foreach ($blogs as $blog)
-                    <div class="col-md-3 section-5-box wow fadeInUp" onclick="location.href='{{route('blogContent' , ['blog' => $blog->id])}}'">
-                        <div class="section-5-box-image">
-                            <img src="{{ url(env('BLOG_IMAGE_PATH') . $blog->image) }}" alt="portfolio-1" />
+                        <div class="col-md-3 section-5-box wow fadeInUp"
+                            onclick="location.href='{{ route('blogContent', ['blog' => $blog->id]) }}'">
+                            <div class="section-5-box-image">
+                                <img src="{{ url(env('BLOG_IMAGE_PATH') . $blog->image) }}" alt="portfolio-1" />
+                            </div>
+                            <h3>
+                                <a href="#">{{ $blog->title }}</a>
+                                <i class="fas fa-angle-left"></i>
+                            </h3>
+                            <div class="section-5-box-date">
+                                <i class="far fa-calendar"></i>{{ $blog->updated_at }}
+                            </div>
+                            <p>
+                                {!! $blog->text !!}
+                            </p>
                         </div>
-                        <h3>
-                            <a href="#">{{$blog->title}}</a>
-                            <i class="fas fa-angle-left"></i>
-                        </h3>
-                        <div class="section-5-box-date">
-                            <i class="far fa-calendar"></i>{{$blog->updated_at}}
-                        </div>
-                        <p>
-                            {!! $blog->text !!}
-                        </p>
-                    </div>
                     @endforeach
                 </div>
                 <div class="row">

@@ -38,9 +38,9 @@ Route::prefix('admin-panel-management')->name('admin.')->group(function(){
 Route::post('/uploadImage' , [BlogController::class , 'getImage']);
 
 Route::get('/', function () {
-    $product = Product::latest()->limit(5)->get();
+    $products = Product::latest()->limit(4)->with('attributes')->get();
     $blogs = Blog::latest()->limit(4)->get();
-    return view('home.pages.index' , compact('blogs'));
+    return view('home.pages.index' , compact('blogs' , 'products'));
 
 });
 
@@ -58,8 +58,7 @@ Route::get('/products', function () {
 
 Route::get('/products-expand/{product}', function (Product $product) {
     $images = $product->images()->get();
-    $productAttr = $product->attributes()->with('attribute')->get();
-    return view('home.pages.products-expand' , compact('product' , 'images' , 'productAttr'));
+    return view('home.pages.products-expand' , compact('product' , 'images'));
 
 })->name('showProduct');
 
