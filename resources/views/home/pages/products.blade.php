@@ -31,8 +31,9 @@
 
                 {{-- <div class="col-md-9 col-sm-12 filters-group-wrap">
                     <div class="filters-group">
-                        <p class="filter-label">دسته بندی محصول</p>
+                        <p class="filter-label">ویژگی محصول</p>
                         <div class="btn-group filter-options">
+
                             @foreach ($categories as $category)
                                 <button class="btn btn--primary"
                                     data-group="{{ $category->id }}">{{ $category->name }}</button>
@@ -73,6 +74,12 @@
                                 <button class="btn btn--primary"
                                     data-group="{{ $category->id }}">{{ $category->name }}</button>
                             @endforeach
+                            <div>|</div>
+
+                            @foreach ($attributes as $attribute)
+                                <button class="btn btn--primary"
+                                    data-group="attr{{ $attribute->id }}">{{ $attribute->name }}</button>
+                            @endforeach
                         </div>
                     </div>
 
@@ -86,7 +93,6 @@
 
 
                 @foreach ($products as $product)
-
                     @if ($product->category->getRawOriginal('is_active') == 1)
                         <div id="product{{ $product->id }}"
                             onclick="location.href='{{ route('showProduct', ['product' => $product->id]) }}'"
@@ -97,8 +103,8 @@
                                         src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}"
                                         alt="HTML5 Logo" /></header>
                                 <section class="skill-card__body">
-                                    <h2 class="skill-card__title">{{ $product->name }}</h2><p
-                                        class="skill-card__duration">{{ $product->description }}</p>
+                                    <h2 class="skill-card__title">{{ $product->name }}</h2>
+                                    <p class="skill-card__duration">{{ $product->description }}</p>
                                     <ul class="skill-card__knowledge">
                                         @foreach ($product->attributes as $value)
                                             <li>{{ $value->name }}</li>
@@ -110,28 +116,32 @@
                         </div>
 
                         {{-- sotoone vijegi mahsool --}}
-                        
-                        {{-- <div id="product{{ $product->id }}"
-                            onclick="location.href='{{ route('showProduct', ['product' => $product->id]) }}'"
-                            class="col-md-3 picture-item" data-groups='["{{ $product->category_id }}"]'
+                    @endif
+                @endforeach
+
+                @foreach ($attributes as $attribute)
+                    @foreach ($attribute->products as $value)
+                        <div id="product{{ $value->name }}"
+                            onclick="location.href='{{ route('showProduct', ['product' => $value->id]) }}'"
+                            class="col-md-3 picture-item" data-groups='["attr{{ $attribute->id }}"]'
                             data-date-created="2015-10-20" data-title="Central Park">
                             <div id="product" class="skill-card">
                                 <header class="skill-card__header"><img class="skill-card__icon"
-                                        src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}"
+                                        src="{{ asset(env('PRODUCT_IMAGE_PATH') . $value->primary_image) }}"
                                         alt="HTML5 Logo" /></header>
                                 <section class="skill-card__body">
-                                    <h2 class="skill-card__title">{{ $product->name }}</h2><p
-                                        class="skill-card__duration">{{ $product->description }}</p>
+                                    <h2 class="skill-card__title">{{ $value->name }}</h2>
+                                    <p class="skill-card__duration">{{ $value->description }}</p>
                                     <ul class="skill-card__knowledge">
-                                        @foreach ($product->attributes as $value)
-                                            <li>{{ $value->name }}</li>
+                                        @foreach ($value->attributes as $item)
+                                            <li>{{ $item->name }}</li>
                                         @endforeach
-                                        <a href="{{ route('showProduct', ['product' => $product->id]) }}">نمایش محصول</a>
+                                        <a href="{{ route('showProduct', ['product' => $value->id]) }}">نمایش محصول</a>
                                     </ul>
                                 </section>
                             </div>
-                        </div> --}}
-                    @endif
+                        </div>
+                    @endforeach
                 @endforeach
 
 
