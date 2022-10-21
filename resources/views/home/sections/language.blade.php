@@ -1,5 +1,5 @@
 <div class="language-select">
-    <a href="#">FA</a>
+    <a href="{{ route('home.pages.index') }}">FA</a>
     |
-    <a href="#">EN</a>
+    <a href="{{ route('home.pages.english') }}">EN</a>
 </div>

@@ -26,7 +26,28 @@
                             id="filters-search-input" />
                     </div>
                 </div>
-                <div class="col-md-9 col-sm-12  filters-group-wrap">
+
+                {{-- vijegi mahsoolat az inja --}}
+
+                {{-- <div class="col-md-9 col-sm-12 filters-group-wrap">
+                    <div class="filters-group">
+                        <p class="filter-label">دسته بندی محصول</p>
+                        <div class="btn-group filter-options">
+                            @foreach ($categories as $category)
+                                <button class="btn btn--primary"
+                                    data-group="{{ $category->id }}">{{ $category->name }}</button>
+                            @endforeach
+                        </div>
+                    </div>
+
+                </div> --}}
+                {{-- ta inja --}}
+
+
+
+
+
+                {{-- <div class="col-md-9 col-sm-12  filters-group-wrap">
                     <fieldset class="filters-group">
                         <p class="filter-label">ویژگی محصول</p>
                         <div class="btn-group sort-options">
@@ -41,7 +62,7 @@
                             </label>
                         </div>
                     </fieldset>
-                </div>
+                </div> --}}
             </div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 filters-group-wrap">
@@ -87,6 +108,29 @@
                                 </section>
                             </div>
                         </div>
+
+                        {{-- sotoone vijegi mahsool --}}
+                        
+                        {{-- <div id="product{{ $product->id }}"
+                            onclick="location.href='{{ route('showProduct', ['product' => $product->id]) }}'"
+                            class="col-md-3 picture-item" data-groups='["{{ $product->category_id }}"]'
+                            data-date-created="2015-10-20" data-title="Central Park">
+                            <div id="product" class="skill-card">
+                                <header class="skill-card__header"><img class="skill-card__icon"
+                                        src="{{ asset(env('PRODUCT_IMAGE_PATH') . $product->primary_image) }}"
+                                        alt="HTML5 Logo" /></header>
+                                <section class="skill-card__body">
+                                    <h2 class="skill-card__title">{{ $product->name }}</h2><p
+                                        class="skill-card__duration">{{ $product->description }}</p>
+                                    <ul class="skill-card__knowledge">
+                                        @foreach ($product->attributes as $value)
+                                            <li>{{ $value->name }}</li>
+                                        @endforeach
+                                        <a href="{{ route('showProduct', ['product' => $product->id]) }}">نمایش محصول</a>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div> --}}
                     @endif
                 @endforeach
 

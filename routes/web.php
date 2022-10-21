@@ -43,7 +43,7 @@ Route::get('/', function () {
     $blogs = Blog::latest()->limit(4)->get();
     return view('home.pages.index' , compact('blogs' , 'products'));
 
-});
+})->name('home.pages.index');
 
 Route::get('/services', function () {
     return view('home.pages.services');
@@ -68,7 +68,7 @@ Route::get('/blog', function () {
     $blogs = Blog::all();
     return view('home.pages.blog' , compact('blogs'));
 
-});
+})->name('home.pages.blog');
 
 Route::get('/blog-post/{blog}', function (Blog $blog) {
     return view('home.pages.blog-post' , compact('blog'));
