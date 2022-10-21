@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AttributesController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\ProductsController;
+use App\Models\Attribute;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Product;
@@ -52,7 +53,8 @@ Route::get('/services', function () {
 Route::get('/products', function () {
     $categories = Category::where('is_active' , '=' , 1)->get();
     $products = Product::where('is_active' , '=' , 1)->with('category')->get();
-    return view('home.pages.products' , compact('categories' , 'products'));
+    $attributes = Attribute::with('products')->get();
+    return view('home.pages.products' , compact('categories' , 'products','attributes'));
 
 })->name('product');
 
