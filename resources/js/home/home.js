@@ -99,7 +99,7 @@ jQuery(document).ready(function () {
     /*
         Background slideshow
     */
-    $('.top-content').backstretch("/images/backgrounds/1.jpg");
+    $('.top-content').backstretch("/images/backgrounds/1-1.png");
     $('.section-4-container').backstretch("/images/backgrounds/2.jpg");
     $('.section-6-container').backstretch("/images/backgrounds/1.jpg");
 

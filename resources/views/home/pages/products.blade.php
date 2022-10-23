@@ -19,7 +19,7 @@
 
         <div class="container pt-5">
             <div class="row pt-5">
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <div class="filters-group">
                         <p class="filter-label">جستجو</p>
                         <input class="textfield filter__search js-shuffle-search" type="search"

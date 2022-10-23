@@ -5,7 +5,7 @@
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
             {{-- <i class="fas fa-align-left"></i>  --}}
-            <i class="fas fa-bars text-light"></i>
+            <i class="fas fa-bars"></i>
         </a>
 
         @include('home.sections.language')
@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                         <h1 class="wow fadeIn page-header-logo">
-                            <img class="img-fluid logo-text" src="{{ asset('images/logo-1.png') }}" alt="">
+                            <img class="img-fluid logo-text" src="{{ asset('images/300.png') }}" alt="">
 
                             {{-- <strong> | بازرگانی اسپیدکار</strong> --}}
                         </h1>
@@ -169,7 +169,7 @@
                     @foreach ($products as $product)
                         <div id="product{{ $product->id }}"
                             onclick="location.href='{{ route('showProduct', ['product' => $product->id]) }}'"
-                            class="col-md-3 picture-item" data-groups='["{{ $product->category_id }}"]'
+                            class="col-md-3 picture-item wow fadeInUp" data-groups='["{{ $product->category_id }}"]'
                             data-date-created="2015-10-20" data-title="Central Park">
                             <div id="product" class="skill-card">
                                 <header class="skill-card__header"><img class="skill-card__icon"
@@ -189,6 +189,14 @@
                         </div>
                     @endforeach
 
+                </div>
+
+                <div class="row">
+                    <div class="col section-bottom-button wow fadeInUp">
+                        <a class="btn btn-primary btn-customized-2" href="#" role="button">
+                            مشاهده همه <i class="fas fa-sync"></i>
+                        </a>
+                    </div>
                 </div>
 
 
@@ -241,7 +249,7 @@
                             <div class="section-5-box-date">
                                 <i class="far fa-calendar"></i>{{ $blog->updated_at }}
                             </div>
-                            <p>
+                            <p class="blog-text">
                                 {!! $blog->text !!}
                             </p>
                         </div>

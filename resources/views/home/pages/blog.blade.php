@@ -33,8 +33,8 @@
                             <div class="section-5-box-date">
                                 <i class="far fa-calendar"></i>{{ $blog->updated_at }}
                             </div>
-                            <p>
-                                {!! $blog->title !!}
+                            <p class="blog-text">
+                                {!! $blog->text !!}
                             </p>
                         </div>
                     @endforeach
