@@ -29,20 +29,23 @@
                             <a href="#"><i class="fab fa-whatsapp"></i></a>
                             <a href="#"><i class="fab fa-telegram"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><img class="aparat-icon" src="{{ asset('images/icons8-aparat-40.png') }}" alt=""></a>
+                            <a href="#"><img class="aparat-icon" src="{{ asset('images/icons8-aparat-40.png') }}"
+                                    alt=""></a>
                         </div>
                     </li>
                 </ul>
 
             </div>
 
-           
+
         </div>
 
+        <div class="divider-1 w-100 wow fadeInUp"><span></span></div>
         <div class="row">
-            <div class="divider-1 w-100 wow fadeInUp"><span></span></div>
-            <p class="text-center"><i class="far fa-copyright"></i> کلیه حقوق متعلق به شرکت سپیدکار تجارت نیوساد</p>
-            <p class="text-center">طراحی شده توسط<a href=""> به نگاران</a></p>
+            <div class="col-md-12 footer-copy-right">
+                <p><i class="far fa-copyright"></i> کلیه حقوق متعلق به شرکت سپیدکار تجارت نیوساد</p>
+                <p> طراحی شده توسط<a href="https://beh-negaran.com"> به نگاران</a></p>
+            </div>
         </div>
     </div>
 </footer>

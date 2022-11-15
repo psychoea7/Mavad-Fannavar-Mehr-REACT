@@ -24320,12 +24320,17 @@ jQuery(document).ready(function () {
       Background slideshow
   */
 
-  $('.top-content').backstretch("/images/backgrounds/1-1.png");
-  $('.section-4-container').backstretch("/images/backgrounds/2.jpg");
+  $('.top-content').backstretch("/images/backgrounds/55.jpg");
+  $('.section-4-container').backstretch("/images/backgrounds/22.jpg");
   $('.section-6-container').backstretch("/images/backgrounds/1.jpg");
+
+  if (matchMedia("(max-width: 450px)").matches) {
+    $('.top-content').backstretch("/images/backgrounds/99.jpg");
+  }
   /*
       Wow
   */
+
 
   new WOW().init();
   /*

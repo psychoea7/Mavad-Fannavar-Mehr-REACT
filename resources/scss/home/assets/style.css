@@ -850,8 +850,18 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
     padding: 0 0 10px 0;
 }
 
-/* Index Products ------------------------------------------------------------ */
-
+/* section 4 ------------------------------------------------------------ */
+.section-4-container h2,
+.section-4-container p {
+    background-color: var(--clr-dark);
+    color: var(--clr-primary);
+    border-radius: 0.4rem;
+    padding: 1rem;
+    opacity: 0.8;
+}
+.section-4-container {
+    padding-bottom: 2rem;
+}
 /***** Section 5 *****/
 
 .section-5-box {
@@ -1071,6 +1081,11 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 }
 footer {
     padding: 40px 0 20px 0;
+}
+.footer-copy-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 /* Services Page */
