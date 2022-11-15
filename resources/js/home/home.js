@@ -3,7 +3,7 @@ window.Shuffle = require('shufflejs');
 require('../../files/bootstrap-4.5.3-dist/js/bootstrap.bundle');
 require('jquery-mousewheel');
 require('../home/js/jquery-migrate');
-require('../home/js/jquery.backstretch');
+// require('../home/js/jquery.backstretch');
 require('../home/js/jquery.waypoints');
 require('./js/jquery.mCustomScrollbar');
 require('./js/owl-carousel-min');
@@ -99,13 +99,13 @@ jQuery(document).ready(function () {
     /*
         Background slideshow
     */
-    $('.top-content').backstretch("/images/backgrounds/55.jpg");
-    $('.section-4-container').backstretch("/images/backgrounds/22.jpg");
-    $('.section-6-container').backstretch("/images/backgrounds/1.jpg");
+    // $('.top-content').backstretch("/images/backgrounds/100.jpg");
+    // $('.section-4-container').backstretch("/images/backgrounds/22.jpg");
+    // $('.section-6-container').backstretch("/images/backgrounds/1.jpg");
 
-    if (matchMedia("(max-width: 450px)").matches) {
-      $('.top-content').backstretch("/images/backgrounds/99.jpg");
-    }
+    // if (matchMedia("(max-width: 450px)").matches) {
+    //   $('.top-content').backstretch("/images/backgrounds/99.jpg");
+    // }
     /*
         Wow
     */

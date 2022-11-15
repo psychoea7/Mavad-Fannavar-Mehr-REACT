@@ -172,7 +172,7 @@ img {
     display: inline-block;
     width: 172px;
     height: 34px;
-    background: url("../../../../public/images/logo-dark-1.png") left top
+    background: url("../../../../public/images/300.png") left top
         no-repeat;
     border: 0;
     text-indent: -999999px;
@@ -285,7 +285,7 @@ a[aria-expanded="true"] {
     border-color: #eee;
 }
 .sidebar.light .logo a {
-    background-image: url("../../../../public/images/logo-1.png");
+    background-image: url("../../../../public/images/500.png");
 }
 
 .sidebar.light ul.menu-elements {
@@ -444,8 +444,7 @@ a[aria-expanded="true"] {
     right: unset;
 }
 .eng-content .top-content h1 {
-    /* padding-top: 60px; */
-    left: 0;
+    left: 2rem;
 }
 .eng-content .dark-row-eng {
     background-image: url("../../../../public/images/grey-bg.jpg");
@@ -715,6 +714,10 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
     width: 100%;
     /* padding: 60px 0 120px 0; */
     height: 70vh;
+    background-image: url("../../../../public/images/backgrounds/100.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
 .header-content {
     width: 100%;
@@ -722,10 +725,9 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 }
 
 .top-content h1 {
-    /* padding-top: 60px; */
     position: absolute;
-    top: 25px;
-    right: 0;
+    top: 1.5rem;
+    right: 2rem;
 }
 /* .logo-text {
     filter: drop-shadow(0 0 1px var(--clr-light-dark));
@@ -860,7 +862,13 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
     opacity: 0.8;
 }
 .section-4-container {
-    padding-bottom: 2rem;
+    background-image: url("../../../../public/images/backgrounds/22.jpg");
+    background-size: cover;
+    background-position: 0% 66%;
+    background-repeat: no-repeat;
+    /* padding: 3rem 0 8rem 0; */
+    /* height: 90vh; */
+    padding: 2rem 0 3rem 0;
 }
 /***** Section 5 *****/
 
@@ -1824,6 +1832,7 @@ footer {
 } */
 .weblog-picture img {
     border-radius: 0.3rem;
+    width: 70% !important;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .weblog-text p {

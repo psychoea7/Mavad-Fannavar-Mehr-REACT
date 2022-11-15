@@ -193,7 +193,7 @@
 
                 <div class="row">
                     <div class="col section-bottom-button wow fadeInUp">
-                        <a class="btn btn-primary btn-customized-2" href="#" role="button">
+                        <a class="btn btn-primary btn-customized-2" href="{{ route('product') }}" role="button">
                             مشاهده همه <i class="fas fa-sync"></i>
                         </a>
                     </div>
@@ -217,7 +217,7 @@
                 </div>
                 <div class="row">
                     <div class="col section-bottom-button wow fadeInUp">
-                        <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-6" role="button">
+                        <a class="btn btn-primary btn-customized-2 " href="{{ route('home.pages.contact-us') }}" role="button">
                             تماس با ما <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -257,7 +257,7 @@
                 </div>
                 <div class="row">
                     <div class="col section-bottom-button wow fadeInUp">
-                        <a class="btn btn-primary btn-customized-2" href="#" role="button">
+                        <a class="btn btn-primary btn-customized-2" href="{{ route('home.pages.blog') }}" role="button">
                             مشاهده همه <i class="fas fa-sync"></i>
                         </a>
                     </div>

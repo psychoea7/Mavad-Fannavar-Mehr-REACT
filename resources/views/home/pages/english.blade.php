@@ -101,7 +101,7 @@
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized  open-menu" href="#" role="button">
             {{-- <i class="fas fa-align-left"></i>  --}}
-            <i class="fas fa-bars text-light"></i>
+            <i class="fas fa-bars text-dark"></i>
         </a>
 
         @include('home.sections.language')
@@ -119,7 +119,7 @@
                 <div class="row">
                     <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                         <h1 class="wow fadeIn page-header-logo-2">
-                            <img class="img-fluid logo-text" src="{{ asset('images/logo-1.png') }}" alt="">
+                            <img class="img-fluid logo-text" src="{{ asset('images/400.png') }}" alt="">
 
                             {{-- <strong> | بازرگانی اسپیدکار</strong> --}}
                         </h1>
@@ -501,8 +501,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-12">
-                        <img class="img-fluid logo-text" src="{{ asset('images/logo-head-white.png') }}"
-                            alt="">
+                        <img class="img-fluid logo-text" src="{{ asset('images/1100.png') }}"
+                            alt="logo">
                     </div>
 
                     <div class="col-md-4 col-sm-12 mt-3">
@@ -540,11 +540,12 @@
 
                 </div>
 
+                <div class="divider-1 w-100 wow fadeInUp"><span></span></div>
                 <div class="row">
-                    <div class="divider-1 w-100 wow fadeInUp"><span></span></div>
-                    <p class="text-center w-100"><i class="far fa-copyright"></i> کلیه حقوق متعلق به شرکت سپیدکار
-                        تجارت نیوساد</p>
-                    <p class="text-center w-100">طراحی شده توسط<a href=""> به نگاران</a></p>
+                    <div class="col-md-12 footer-copy-right">
+                        <p><i class="far fa-copyright"></i> All rights belong to Speedkar Tejarat Newsad Company</p>
+                        <p> Designed by <a href="https://beh-negaran.com"> Beh negaran</a></p>
+                    </div>
                 </div>
             </div>
         </footer>
