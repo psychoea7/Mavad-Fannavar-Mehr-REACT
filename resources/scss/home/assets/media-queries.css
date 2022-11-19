@@ -231,12 +231,12 @@
     }
     /* logo */
     .sidebar .logo a {
-        background-image: url("../../../../public/images/100.png") !important;
+        background-image: url("../../../../public/images/1.png") !important;
         background-repeat: no-repeat !important;
         background-size: 172px 34px !important;
     }
 
     .sidebar.light .logo a {
-        background-image: url("../../../../public/images/600.png") !important;
+        background-image: url("../../../../public/images/2.png") !important;
     }
 }

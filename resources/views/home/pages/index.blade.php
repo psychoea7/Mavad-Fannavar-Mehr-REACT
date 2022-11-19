@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                         <h1 class="wow fadeIn page-header-logo">
-                            <img class="img-fluid logo-text" src="{{ asset('images/300.png') }}" alt="">
+                            <img class="img-fluid logo-text" src="{{ asset('images/7.png') }}" alt="">
 
                             {{-- <strong> | بازرگانی اسپیدکار</strong> --}}
                         </h1>

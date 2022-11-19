@@ -9,7 +9,7 @@
 
         @include('home.sections.language')
 
-        <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
+        <img class="img-fluid header-logo" src="{{ asset('images/7.png') }}" alt="">
 
         <div class="container contact-us-wrapper pt-5 pb-5">
             <div class="row pt-5">

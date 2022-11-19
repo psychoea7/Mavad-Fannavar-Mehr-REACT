@@ -15,7 +15,7 @@
             </a>
           </div>
 
-        <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
+        <img class="img-fluid header-logo" src="{{ asset('images/7.png') }}" alt="">
 
         <!-- Section 5 -->
         <div class="section-5-container section-container pt-5 pb-5" id="blogPage">

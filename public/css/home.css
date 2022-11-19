@@ -12603,13 +12603,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     /* logo */
     .sidebar .logo a {
-        background-image: url(/images/100.png?45845e3ed3edf60ebf6f7b36cf71b875) !important;
+        background-image: url(/images/1.png?ad58c28459a5c78e5b436e076df0ca3a) !important;
         background-repeat: no-repeat !important;
         background-size: 172px 34px !important;
     }
 
     .sidebar.light .logo a {
-        background-image: url(/images/600.png?f969fb845e5961699cf60072524d4d98) !important;
+        background-image: url(/images/2.png?d793e4f73253e638d1d6f97531c4eea3) !important;
     }
 }
 
@@ -13436,7 +13436,7 @@ img {
     display: inline-block;
     width: 172px;
     height: 34px;
-    background: url(/images/300.png?e3fb8464447b2f70e32491d3067427c2) left top
+    background: url(/images/7.png?9f5fcb9d7df76828a4723b07f4db2bbc) left top
         no-repeat;
     border: 0;
     text-indent: -999999px;
@@ -13549,7 +13549,7 @@ a[aria-expanded="true"] {
     border-color: #eee;
 }
 .sidebar.light .logo a {
-    background-image: url(/images/500.png?042edc8bab22560dabce4811df4e7bde);
+    background-image: url(/images/8.png?5cca49ec8fa1998ea7beeb657fc61c4b);
 }
 
 .sidebar.light ul.menu-elements {
@@ -14516,6 +14516,7 @@ footer {
     margin: 0 0 4px;
     border: 0;
 }
+
 @media screen and (min-width: 768px) {
     .filters-group-wrap {
         display: flex;

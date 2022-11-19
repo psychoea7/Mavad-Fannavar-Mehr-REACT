@@ -172,7 +172,7 @@ img {
     display: inline-block;
     width: 172px;
     height: 34px;
-    background: url("../../../../public/images/300.png") left top
+    background: url("../../../../public/images/7.png") left top
         no-repeat;
     border: 0;
     text-indent: -999999px;
@@ -285,7 +285,7 @@ a[aria-expanded="true"] {
     border-color: #eee;
 }
 .sidebar.light .logo a {
-    background-image: url("../../../../public/images/500.png");
+    background-image: url("../../../../public/images/8.png");
 }
 
 .sidebar.light ul.menu-elements {
@@ -1252,6 +1252,7 @@ footer {
     margin: 0 0 4px;
     border: 0;
 }
+
 @media screen and (min-width: 768px) {
     .filters-group-wrap {
         display: flex;

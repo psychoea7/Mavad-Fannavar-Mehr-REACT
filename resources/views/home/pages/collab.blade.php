@@ -15,7 +15,7 @@
             </a>
           </div>
 
-        <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
+        <img class="img-fluid header-logo" src="{{ asset('images/7.png') }}" alt="">
 
 
 
@@ -31,9 +31,9 @@
                                 <input type="text" name="name" placeholder="نام و نام خانوادگی"
                                     class="contact-subject form-control" />
 
-                                <label class="sr-only" for="contact-subject">سن</label>
+                                {{-- <label class="sr-only" for="contact-subject">سن</label>
                                 <input type="number" name="age" placeholder="سن"
-                                    class="contact-subject form-control" />
+                                    class="contact-subject form-control" /> --}}
 
                                 <label class="sr-only" for="contact-email">شماره تماس</label>
                                 <input type="text" name="phone" placeholder="شماره تماس"

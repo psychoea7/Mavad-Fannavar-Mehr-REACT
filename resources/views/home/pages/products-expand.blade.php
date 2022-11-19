@@ -15,9 +15,9 @@
             </a>
           </div>
 
-        <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
+        <img class="img-fluid header-logo" src="{{ asset('images/7.png') }}" alt="">
 
-        <div class="container my-4 py-5 expanded-product pt-5 pb-5">
+        <div class="container py-5 expanded-product pt-5 pb-5">
             <div class="row pt-5">
                 <div class="col-md-7 col-sm-12">
                     <h2>{{$product->name}}</h2>

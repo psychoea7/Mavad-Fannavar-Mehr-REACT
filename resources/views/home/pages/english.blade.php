@@ -119,7 +119,7 @@
                 <div class="row">
                     <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                         <h1 class="wow fadeIn page-header-logo-2">
-                            <img class="img-fluid logo-text" src="{{ asset('images/400.png') }}" alt="">
+                            <img class="img-fluid logo-text" src="{{ asset('images/10.png') }}" alt="">
 
                             {{-- <strong> | بازرگانی اسپیدکار</strong> --}}
                         </h1>
@@ -501,7 +501,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-12">
-                        <img class="img-fluid logo-text" src="{{ asset('images/1100.png') }}"
+                        <img class="img-fluid logo-text" src="{{ asset('images/12.png') }}"
                             alt="logo">
                     </div>
 

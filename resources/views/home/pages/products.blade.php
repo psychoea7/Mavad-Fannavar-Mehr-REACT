@@ -15,7 +15,7 @@
             </a>
         </div>
 
-        <img class="img-fluid header-logo" src="{{ asset('images/logo-dark-1.png') }}" alt="">
+        <img class="img-fluid header-logo" src="{{ asset('images/7.png') }}" alt="">
 
         <div class="container pt-5">
             <div class="row pt-5">
@@ -77,7 +77,7 @@
                             <div>|</div>
 
                             @foreach ($attributes as $attribute)
-                                <button class="btn btn--primary"
+                                <button class="btn btn--primary attribute-filter"
                                     data-group="attr{{ $attribute->id }}">{{ $attribute->name }}</button>
                             @endforeach
                         </div>
