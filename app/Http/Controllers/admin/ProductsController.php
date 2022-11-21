@@ -21,7 +21,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::latest()->paginate(20);
-        return view('admin.products.index' , compact('products'));
+        return view('admin.products.index', compact('products'));
     }
 
     /**
@@ -60,27 +60,28 @@ class ProductsController extends Controller
 
             DB::beginTransaction();
 
-                $getImageController = new uploadImageController();
+            $getImageController = new uploadImageController();
 
-                $uploadImages = $getImageController->upload($request->primary_image , $request->images);
+            $uploadImages = $getImageController->upload($request->primary_image);
+            $uploadIMG = $getImageController->uploadImages($request->images);
 
-                $product = Product::create([
-                    'name' => $request->name,
-                    'category_id' => $request->categories,
-                    'slug' => $request->slug,
-                    'primary_image' => $uploadImages['primary'],
-                    'description' => $request->description,
-                    'is_active' => $request->is_active
+            $product = Product::create([
+                'name' => $request->name,
+                'category_id' => $request->categories,
+                'slug' => $request->slug,
+                'primary_image' => $uploadImages['primary'],
+                'description' => $request->description,
+                'is_active' => $request->is_active
+            ]);
+
+            foreach ($uploadIMG['images'] as $image) {
+                ProductImage::create([
+                    'product_id' => $product->id,
+                    'image' => $image
                 ]);
+            }
 
-                foreach ($uploadImages['images'] as $image) {
-                    ProductImage::create([
-                        'product_id' => $product->id,
-                        'image' => $image
-                    ]);
-                }
-
-                $product->attributes()->attach($request->attribute_ids);
+            $product->attributes()->attach($request->attribute_ids);
 
             DB::commit();
         } catch (\Exception $exception) {
@@ -103,9 +104,9 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
-        $attr = $product->attributes()->with('attribute')->get();
+        // $attr = $product->attributes()->get();
         $images = $product->images()->get();
-        return view('admin.products.show' , compact('product' , 'attr' , 'images'));
+        return view('admin.products.show', compact('product', 'images'));
     }
 
     /**
@@ -114,9 +115,12 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        $categories = Category::all();
+        $attributes = Attribute::all();
+
+        return view('admin.products.edit', compact('product' , 'categories' , 'attributes'));
     }
 
     /**
@@ -126,9 +130,57 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Product $product)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'description' => 'required',
+            'categories' => 'required',
+            'attribute_ids' => 'required'
+        ]);
+
+        try {
+
+            DB::beginTransaction();
+        $product->update([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'description' => $request->description,
+            'category_id' => $request->categories,
+        ]);
+
+        if ($request->has('primary_image')) {
+            $getImageController = new uploadImageController();
+            $file = $getImageController->upload($request->primary_image);
+            $product->update(['primary_image' => $file['primary']]);
+        }
+
+        if ($request->has('images')) {
+            $getImageController = new uploadImageController();
+            $file = $getImageController->uploadImages($request->images);
+            // $product->update(['primary_image' => $file['images']]);
+            DB::table('product_images')->where('product_id', $product->id)->delete();
+            foreach ($file['images'] as $image) {
+                ProductImage::create([
+                    'product_id' => $product->id,
+                    'image' => $image
+                ]);
+            }
+        }
+
+        $product->attributes()->detach();
+        $product->attributes()->attach($request->attribute_ids);
+        DB::commit();
+    } catch (\Exception $exception) {
+        DB::rollBack();
+
+        alert()->error('خطا در ویرایش محصول', $exception->getMessage())->persistent('باشه');
+        return redirect()->back();
+    }
+
+    alert()->success('محصول با موفقیت ویرایش شد', '');
+    return redirect()->route('admin.products.create');
     }
 
     /**
@@ -142,9 +194,10 @@ class ProductsController extends Controller
         //
     }
 
-    public function test(){
-        $attribute = Attribute::where('name' , 'سلام')->first();
-        $get = ProductAttribute::where('attribute_id' , $attribute->id)->with('product')->get();
+    public function test()
+    {
+        $attribute = Attribute::where('name', 'سلام')->first();
+        $get = ProductAttribute::where('attribute_id', $attribute->id)->with('product')->get();
         dd($get);
     }
 }

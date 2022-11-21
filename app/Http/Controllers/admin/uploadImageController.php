@@ -7,10 +7,14 @@ use Illuminate\Http\Request;
 
 class uploadImageController extends Controller
 {
-    public function upload($primary, $images){
+    public function upload($primary){
         $namefile = generateName($primary->getClientOriginalName());
         $primary->move(public_path(env('PRODUCT_IMAGE_PATH')) , $namefile);
 
+        return ['primary' => $namefile];
+    }
+
+    public function uploadImages($images){
         $ArrayImages = [];
 
         foreach ($images as $image) {
@@ -20,6 +24,6 @@ class uploadImageController extends Controller
             array_push($ArrayImages , $generateName);
         }
 
-        return ['primary' => $namefile , 'images' => $ArrayImages];
+        return ['images' => $ArrayImages];
     }
 }

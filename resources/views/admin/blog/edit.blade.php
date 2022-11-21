@@ -11,6 +11,11 @@
                 value="{{ $blog->title }}">
         </div>
         <div class="form-group">
+            <label for="exampleFormControlInput1">پیش نمایش متن</label>
+            <input type="text" class="form-control" id="title" name="Showtitle" placeholder="عنوان"
+                value="{{ $blog->Stitle }}">
+        </div>
+        <div class="form-group">
             <label for="image">انتخاب تصویر</label>
             <input class="form-control" type="file" id="image" name="image" placeholder="{{ $blog->image }}">
         </div>

@@ -8,6 +8,10 @@
             <input type="text" class="form-control" id="title" name="title" placeholder="عنوان">
         </div>
         <div class="form-group">
+            <label for="exampleFormControlInput1">پیش نمایش متن</label>
+            <input type="text" class="form-control" id="title" name="Showtitle" placeholder="عنوان">
+        </div>
+        <div class="form-group">
             <label for="image">انتخاب تصویر</label>
             <input class="form-control" type="file" id="image" name="image">
         </div>

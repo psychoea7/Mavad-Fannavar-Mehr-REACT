@@ -7,7 +7,7 @@
 
             <div class="mb-4">
 
-                <h5 class="font-weight-bold">ایجاد ویژگی</h5>
+                <h5 class="font-weight-bold">ایجاد محصول</h5>
 
                 <hr>
 
@@ -92,11 +92,11 @@
                     <div class="form-group col-md-12">
 
                         <label for="name">توضیحات</label>
-                        <textarea class="form-control" type="text" name="description" id="description">{{ old('description') }}</textarea>
+                        <textarea class="form-control" type="text" name="description" id="myeditorinstance">{{ old('description') }}</textarea>
 
                     </div>
 
-                    <button type="submit" class="btn btn-outline-primary mt-5">ثبت ویژگی</button>
+                    <button type="submit" class="btn btn-outline-primary mt-5">ثبت محصول</button>
                     <a href="{{ route('admin.attributes.index') }}" class="btn mt-5 mr-3 btn-dark"> بازگشت </a>
 
                 </form>
@@ -110,7 +110,15 @@
 @endsection
 
 @section('js')
+<script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
     <script>
+        tinymce.init({
+            selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+            plugins: 'code table lists',
+            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table',
+            directionality: "rtl",
+        });
+
         $(document).ready(function() {
             $('#attributeSelect').selectpicker({
                 'title': 'انتخاب ویژگی'

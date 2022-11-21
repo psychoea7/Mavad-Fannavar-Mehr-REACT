@@ -42,7 +42,8 @@ class BlogController extends Controller
         $request->validate([
             'title' => 'required',
             'image' => 'required',
-            'text' => 'required'
+            'text' => 'required',
+            'Showtitle' => 'required'
         ]);
 
         $getImage = new GetimageController();
@@ -50,6 +51,7 @@ class BlogController extends Controller
         $file = $getImage->upload($request->image);
         Blog::create([
             'title' => $request->title,
+            'Stitle' => $request->Showtitle,
             'text' => $request->text,
             'image' => $file['img_name']
         ]);
@@ -91,6 +93,7 @@ class BlogController extends Controller
         $request->validate([
             'title' => 'required',
             'text' => 'required',
+            'Showtitle' => 'required'
         ]);
 
         $getImage = new GetimageController();
@@ -98,6 +101,7 @@ class BlogController extends Controller
         $blog->update([
             'title' => $request->title,
             'text' => $request->text,
+            'Stitle' => $request->Showtitle
         ]);
 
         if ($request->has('image')) {

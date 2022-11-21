@@ -4,7 +4,7 @@
     <div class="content">
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-            <i class="fas fa-bars"></i> 
+            <i class="fas fa-bars"></i>
         </a>
 
         @include('home.sections.language')
@@ -34,7 +34,7 @@
                                 <i class="far fa-calendar"></i>{{ $blog->updated_at }}
                             </div>
                             <p class="blog-text">
-                                {!! $blog->text !!}
+                                {{$blog->Stitle}}
                             </p>
                         </div>
                     @endforeach

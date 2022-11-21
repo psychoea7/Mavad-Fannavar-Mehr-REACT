@@ -32,8 +32,8 @@
                     <div class="form-group col-md-3">
 
                         <label for="name">ویژگی های محصول</label>
-                        @foreach ($attr as $attribute)
-                            <input class="form-control" type="text" value="{{ $attribute->attribute->name }}" disabled>
+                        @foreach ($product->attributes as $attribute)
+                            <input class="form-control" type="text" value="{{ $attribute->name }}" disabled>
                         @endforeach
 
                     </div>

@@ -8,7 +8,7 @@
 
         <div class="d-flex justify-content-between mb-4">
 
-            <h5 class="font-weight-bold">لیست ویژگی ها ({{$products->total()}})</h5>
+            <h5 class="font-weight-bold">لیست محصولات ({{$products->total()}})</h5>
 
             <a class="btn btn-sm btn-outline-primary" href="{{route('admin.products.create')}}">
 
