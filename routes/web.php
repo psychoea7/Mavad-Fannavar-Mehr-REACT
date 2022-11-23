@@ -3,7 +3,9 @@
 use App\Http\Controllers\admin\AttributesController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\CollabAdminController;
 use App\Http\Controllers\admin\ProductsController;
+use App\Http\Controllers\ContactUsController;
 use App\Models\Attribute;
 use App\Models\Blog;
 use App\Models\Category;
@@ -33,6 +35,7 @@ Route::prefix('admin-panel-management')->name('admin.')->group(function(){
     Route::resource('/attributes' , AttributesController::class);
     Route::resource('/categories' , CategoriesController::class);
     Route::resource('/products' , ProductsController::class);
+    Route::resource('/collabs' , CollabAdminController::class);
 
 });
 
@@ -94,6 +97,9 @@ Route::get('/english', function () {
     return view('home.pages.english');
 
 })->name('home.pages.english');
+
+
+Route::post('/saveCollab' , [ContactUsController::class , 'store'])->name('collab');
 
 Route::get('/test',[ProductsController::class , 'test']);
 

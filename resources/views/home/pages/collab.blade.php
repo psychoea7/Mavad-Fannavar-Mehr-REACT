@@ -4,7 +4,7 @@
     <div class="content">
         <!-- open sidebar menu -->
         <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-            <i class="fas fa-bars"></i> 
+            <i class="fas fa-bars"></i>
         </a>
 
         @include('home.sections.language')
@@ -25,7 +25,8 @@
             <div class="row">
                 <div class="col-md-12 mt-5">
                     <div class="section-6-form collab-form">
-                        <form role="form" action="" method="post">
+                        <form action="{{route('collab')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <label class="sr-only" for="contact-email">نام و نام خانوادگی</label>
                                 <input type="text" name="name" placeholder="نام و نام خانوادگی"
@@ -42,11 +43,11 @@
 
                             <div class="form-group my-5">
                                 <label class="sr-only" for="contact-email">ایمیل</label>
-                                <input type="file" name="email" placeholder="ایمیل..."
+                                <input type="file" name="file" placeholder="ایمیل..."
                                     class="contact-email form-control" id="contact-email" />
                             </div>
 
-                            
+
                             <div class="form-group">
                                 <label class="sr-only" for="contact-message">پیام</label>
                                 <textarea name="message" placeholder="پیام..." class="contact-message form-control" id="contact-message"></textarea>
@@ -63,10 +64,6 @@
 
 
         </div>
-
-
-
-
 
 
 
