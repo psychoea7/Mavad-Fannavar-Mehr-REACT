@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AttributesController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\CollabAdminController;
+use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\ContactUsController;
 use App\Models\Attribute;
@@ -24,12 +25,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
 
-Route::prefix('admin-panel-management')->name('admin.')->group(function(){
-
+Route::prefix('admin-panel-management')->middleware('auth')->name('admin.')->group(function(){
+    Route::get('/', function () {
+        return view('admin.index');
+    })->name('adminIndex');
     Route::resource('/blogs', BlogController::class);
     Route::resource('/news', BlogController::class);
     Route::resource('/attributes' , AttributesController::class);
@@ -38,6 +38,9 @@ Route::prefix('admin-panel-management')->name('admin.')->group(function(){
     Route::resource('/collabs' , CollabAdminController::class);
 
 });
+
+Route::get('/login-form' , [LoginController::class , 'sendForm'])->name('auth');
+Route::post('/login' , [LoginController::class , 'login'])->name('login');
 
 Route::post('/uploadImage' , [BlogController::class , 'getImage']);
 
@@ -103,3 +106,7 @@ Route::post('/saveCollab' , [ContactUsController::class , 'store'])->name('colla
 
 Route::get('/test',[ProductsController::class , 'test']);
 
+Route::get('/logout' , function(){
+    auth()->logout();
+    return redirect()->route('home.pages.index');
+});
