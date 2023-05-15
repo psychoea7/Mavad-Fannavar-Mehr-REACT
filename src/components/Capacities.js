@@ -1,5 +1,6 @@
 import React from "react";
 import "./Capacities.css";
+import MainButton from "./MainButton";
 
 function Capacities() {
   return (
@@ -27,9 +28,12 @@ function Capacities() {
               آیا نیاز دارید که قطعات کار فردا درمان شوند؟ مشکلی نیست - ما می
               توانیم آن را انجام دهیم!
             </p>
-            <a class="main-btn" href="#">
-              ارتباط با ما<i class="fas fa-phone-volume"></i>
-            </a>
+
+            <MainButton
+              link="#"
+              text="ارتباط با ما"
+              iconClass="fas fa-phone-volume"
+            />
           </div>
         </div>
       </div>

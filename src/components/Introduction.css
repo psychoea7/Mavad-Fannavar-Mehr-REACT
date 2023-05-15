@@ -4,6 +4,7 @@
 }
 .introduction-text p {
   text-align: justify;
+  line-height: 1.9rem;
 }
 .introduction-contact-box {
   background-color: var(--clr-primary);
@@ -13,7 +14,7 @@
   background-position: 0rem 1.8rem;
   background-repeat: no-repeat;
   border-radius: 0.4rem;
-  margin-top: 6rem;
+  margin-top: 6rem !important;
   color: var(--clr-dark);
   padding: 1.5rem;
   z-index: 2;

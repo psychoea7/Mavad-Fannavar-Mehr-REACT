@@ -11,6 +11,7 @@ import "./Banner.css";
 
 // import required modules
 import { Autoplay, Pagination } from "swiper";
+import MainButton from "./MainButton";
 
 export default function App() {
   return (
@@ -39,9 +40,7 @@ export default function App() {
                 تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                 است.
               </p>
-              <a class="main-btn" href="#">
-                بیشتر<i class="fas fa-ellipsis-h"></i>
-              </a>
+              <MainButton link="#" text="بیشتر" iconClass="fas fa-ellipsis-h" />
             </div>
           </div>
         </SwiperSlide>
@@ -53,9 +52,7 @@ export default function App() {
                 تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                 است.
               </p>
-              <a class="main-btn" href="#">
-                بیشتر<i class="fas fa-ellipsis-h"></i>
-              </a>
+              <MainButton link="#" text="بیشتر" iconClass="fas fa-ellipsis-h" />
             </div>
           </div>
         </SwiperSlide>
@@ -67,9 +64,7 @@ export default function App() {
                 تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                 است.
               </p>
-              <a class="main-btn" href="#">
-                بیشتر<i class="fas fa-ellipsis-h"></i>
-              </a>
+              <MainButton link="#" text="بیشتر" iconClass="fas fa-ellipsis-h" />
             </div>
           </div>
         </SwiperSlide>
@@ -81,9 +76,7 @@ export default function App() {
                 تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                 است.
               </p>
-              <a class="main-btn" href="#">
-                بیشتر<i class="fas fa-ellipsis-h"></i>
-              </a>
+              <MainButton link="#" text="بیشتر" iconClass="fas fa-ellipsis-h" />
             </div>
           </div>
         </SwiperSlide>
