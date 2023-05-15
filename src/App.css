@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "XB Yagut";
+  src: url(./assets/fonts/XB-Fonts/XB\ Yagut\ Bd.ttf);
+}
+body {
+  font-family: "XB Yagut" !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Scroll To Top Button */
+.top-to-btm {
+  position: relative;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.icon-position {
+  position: fixed;
+  bottom: 40px;
+  left: 25px;
+  z-index: 20;
+}
+.icon-style {
+  background-color: var(--clr-secondary);
+  border: 2px solid var(--clr-primary);
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  color: var(--clr-primary);
+  cursor: pointer;
+  animation: movebtn 3s ease-in-out infinite;
+  transition: all 0.5s ease-in-out;
+}
+.icon-style:hover {
+  animation: none;
+  background: var(--clr-primary);
+  color: var(--clr-secondary);
+  border: 2px solid var(--clr-secondary);
+}
+@keyframes movebtn {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(20px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Scroll Bar ----------------------------------------------------------- */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
-
-.App-link {
-  color: #61dafb;
+/* button */
+::-webkit-scrollbar-button {
+  background: transparent;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background: var(--clr-primary);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-primary);
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* The track NOT covered by the handle.
+::-webkit-scrollbar-track-piece {
+background: #000;
+}
+/* Corner */
+::-webkit-scrollbar-corner {
+  background: var(--clr-dark);
+}
+/* Resizer */
+::-webkit-resizer {
+  background: var(--clr-dark);
 }

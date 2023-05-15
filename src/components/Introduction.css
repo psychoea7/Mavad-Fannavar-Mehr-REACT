@@ -1,0 +1,54 @@
+/* Introduction Column --------------------------*/
+.introduction-text h5 {
+  color: var(--clr-secondary);
+}
+.introduction-text p {
+  text-align: justify;
+}
+.introduction-contact-box {
+  background-color: var(--clr-primary);
+  background-image: url("../assets/images/phone-ringing-dynamic-premium.png");
+  filter: drop-shadow(0 0 2px var(--clr-dark));
+  background-size: 170px 200px;
+  background-position: 0rem 1.8rem;
+  background-repeat: no-repeat;
+  border-radius: 0.4rem;
+  margin-top: 6rem;
+  color: var(--clr-dark);
+  padding: 1.5rem;
+  z-index: 2;
+  /* border: 2.5px solid rgba(119, 119, 119, 0.774); */
+  /* box-shadow: 0 0 2px var(--clr-dark); */
+  position: relative;
+}
+
+.introduction-contact-box h5:nth-child(odd)::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f017";
+  color: var(--clr-dark);
+  font-weight: bold;
+  float: right;
+  margin-left: 10px;
+}
+.introduction-contact-box h5:nth-child(even)::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f095";
+  color: var(--clr-dark);
+  font-weight: bold;
+  float: right;
+  margin-left: 10px;
+}
+.introduction-contact-box span {
+  display: block;
+  margin-top: 0.7rem;
+}
+.introduction-contact-box a {
+  text-decoration: none;
+  color: var(--clr-dark);
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+}
+.introduction-contact-box a:hover {
+  color: var(--clr-dark);
+  border-color: var(--clr-dark);
+}

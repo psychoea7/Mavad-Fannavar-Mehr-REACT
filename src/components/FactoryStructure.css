@@ -1,0 +1,63 @@
+/* Plant Consruction Section ---------------------------------------------*/
+.plant-cons-section {
+  background-color: var(--clr-primary);
+  color: var(--clr-dark);
+}
+.plant-cons-text {
+  padding: 3.5rem;
+}
+.plant-cons-text ul {
+  list-style: none;
+  padding: 0;
+}
+.plant-cons-text ul li {
+  font-weight: 700;
+}
+.plant-cons-text ul li::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f111";
+  color: var(--clr-secondary);
+  font-size: 0.6rem;
+  font-weight: bold;
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  margin-left: 1rem; /* Also needed for space (tweak if needed) */
+}
+.plant-cons-text p {
+  text-align: justify;
+}
+.plant-cons-text h3 {
+  position: relative;
+  padding-bottom: 1rem;
+}
+.plant-cons-text img {
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(0 0 1px var(--clr-dark));
+}
+.plant-cons-text h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0rem;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+  background: rgb(58, 62, 61);
+  background: linear-gradient(
+    90deg,
+    transparent 1%,
+    rgba(144, 63, 152, 1) 100%
+  );
+}
+.plant-cons-row-1 {
+  background-image: url("../assets/images/anlagenbau.jpg");
+  background-size: cover;
+  background-position: 0 0;
+  filter: drop-shadow(1px 0 2px var(--clr-dark));
+}
+.plant-cons-row-2 {
+  background-image: url("../assets/images/PNA-Ionbeam-Aegis.jpg");
+  background-size: cover;
+  background-position: 0 0;
+  filter: drop-shadow(-1px 0 2px var(--clr-dark));
+}

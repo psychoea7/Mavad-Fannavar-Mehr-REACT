@@ -1,0 +1,563 @@
+
+/* Owl Carousel --------------------------------------------*/
+.main-carousel-section {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgba(0, 0, 0, 0.23) 0px 2px 2px;
+}
+.main-slide-1,
+.main-slide-2,
+.main-slide-3,
+.main-slide-4 {
+  overflow: hidden;
+}
+.main-slide-1 {
+  background-image: url("../images/slide-1.jpg");
+}
+.main-slide-2 {
+  background-image: url("../images/slide-2.jpg");
+}
+.main-slide-3 {
+  background-image: url("../images/slide-3.jpg");
+}
+.main-slide-4 {
+  background-image: url("../images/slide-4.jpg");
+}
+.main-slide-1,
+.main-slide-2,
+.main-slide-3,
+.main-slide-4 {
+  height: 50vh;
+  background-size: cover;
+  position: relative;
+}
+.main-slide-1 .carousel_caption,
+.main-slide-2 .carousel_caption,
+.main-slide-3 .carousel_caption,
+.main-slide-4 .carousel_caption {
+  z-index: 2;
+  position: absolute;
+  right: 3rem;
+  top: 4rem;
+}
+.carousel_caption {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.carousel_caption .main-btn {
+  background-color: var(--clr-secondary);
+}
+.main-slide-1::before,
+.main-slide-2::before,
+.main-slide-3::before,
+.main-slide-4::before {
+  content: "";
+  position: absolute;
+  right: -58px;
+  top: -90px;
+  bottom: -62px;
+  width: 36rem;
+  background-color: black;
+  opacity: 50%;
+  transform: rotateZ(166deg);
+  z-index: 1;
+}
+.owl-theme .owl-dots .owl-dot span {
+  width: 60px;
+  height: 8px;
+  margin: 0 5px;
+  border-radius: 0.2rem;
+  background: var(--clr-primary) !important;
+  display: block;
+  -webkit-backface-visibility: visible;
+  -webkit-transition: opacity 200ms ease;
+  -moz-transition: opacity 200ms ease;
+  -ms-transition: opacity 200ms ease;
+  -o-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+  /* -webkit-border-radius: 30px;
+  -moz-border-radius: 30px; */
+  /* border-radius: 30px; */
+}
+.owl-theme .owl-dots .owl-dot.active span {
+  /* box-shadow: 0 0 3px var(--clr-dark); */
+  background: var(--clr-accent) !important;
+  box-shadow: var(--clr-accent) 0px 0px 5px;
+  width: 70px;
+  height: 8px;
+}
+/* Back To Top Button ---------------------------------*/
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  left: 10px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: var(--clr-secondary); /* Set a background color */
+  color: var(--clr-primary); /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 13px; /* Some padding */
+  font-size: 18px; /* Increase font size */
+  transition: all ease 0.5s;
+  animation-name: anim;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+#myBtn:hover {
+  background-color: var(--clr-accent); /* Add a dark-grey background on hover */
+  transition: all ease 0.5s;
+  color: var(--clr-dark);
+}
+#myBtn i {
+  font-size: 20px;
+}
+@keyframes anim {
+  0%,
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+  }
+
+  10% {
+    border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+  }
+
+  20% {
+    border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
+  }
+
+  30% {
+    border-radius: 39% 61% 47% 53% / 37% 40% 60% 63%;
+  }
+
+  40% {
+    border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
+  }
+
+  50% {
+    border-radius: 100%;
+  }
+
+  60% {
+    border-radius: 50% 50% 53% 47% / 72% 69% 31% 28%;
+  }
+
+  70% {
+    border-radius: 50% 50% 53% 47% / 26% 22% 78% 74%;
+  }
+
+  80% {
+    border-radius: 50% 50% 53% 47% / 26% 69% 31% 74%;
+  }
+
+  90% {
+    border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
+  }
+}
+
+/* Main Button ----------------------------------------*/
+.main-btn {
+  width: 170px;
+  height: 45px;
+  font-size: 1.1rem;
+  color: var(--clr-primary);
+  border: 1px solid var(--clr-secondary);
+  border-radius: 0.4rem;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 2.5px solid;
+  outline-color: rgba(255, 255, 255, 0.5);
+  outline-offset: 0px;
+  text-shadow: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.main-btn:hover {
+  border: 1px solid var(--clr-secondary);
+  background: var(--clr-secondary);
+  color: var(--clr-primary);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px var(--clr-dark);
+}
+/* Introduction Column --------------------------*/
+.introduction-text h5 {
+  color: var(--clr-secondary);
+}
+.introduction-text p {
+  text-align: justify;
+}
+.introduction-contact-box {
+  background-color: var(--clr-primary);
+  background-image: url("../images/phone-ringing-dynamic-premium.png");
+  filter: drop-shadow(0 0 2px var(--clr-dark));
+  background-size: 170px 200px;
+  background-position: 0rem 1.8rem;
+  background-repeat: no-repeat;
+  border-radius: 0.4rem;
+  margin-top: 6rem;
+  color: var(--clr-dark);
+  padding: 1.5rem;
+  z-index: 2;
+  /* border: 2.5px solid rgba(119, 119, 119, 0.774); */
+  /* box-shadow: 0 0 2px var(--clr-dark); */
+  position: relative;
+}
+
+.introduction-contact-box h5:nth-child(odd)::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f017";
+  color: var(--clr-dark);
+  font-weight: bold;
+  float: right;
+  margin-left: 10px;
+}
+.introduction-contact-box h5:nth-child(even)::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f095";
+  color: var(--clr-dark);
+  font-weight: bold;
+  float: right;
+  margin-left: 10px;
+}
+.introduction-contact-box span {
+  display: block;
+  margin-top: 0.7rem;
+}
+.introduction-contact-box a {
+  text-decoration: none;
+  color: var(--clr-dark);
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+}
+.introduction-contact-box a:hover {
+  color: var(--clr-dark);
+  border-color: var(--clr-dark);
+}
+/* Services ---------------------------------------------*/
+.services-section {
+  background-color: var(--clr-primary);
+  color: var(--clr-dark);
+  z-index: 1;
+  margin-top: -5rem;
+  padding-top: 2rem;
+  padding-bottom: 4.5rem;
+}
+.services-section .row {
+  padding-top: 3rem;
+}
+.services-section h3 {
+  position: relative;
+  padding-bottom: 1rem;
+}
+/* .services-section h3::before {
+  font-family: "Font Awesome 5 Free";
+        content: "\f177";
+        color: var(--clr-secondary);
+        font-weight: bold;
+        float: right;
+        margin-left: 10px;
+} */
+.services-section h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+  background: rgb(58, 62, 61);
+  background: linear-gradient(90deg, #cecac8 30%, rgba(144, 63, 152, 1) 100%);
+}
+.service-text-box a {
+  color: var(--clr-secondary);
+  position: relative;
+}
+.service-text-box a::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f100";
+  color: var(--clr-secondary);
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  /* float: right; */
+  margin-right: 5px;
+}
+.service-text-box a:hover {
+  font-weight: 600;
+}
+
+/* Contract Treatment Paralax -----------------------------*/
+.main-paralax-photo {
+  background-image: url("../images/paralax-bg.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  /* height: 40vh; */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgba(0, 0, 0, 0.23) 0px 2px 2px;
+}
+.main-paralax-photo h3 {
+  position: relative;
+  padding-bottom: 1rem;
+}
+.main-paralax-photo h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+  background: rgb(58, 62, 61);
+  background: linear-gradient(
+    90deg,
+    transparent 40%,
+    rgba(144, 63, 152, 1) 100%
+  );
+}
+.main-paralax-photo ul,
+.capacities-section ul {
+  list-style: none; /* Remove default bullets */
+  margin-top: 1.5rem;
+}
+.main-paralax-photo ul li {
+  padding: 0.3rem 0;
+}
+.main-paralax-photo a {
+  color: var(--clr-primary);
+  font-size: 22px;
+  font-weight: 700;
+}
+.main-paralax-photo a:hover {
+  color: var(--clr-accent);
+}
+.main-paralax-photo ul li::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f111";
+  color: var(--clr-accent);
+  font-size: 0.9rem;
+  font-weight: bold;
+  /* float: right; */
+  margin-left: 5px;
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1rem; /* Also needed for space (tweak if needed) */
+  margin-left: 1rem; /* Also needed for space (tweak if needed) */
+}
+
+/* Capacities Section ------------------------------------------*/
+.capacities-section h3 {
+  position: relative;
+  padding-bottom: 1rem;
+}
+.capacities-section p:nth-child(1) {
+  margin-top: 2.5rem;
+}
+.capacities-section p {
+  text-align: justify;
+}
+.capacities-section .main-btn {
+  background-color: var(--clr-secondary);
+  margin-top: 2rem;
+}
+.capacities-section h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -0.8rem;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+  background: rgb(58, 62, 61);
+  background: linear-gradient(
+    90deg,
+    transparent 1%,
+    rgba(144, 63, 152, 1) 100%
+  );
+}
+.capacities-section ul {
+  padding: 0;
+}
+.capacities-section ul li::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  color: var(--clr-accent);
+  font-size: 1.3rem;
+  font-weight: bold;
+  /* float: right; */
+  margin-left: 5px;
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1rem; /* Also needed for space (tweak if needed) */
+  margin-left: 1rem; /* Also needed for space (tweak if needed) */
+}
+.capacities-section li {
+  color: var(--clr-primary);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Plant Consruction Section ---------------------------------------------*/
+.plant-cons-section {
+  background-color: var(--clr-primary);
+  color: var(--clr-dark);
+}
+.plant-cons-text {
+  padding: 3.5rem;
+}
+.plant-cons-text ul {
+  list-style: none;
+  padding: 0;
+}
+.plant-cons-text ul li {
+  font-weight: 700;
+}
+.plant-cons-text ul li::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f111";
+  color: var(--clr-secondary);
+  font-size: 0.6rem;
+  font-weight: bold;
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  margin-left: 1rem; /* Also needed for space (tweak if needed) */
+}
+.plant-cons-text p {
+  text-align: justify;
+}
+.plant-cons-text h3 {
+  position: relative;
+  padding-bottom: 1rem;
+}
+.plant-cons-text img {
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(0 0 1px var(--clr-dark));
+}
+.plant-cons-text h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0rem;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+  background: rgb(58, 62, 61);
+  background: linear-gradient(
+    90deg,
+    transparent 1%,
+    rgba(144, 63, 152, 1) 100%
+  );
+}
+.plant-cons-row-1 {
+  background-image: url("../images/anlagenbau.jpg");
+  background-size: cover;
+  background-position: 0 0;
+  filter: drop-shadow(1px 0 2px var(--clr-dark));
+}
+.plant-cons-row-2 {
+  background-image: url("../images/PNA-Ionbeam-Aegis.jpg");
+  background-size: cover;
+  background-position: 0 0;
+  filter: drop-shadow(-1px 0 2px var(--clr-dark));
+}
+
+/* Footer --------------------------------------------------------------*/
+.footer {
+  background-color: var(--clr-dark);
+  color: var(--clr-primary);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px -1px 1px, rgba(0, 0, 0, 0.23) 0px -2px 2px;
+}
+.footer-address {
+  margin: 1.3rem 0;
+}
+.footer-address::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f3c5";
+  color: var(--clr-primary);
+  font-weight: bold;
+  font-size: 1.4rem;
+  /* float: right; */
+  margin-left: 10px;
+}
+.footer img {
+  width: 220px;
+  height: 50px;
+}
+.footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+}
+.footer ul li {
+  border-radius: 0.4rem;
+  background-color: var(--clr-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* filter: drop-shadow(0 1px 1px var(--clr-primary)); */
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+.footer ul li:hover a {
+  color: var(--clr-primary);
+  text-shadow: 0 0 2px var(--clr-dark);
+}
+.footer ul li:nth-child(1):hover {
+  background: linear-gradient(-120deg, #021b79, #0575e6, #205e9b);
+}
+.footer ul li:nth-child(2):hover {
+  background: linear-gradient(
+    45deg,
+    #e5ffcc,
+    #1ebea5,
+    #00e676,
+    #d0e9ea,
+    #edf8f5,
+    #ffffff
+  );
+}
+.footer ul li:nth-child(3):hover {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
+}
+.footer ul li:nth-child(4):hover {
+  background: linear-gradient(
+    45deg,
+    #0077b5,
+    #000000,
+    #313335,
+    #86888a,
+    #caccce,
+    #00a0dc
+  );
+}
+.footer ul li a {
+  font-size: 2rem;
+  color: var(--clr-dark);
+  padding: 0.6rem 1.5rem 0.4rem 1.5rem;
+}
+.copy-right span {
+  color: var(--clr-accent);
+}
+.copy-right::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f1f9";
+  color: var(--clr-primary);
+  font-weight: bold;
+  font-size: 1.4rem;
+  /* float: right; */
+  margin-left: 10px;
+}
