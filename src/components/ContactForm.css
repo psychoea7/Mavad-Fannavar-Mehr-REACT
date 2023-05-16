@@ -1,0 +1,29 @@
+.contactScreen__form {
+  max-width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2rem;
+}
+
+.contactScreen__form > form {
+  display: grid;
+  flex-direction: column;
+}
+
+.contactScreen__form > h1 {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+.contactScreen__form > form > input {
+  outline-width: 0;
+  height: 40px;
+  margin-bottom: 14px;
+  border-radius: 0.2vw;
+  border: none;
+  padding: 5px 15px;
+}
+
+.contactScreen__form > form > input:last-child {
+  margin-top: 1.5rem;
+}

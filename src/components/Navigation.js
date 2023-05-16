@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navigation.css";
 import Logo from "../../src/assets/images/logo56.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const history = useNavigate();
@@ -9,7 +9,7 @@ const Navigation = () => {
   return (
     <nav class="navbar navbar-expand-lg costume-nav p-3 font-face">
       <div class="container-fluid d-flex flex-row-reverse">
-        <img src={Logo} class="navbar-brand"></img>
+        <img onClick={() => history("/")} src={Logo} class="navbar-brand"></img>
         <button
           class="navbar-toggler p-0 "
           id="navbarTogglerBtn"
@@ -84,9 +84,9 @@ const Navigation = () => {
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <Link class="nav-link" to="ContactUs">
                 ارتباط با ما
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

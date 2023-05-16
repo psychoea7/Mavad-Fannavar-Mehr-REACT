@@ -3,6 +3,7 @@ import HomeScreen from "./screens/HomeScreen";
 import { FaAngleUp } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import ContactScreen from "./screens/ContactScreen";
 
 function App() {
   const [showTopBtn, setShowTopBtn] = useState(false);
@@ -28,6 +29,7 @@ function App() {
     <div className="app">
       <Routes>
         <Route exact path="/" element={<HomeScreen />} />
+        <Route path="ContactUs" element={<ContactScreen />} />
       </Routes>
       <div className="top-to-btm">
         {" "}
