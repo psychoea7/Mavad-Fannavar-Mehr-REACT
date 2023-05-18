@@ -5,19 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ThemeProvider } from "react-bootstrap";
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider dir="rtl">
-        <App />
-      </ThemeProvider>
+      <App />
     </BrowserRouter>
   </React.StrictMode>
 );
-
 
 reportWebVitals();

@@ -1,11 +1,10 @@
 @font-face {
-  font-family: "XB Yagut";
-  src: url(./assets/fonts/XB-Fonts/XB\ Yagut\ Bd.ttf);
+  font-family: "IRANsans";
+  src: url("./assets/fonts/IRANSans-web.woff") format("woff2");
 }
 body {
-  font-family: "XB Yagut" !important;
+  font-family: "IRANsans" !important;
 }
-
 /* Scroll To Top Button */
 .top-to-btm {
   position: relative;

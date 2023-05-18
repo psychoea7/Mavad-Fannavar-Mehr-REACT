@@ -1,0 +1,103 @@
+.servicesAndProducts__container {
+  margin-top: 3rem;
+}
+
+.servicesAndProducts__card {
+  background-color: var(--clr-primary);
+  color: var(--clr-dark);
+  padding: 2rem;
+  text-align: justify;
+  line-height: 2rem;
+  border-radius: 0.2vw;
+}
+
+.servicesAndProducts__card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  text-align: right;
+  position: relative;
+}
+
+.servicesAndProducts__card h2::after {
+    content: "";
+    position: absolute;
+    bottom: -1.2rem;
+    right: 0;
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0 0.2rem 0.2rem 0;
+    background: rgb(58, 62, 61);
+    background: linear-gradient(90deg, #cecac8 30%, rgba(144, 63, 152, 1) 100%);
+  }
+
+.servicesAndProducts__image {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding-left: 0 !important;
+}
+
+.servicesAndProducts__image img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 0.2vw;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 425px) {
+  .servicesAndProducts__image {
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .servicesAndProducts__image img {
+    max-height: none;
+  }
+}
+
+.servicesAndProducts__card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.servicesAndProducts__card h3::after {
+    content: "";
+    position: absolute;
+    bottom: -1.2rem;
+    right: 0;
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0 0.2rem 0.2rem 0;
+    background: rgb(58, 62, 61);
+    background: linear-gradient(90deg, #3a3e3d 30%, rgba(253, 187, 99, 1) 100%);
+  }
+
+.servicesAndProducts__card ul {
+  line-height: 2.3rem;
+  list-style-type: none;
+  background-color: var(--clr-dark);
+  color: var(--clr-primary);
+  padding: 2rem 1rem 1rem 1rem;
+  border-radius: 0.2vw;
+}
+
+.servicesAndProducts__card li {
+  position: relative;
+  padding-right: 1.5rem;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.servicesAndProducts__card ul li::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f104";
+  color: var(--clr-accent);
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 5px;
+}

@@ -36,9 +36,9 @@ const Navigation = () => {
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <Link class="nav-link" to="/ServicesAndProducts">
                 خدمات و محصولات
-              </a>
+              </Link>
             </li>
 
             <li class="nav-item dropdown">
@@ -84,7 +84,7 @@ const Navigation = () => {
             </li>
 
             <li class="nav-item">
-              <Link class="nav-link" to="ContactUs">
+              <Link class="nav-link" to="/ContactUs">
                 ارتباط با ما
               </Link>
             </li>
