@@ -78,9 +78,9 @@ const Navigation = () => {
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <Link class="nav-link" to="/About">
                 درباره ما
-              </a>
+              </Link>
             </li>
 
             <li class="nav-item">
