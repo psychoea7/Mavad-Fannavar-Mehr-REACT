@@ -30,6 +30,12 @@
     background: linear-gradient(90deg, #cecac8 30%, rgba(144, 63, 152, 1) 100%);
   }
 
+  .servicesAndProducts__card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+  }
+
 .servicesAndProducts__image {
   display: flex;
   justify-content: space-between;
@@ -40,8 +46,8 @@
 
 .servicesAndProducts__image img {
   width: 100%;
-  max-height: 400px;
-  object-fit: cover;
+  max-height: 450px;
+  object-fit: contain;
   border-radius: 0.2vw;
   margin-bottom: 1rem;
 }
@@ -55,10 +61,14 @@
   .servicesAndProducts__image img {
     max-height: none;
   }
+
+  .servicesAndProducts__card h2 {
+    font-size: 1.1rem;
+  }
 }
 
 .servicesAndProducts__card h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 2.5rem;
   position: relative;
 }

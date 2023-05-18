@@ -8,6 +8,7 @@
 }
 .capacities-section p {
   text-align: justify;
+  line-height: 2rem;
 }
 .capacities-section .main-btn {
   background-color: var(--clr-secondary);
