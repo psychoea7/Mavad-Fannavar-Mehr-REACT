@@ -6,7 +6,8 @@ import "./App.css";
 import ContactScreen from "./screens/ContactScreen";
 import ServicesAndProducts from "./screens/ServicesAndProducts";
 import AboutScreen from "./screens/AboutScreen";
-
+import QuestionAndAnswerScreen from "./screens/QuestionAndAnswerScreen";
+import BlogScreen from "./screens/BlogScreen";
 
 function App() {
   const [showTopBtn, setShowTopBtn] = useState(false);
@@ -35,6 +36,8 @@ function App() {
         <Route path="ContactUs" element={<ContactScreen />} />
         <Route path="ServicesAndProducts" element={<ServicesAndProducts />} />
         <Route path="About" element={<AboutScreen />} />
+        <Route path="Q&A" element={<QuestionAndAnswerScreen />} />
+        <Route path="Blog" element={<BlogScreen />} />
       </Routes>
       <div className="top-to-btm">
         {" "}

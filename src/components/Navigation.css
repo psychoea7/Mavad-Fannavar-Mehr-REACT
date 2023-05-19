@@ -98,6 +98,9 @@
   color: var(--clr-dark);
   background-color: transparent;
 }
+.dropdown-item:focus {
+  background-color: transparent !important;
+}
 .navbar-toggler:focus {
   box-shadow: none !important;
   border: none !important;

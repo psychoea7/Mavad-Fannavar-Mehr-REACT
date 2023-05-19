@@ -54,17 +54,17 @@ const Navigation = () => {
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <Link class="dropdown-item" to="/Blog">
                     وبلاگ
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <Link class="dropdown-item" to="/Q&A">
                     پرسش و پاسخ
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <hr class="dropdown-divider" />
