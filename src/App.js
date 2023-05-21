@@ -8,6 +8,7 @@ import ServicesAndProducts from "./screens/ServicesAndProducts";
 import AboutScreen from "./screens/AboutScreen";
 import QuestionAndAnswerScreen from "./screens/QuestionAndAnswerScreen";
 import BlogScreen from "./screens/BlogScreen";
+import BlogExpand from "./screens/BlogExpand";
 
 function App() {
   const [showTopBtn, setShowTopBtn] = useState(false);
@@ -38,6 +39,7 @@ function App() {
         <Route path="About" element={<AboutScreen />} />
         <Route path="Q&A" element={<QuestionAndAnswerScreen />} />
         <Route path="Blog" element={<BlogScreen />} />
+        <Route path="BlogExpand" element={<BlogExpand />} />
       </Routes>
       <div className="top-to-btm">
         {" "}
