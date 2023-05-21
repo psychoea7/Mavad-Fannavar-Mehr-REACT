@@ -1,7 +1,6 @@
 import React from "react";
 import "./ContactForm.css";
 import { useForm } from "react-hook-form";
-import Footer from "./Footer";
 
 function ContactForm() {
   const {
@@ -46,7 +45,6 @@ function ContactForm() {
           <input type="submit" value="ارسال" />
         </form>
       </div>
-      <Footer />
     </>
   );
 }
