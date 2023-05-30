@@ -1,10 +1,10 @@
 /* Introduction Column --------------------------*/
-.introduction-text h5 {
+/* .introduction-text h1 {
   color: var(--clr-secondary);
-}
+} */
 .introduction-text p {
   text-align: justify;
-  line-height: 1.9rem;
+  line-height: 2rem;
 }
 .introduction-contact-box {
   background-color: var(--clr-primary);

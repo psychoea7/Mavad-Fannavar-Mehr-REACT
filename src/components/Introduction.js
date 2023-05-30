@@ -5,8 +5,7 @@ function Introduction() {
   return (
     <div class="container mt-5 pt-md-5 pb-5">
       <div class="row">
-        <div class="col-md-8 col-sm-12 introduction-text">
-          <h5>درمان سطحی (در پلاسما)</h5>
+        <div class="col-md-12 col-sm-12 introduction-text">
           <h1>مواد فنّاور مهر</h1>
           <p class="mt-4 mb-5">
             شرکت " مواد فناور مهر" در سال ۱۴۰۰ تاسیس شد. هر چند از تاسیس شرکت
@@ -23,7 +22,7 @@ function Introduction() {
           </p>
         </div>
 
-        <div class="col-md-4 col-sm-12 introduction-contact-box">
+        {/* <div class="col-md-4 col-sm-12 introduction-contact-box">
           <h5>ساعات کار</h5>
           <p>شنبه - پنجشنبه ۷:۰۰ - ۱۶:۳۰</p>
           <p>جمعه فقط با تعیین وقت قبلی</p>
@@ -40,7 +39,7 @@ function Introduction() {
               mavadfannavarmehr@gmail.com
             </a>
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );

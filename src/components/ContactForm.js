@@ -18,13 +18,13 @@ function ContactForm() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
-            placeholder="نام"
-            {...register("First name", { required: true, maxLength: 80 })}
+            placeholder="نام و نام خانوادگی"
+            {...register("name", { required: true, maxLength: 80 })}
           />
           <input
             type="text"
-            placeholder="نام خانوادگی"
-            {...register("Last name", { required: true, maxLength: 100 })}
+            placeholder="نام شرکت"
+            {...register("company name", { required: false, maxLength: 100 })}
           />
           <input
             type="text"

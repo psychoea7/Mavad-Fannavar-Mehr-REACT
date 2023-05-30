@@ -8,7 +8,7 @@
   padding-bottom: 4.5rem;
 }
 .services-section .row {
-  padding-top: 3rem;
+  padding-top: 2.5rem;
 }
 .services-section h3 {
   position: relative;
@@ -33,11 +33,11 @@
   background: rgb(58, 62, 61);
   background: linear-gradient(90deg, #cecac8 30%, rgba(144, 63, 152, 1) 100%);
 }
-.service-text-box a {
+.service-text-box .services-section-links {
   color: var(--clr-secondary);
   position: relative;
 }
-.service-text-box a::after {
+.service-text-box .services-section-links::after {
   font-family: "Font Awesome 5 Free";
   content: "\f100";
   color: var(--clr-secondary);
@@ -49,4 +49,14 @@
 }
 .service-text-box a:hover {
   font-weight: 600;
+  color: var(--clr-secondary);
+}
+
+.service-text-box h4 {
+  font-size: 1.3rem;
+}
+.service-text-box p {
+  font-size: 0.9rem;
+  line-height: 2rem;
+  margin-top: 1rem;
 }

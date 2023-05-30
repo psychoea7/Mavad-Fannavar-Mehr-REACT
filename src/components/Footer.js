@@ -14,12 +14,12 @@ function Footer() {
           </p>
           <ul>
             <li>
-              <a href="#">
+              <a href="tel:09122285923">
                 <i class="fas fa-phone"></i>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://wa.me/+989122285923">
                 <i class="fab fa-whatsapp"></i>
               </a>
             </li>

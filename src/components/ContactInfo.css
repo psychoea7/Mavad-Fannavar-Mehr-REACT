@@ -1,25 +1,18 @@
 .contactScreen__Info {
-  background-color: var(--clr-primary);
-  background-image: url("../assets/images/phone-ringing-dynamic-premium.png");
-  filter: drop-shadow(0 0 2px var(--clr-dark));
-  background-size: 250px 250px;
-  background-position: 1.5rem 6rem;
-  background-repeat: no-repeat;
+  color: var(--clr-primary);
   border-radius: 0.2vw;
-  margin-top: 8rem;
+  margin-top: 7rem;
   line-height: 3.7rem;
-  color: var(--clr-dark);
   padding: 1.5rem;
   z-index: 2;
   /* border: 2.5px solid rgba(119, 119, 119, 0.774); */
   /* box-shadow: 0 0 2px var(--clr-dark); */
-  position: relative;
 }
 
 .contactScreen__Info h5:nth-child(odd)::before {
   font-family: "Font Awesome 5 Free";
-  content: "\f017";
-  color: var(--clr-dark);
+  content: "\f041";
+  color: var(--clr-accent);
   font-weight: bold;
   float: right;
   margin-left: 10px;
@@ -27,7 +20,7 @@
 .contactScreen__Info h5:nth-child(even)::before {
   font-family: "Font Awesome 5 Free";
   content: "\f095";
-  color: var(--clr-dark);
+  color: var(--clr-accent);
   font-weight: bold;
   float: right;
   margin-left: 10px;
@@ -38,13 +31,13 @@
 }
 .contactScreen__Info a {
   text-decoration: none;
-  color: var(--clr-dark);
+  color: var(--clr-primary);
   font-weight: 600;
   border-bottom: 1px solid transparent;
 }
 .contactScreen__Info a:hover {
-  color: var(--clr-dark);
-  border-color: var(--clr-dark);
+  color: var(--clr-primary);
+  border-color: var(--clr-primary);
 }
 
 @media only screen and (max-width: 425px) {

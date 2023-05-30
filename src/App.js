@@ -34,12 +34,12 @@ function App() {
     <div className="app">
       <Routes>
         <Route exact path="/" element={<HomeScreen />} />
-        <Route path="ContactUs" element={<ContactScreen />} />
-        <Route path="ServicesAndProducts" element={<ServicesAndProducts />} />
-        <Route path="About" element={<AboutScreen />} />
-        <Route path="Q&A" element={<QuestionAndAnswerScreen />} />
-        <Route path="Blog" element={<BlogScreen />} />
-        <Route path="BlogExpand" element={<BlogExpand />} />
+        <Route path="/ContactUs" element={<ContactScreen />} />
+        <Route path="/ServicesAndProducts" element={<ServicesAndProducts />} />
+        <Route path="/About" element={<AboutScreen />} />
+        <Route path="/Q&A" element={<QuestionAndAnswerScreen />} />
+        <Route path="/Blog" element={<BlogScreen />} />
+        <Route path="/BlogExpand" element={<BlogExpand />} />
       </Routes>
       <div className="top-to-btm">
         {" "}

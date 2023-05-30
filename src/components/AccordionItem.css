@@ -5,6 +5,8 @@
 .accordion-button {
   background-color: var(--clr-primary) !important;
   color: var(--clr-dark) !important;
+  text-align: justify !important;
+  line-height: 2rem;
 }
 .accordion-button:after {
   order: 1;
@@ -18,11 +20,32 @@
   color: var(--clr-dark) !important;
   background-color: var(--clr-primary) !important;
 }
-.accordion-header {
-}
+ /* .accordion-header {
+  
+}  */
 
 .accordion-body {
   /* Custom styles for the Accordion Body component */
   line-height: 2rem;
   text-align: justify;
 }
+
+
+.questionAndAnswerScreen__container h4 {
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  text-align: right;
+  position: relative;
+}
+
+.questionAndAnswerScreen__container h4::after {
+    content: "";
+    position: absolute;
+    bottom: -1.2rem;
+    right: 0;
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0 0.2rem 0.2rem 0;
+    background: rgb(58, 62, 61);
+    background: linear-gradient(90deg, #3a3e3d 30%, rgba(144, 63, 152, 1) 100%);
+  }
