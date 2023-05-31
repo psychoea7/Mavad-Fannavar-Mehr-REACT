@@ -1,0 +1,12 @@
+.homeScreen__staticBanner {
+  background-image: url(../assets/images/website-cover.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+  width: 100%;
+}
+@media only screen and (max-width: 425px) {
+  .homeScreen__staticBanner {
+    background-position-x: -120px;
+  }
+}
