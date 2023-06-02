@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "B-nazanin";
+    src: url("../tinyfonts/B-NAZANIN.TTF");
+}
+
+@font-face {
+    font-family: "B-titr";
+    src: url("../tinyfonts/B-Titr-Bold_0.ttf");
+}
+
+body{
+    font-family: B-titr;
+}
