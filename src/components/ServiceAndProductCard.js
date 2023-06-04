@@ -4,14 +4,14 @@ import "./ServiceAndProductCard.css";
 import { Col, Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import Footer from "../components/Footer";
-import NitrogenPlasmaImageOne from "../assets/images/نیتروزن دهی پلاسمایی  - 4.jpg";
-import NitrogenPlasmaImageTwo from "../assets/images/نیتروژن دهی پلاسمایی - 2.jpg";
-import NitrogenPlasmaImageThree from "../assets/images/نیتروزن دهی پلاسمایی - 3.jpg";
-import ChartImage from "../assets/images/عکس بخش لایه نیتروژن دهی.jpg";
-import NitroCarbonImage from "../assets/images/نیتروژن دهی - کزبن دهی پلاسمایی.jpg";
-import PostOxiditionImage from "../assets/images/عکس بخش اکسیداسیون تکمیلی.jpg";
+import NitrogenPlasmaImageOne from "../assets/images/plasma-4.jpg";
+import NitrogenPlasmaImageTwo from "../assets/images/plasma-2.jpg";
+import NitrogenPlasmaImageThree from "../assets/images/plasma-3.jpg";
+import ChartImage from "../assets/images/layer.jpg";
+import NitroCarbonImage from "../assets/images/carbon.jpg";
+import PostOxiditionImage from "../assets/images/oxid.jpg";
 // import DeviceImageOne from "../assets/images/عکس دستگاه - 1.jpg";
-import DeviceImageTwo from "../assets/images/عکس دستگاه - 2.jpg";
+import DeviceImageTwo from "../assets/images/device-2.jpg";
 
 function ServiceAndProductCard() {
   useEffect(() => {
