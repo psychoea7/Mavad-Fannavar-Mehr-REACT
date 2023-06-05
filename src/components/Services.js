@@ -12,7 +12,7 @@ function Services() {
         </div>
 
         <div class="row">
-          <div class="col-md-6 col-sm-12">
+          <div class="col-md-6 col-sm-12 mb__service_mobile">
             <div class="service-text-box">
               <h4>نیتروژن‌دهی پلاسمایی (Plasma Nitriding)</h4>
               <p>

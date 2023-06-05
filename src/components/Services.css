@@ -3,7 +3,7 @@
   background-color: var(--clr-primary);
   color: var(--clr-dark);
   z-index: 1;
-  margin-top: -5rem;
+  margin-bottom: 3rem;
   padding-top: 2rem;
   padding-bottom: 4.5rem;
 }
@@ -59,4 +59,12 @@
   font-size: 0.9rem;
   line-height: 2rem;
   margin-top: 1rem;
+}
+
+
+
+@media only screen and (max-width: 425px){
+  .mb__service_mobile {
+    margin-bottom: 1.5rem;
+  }
 }
