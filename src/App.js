@@ -39,7 +39,7 @@ function App() {
         <Route path="/About" element={<AboutScreen />} />
         <Route path="/Q&A" element={<QuestionAndAnswerScreen />} />
         <Route path="/Blog" element={<BlogScreen />} />
-        <Route path="/BlogExpand" element={<BlogExpand />} />
+        <Route path="/BlogExpand/:id" element={<BlogExpand />} />
       </Routes>
       <div className="top-to-btm">
         {" "}

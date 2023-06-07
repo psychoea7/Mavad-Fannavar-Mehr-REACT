@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function BlogCard({
+  id,
   backgroundImage,
   imageSrc,
   imageAlt,
@@ -18,11 +19,11 @@ function BlogCard({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/BlogExpand");
+    navigate(`/BlogExpand/${id}`);
   };
 
   return (
-    <div onClick={handleClick}
+    <div onClick={() => handleClick(id)}
       className="card text-white card-has-bg click-col"
       style={{ backgroundImage }}
     >
