@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Navigation from "../components/Navigation";
+
 
 function BlogExpand() {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
 
   useEffect(() => {
-    fetch(`http://app.mavad-fannavar-mehr.ir/api/blogs/${id}`)
+    fetch(`http://app.mavad-fannavar-mehr.ir/api/getBlog/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         return response.json();
       })
-      .then((data) => setBlog(data.blog))
+      .then((data) => {
+        console.log(data);
+        setBlog(data.blog);
+      })
       .catch((error) => {
         console.error("Error:", error);
       });
+      console.log(id);
   }, [id]);
 
   if (!blog) {
@@ -25,13 +29,14 @@ function BlogExpand() {
   }
 
   return (
-    <div>
-      <Navigation />
-      <img src={blog.image} alt={blog.title} />
-      <h1>{blog.title}</h1>
-      <p>{blog.text}</p>
-      {/* Display other blog details here */}
-    </div>
+    <>
+      <div>
+        <img src={blog.image} alt={blog.title} />
+        <h1>{blog.title}</h1>
+        <p>{blog.text}</p>
+       
+      </div>
+    </>
   );
 }
 
