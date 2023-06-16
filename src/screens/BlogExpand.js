@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function BlogExpand() {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [error, setError] = useState(null);
-  
+
   // Let's establish the base URL
   const BASE_URL = "http://app.mavad-fannavar-mehr.ir";
 
   const fetchBlog = async () => {
     try {
       const response = await fetch(`${BASE_URL}/api/getBlog?id=${id}`);
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
 
-      console.log('Data:', data);
+      console.log("Data:", data);
 
       if (data) {
         setBlog(data);
@@ -45,7 +45,7 @@ function BlogExpand() {
   }
 
   const imageUrl = `${BASE_URL}/${blog.image}`; // Prepend base URL to the image path
-
+  console.log(imageUrl);
   // New! Let's log that image URL and see what we're dealing with.
   console.log("Image URL:", imageUrl);
 
