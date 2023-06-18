@@ -24,7 +24,7 @@ function BlogCard({
 
   return (
     <div onClick={() => handleClick(id)}
-      className="card text-white card-has-bg click-col"
+      className="card text-white card-has-bg click-col mt-3"
       style={{ backgroundImage }}
     >
       <img className="card-img d-none" src={imageSrc} alt={imageAlt} />

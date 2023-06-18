@@ -59,9 +59,11 @@
   margin-top: 1.5rem;
 }
 
-.contactScreen__form > form > input[type="tel"] {
+.contactScreen__form > form > input[type="tel"],
+.contactScreen__form > form > input[type="email"] {
   text-align: right;
 }
+
 
 .contactScreen__form > form > input[type="submit"] {
   background: rgb(144, 63, 152);
