@@ -9,7 +9,7 @@ function BlogScreen() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://app.mavad-fannavar-mehr.ir/api/blogs")
+    fetch("https://app.mavad-fannavar-mehr.ir/api/blogs")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

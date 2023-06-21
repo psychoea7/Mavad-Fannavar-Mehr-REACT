@@ -12,7 +12,7 @@ function BlogExpand() {
   const fetchBlog = async () => {
     try {
       const response = await fetch(
-        `http://app.mavad-fannavar-mehr.ir/api/getBlog?id=${id}`
+        `https://app.mavad-fannavar-mehr.ir/api/getBlog?id=${id}`
       );
 
       if (!response.ok) {
